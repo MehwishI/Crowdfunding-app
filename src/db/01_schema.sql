@@ -15,6 +15,7 @@ CREATE TABLE projects (
     
     name VARCHAR(255) NOT NULL,
     description TEXT,
+    picture VARCHAR(255),
     funding_target INTEGER NOT NULL,
     funding_current INTEGER NOT NULL DEFAULT 0,
 );
@@ -25,4 +26,5 @@ CREATE TABLE donations (
     project_id INTEGER REFERENCES projects(id) ON DELETE CASCADE,
     
     funding_amount INTEGER NOT NULL,
+    donation_date DATE NOT NULL,
 );
