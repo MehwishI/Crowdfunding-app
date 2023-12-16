@@ -64,4 +64,4 @@ const getProjectsByCategory = (category) => {
 };
 
 
-module.exports = { addProject, getProjectById, getProjectByName, getProjectsByCategory };
+module.exports = { addProject, getProjects, getProjectById, getProjectByName, getProjectsByCategory };
