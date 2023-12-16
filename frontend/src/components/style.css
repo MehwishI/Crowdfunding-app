@@ -1,0 +1,30 @@
+.main-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.top-nav-bar {
+  align-self: flex-end;
+}
+
+.center-section {
+}
+
+.bottom-section {
+}
+
+.container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  margin-bottom: 16px;
+}
