@@ -10,11 +10,11 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var projectsRouter = require ('./routes/projects');
-var projectApiRouter = require ('./routes/projects-api/');
-var contributionsRouter = require ('./routes/contributions')
-var contributionsApiRouter = require ('./routes/contributions-api');
+//var projectApiRouter = require ('./routes/projects-api/');
+//var contributionsRouter = require ('./routes/contributions')
+//var contributionsApiRouter = require ('./routes/contributions-api');
 var donationsRouter = require ('./routes/donations');
-var donationsApiRouter = require('./routes/donations-api');
+//var donationsApiRouter = require('./routes/donations-api');
 
 
 
@@ -36,13 +36,13 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 //set routes here
 app.use('./projects',projectsRouter);
-app.use('./api/projects',projectApiRouter);
-app.use('./contributions',contributionsRouter)
-app.use('./api/contributions',contributionsApiRouter)
+//app.use('./api/projects',projectApiRouter);
+//app.use('./contributions',contributionsRouter)
+//app.use('./api/contributions',contributionsApiRouter)
 app.use('./donations',donationsRouter);
-app.use('./api/donations',donationsApiRouter)
+//app.use('./api/donations',donationsApiRouter)
 app.use('./projects/donate',projectsRouter);
-app.use('./api/projects/donate',projectApiRouter);
+//app.use('./api/projects/donate',projectApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

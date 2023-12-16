@@ -40,30 +40,7 @@ app.get('/login',(req,res)=>{
     res.render('login',templateVars)
   }
 })
-//login post route
-app.post('/login', (req, res) => {
-  const emailLogin = req.body.email;
-  const pwdLogin = req.body.password;
 
-  //find the user that matches with given email
-  let userFound = getUserByEmail(emailLogin, users);
-
-  //if a user is found matched with given email, then compare password
-  if (userFound) {
-    //hash provided password and compare with saved password.
-    if (bcrypt.compareSync(pwdLogin, userFound.password)) {
-      //set login session cookie as user_id
-      req.session.user_id = userFound.id;
-      res.redirect("/urls");
-    } else {
-      res
-        .status(403)
-        .send("User Email or Password is incorrect! Please try again.");
-    }
-  } else {
-    res.status(403).send("User Not found!");
-  }
-  });
   
   
   app.post('/logout',(req,res) => {
