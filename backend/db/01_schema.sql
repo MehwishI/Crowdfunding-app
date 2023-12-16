@@ -1,7 +1,6 @@
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS projects CASCADE;
 DROP TABLE IF EXISTS donations CASCADE;
-DROP TABLE IF EXISTS categories CASCADE;
 
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
@@ -10,19 +9,13 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL    
 );
 
-CREATE TABLE categories (
-  id SERIAL PRIMARY KEY NOT NULL,
-  
-  name VARCHAR(255) NOT NULL
-);
-
 CREATE TABLE projects (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
   
   name VARCHAR(255) NOT NULL,
   description TEXT,
+  category VARCHAR(255) NOT NULL,
   picture VARCHAR(255),
   funding_target INTEGER NOT NULL,
   funding_current INTEGER NOT NULL DEFAULT 0
