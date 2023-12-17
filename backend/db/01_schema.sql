@@ -18,7 +18,8 @@ CREATE TABLE projects (
   category VARCHAR(255) NOT NULL,
   picture VARCHAR(255),
   funding_target INTEGER NOT NULL,
-  funding_current INTEGER NOT NULL DEFAULT 0
+  funding_current INTEGER NOT NULL DEFAULT 0,
+  end_date DATE NOT NULL
 );
 
 CREATE TABLE donations (
