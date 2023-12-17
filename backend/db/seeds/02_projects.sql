@@ -1,4 +1,4 @@
-INSERT INTO projects (owner_id, name, description, category, picture, funding_target, funding_current)
+INSERT INTO projects (owner_id, name, description, category, picture, funding_target, funding_current, end_date)
 VALUES
   (1, 
   "Cure for Cancer", 
