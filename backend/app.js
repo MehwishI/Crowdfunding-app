@@ -21,6 +21,8 @@ var donationsRouter = require ('./routes/donations');
 //---------------------------------//
 
 var app = express();
+const cors=require("cors");
+app.use(cors({origin: 'http://localhost:3000'}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,12 +33,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+const session = require('express-session');
+app.use(session({
+     secret: 'your-secret-key',
+     resave: false,
+     saveUninitialized: true,
+     cookie: { secure: !process.env.DEVELOPMENT } // secure: true in production over HTTPS
+   }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+//app.use('/api/register',usersRouter)
 //set routes here
-app.use('./projects',projectsRouter);
-//app.use('./api/projects',projectApiRouter);
+app.use('/projects',projectsRouter);
+app.use('/api/projects',projectsRouter);
 //app.use('./contributions',contributionsRouter)
 //app.use('./api/contributions',contributionsApiRouter)
 app.use('./donations',donationsRouter);

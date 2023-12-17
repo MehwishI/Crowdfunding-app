@@ -39,7 +39,7 @@ const Create = () => {
             <option value="">Select Project Type</option>
             <option value="charity">Charity</option>
             <option value="medical">Medical</option>
-            <option value="personl">Personal</option>
+            <option value="personal">Personal</option>
           </select>
         </label>
 

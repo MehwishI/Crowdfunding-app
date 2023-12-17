@@ -1,7 +1,9 @@
 import React from 'react';
 import TopNavigation from './TopNavigation';
+import ActiveProjects from './ActiveProjects';
 import './style.css';
 
+//list of all available projects
 const Home = () => {
   return (
     <div className="main-page">
@@ -9,10 +11,12 @@ const Home = () => {
       <div className="center-section">
         {/* Placeholder for image */}
         <div className="image-placeholder">Image</div>
+        
       </div>
       <div className="bottom-section">
         {/* Active projects will display here */}
-        <div className="active-projects">Active Projects</div>
+        <div className="active-projects">
+          <ActiveProjects/></div>
       </div>
     </div>
   );

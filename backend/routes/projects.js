@@ -25,10 +25,10 @@ router.get('/projects/create',(req,res) => {
 })
 
 
-//delete a project
-router.post('/api/projects/delete/:id',(req,res) => {
+// //delete a project
+// router.post('/api/projects/delete/:id',(req,res) => {
 
-})
+// })
 
 //display a project by user id
 router.get('/api/projects/:userid',(req,res)=> {

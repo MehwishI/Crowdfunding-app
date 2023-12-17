@@ -1,8 +1,8 @@
-INSERT INTO users (name, password, email)
+INSERT INTO users (name, email,password)
 VALUES
-  ('John Doe', 'password123', 'john.doe@example.com'),
-  ('Jane Smith', 'pass456', 'jane.smith@example.com'),
-  ('Obiwan Kenobi', 'usetheforce', 'kenobi@example.com'),
-  ('Luke Skywalker', 'iamajedi', 'skywalker@example.com'),
-  ('Darth Vader', 'iamyourfather', 'vader@example.com');
+  ('John Doe','john.doe@example.com','$2a$10$zRJfc5SsBZQKp129zViJW.WYQY.LJtjQKpQBPgSRidc6niO.mQqgu'),
+  ('Jane Smith', 'jane.smith@example.com','$2a$10$zRJfc5SsBZQKp129zViJW.WYQY.LJtjQKpQBPgSRidc6niO.mQqgu'),
+  ('Obiwan Kenobi', 'kenobi@example.com','$2a$10$zRJfc5SsBZQKp129zViJW.WYQY.LJtjQKpQBPgSRidc6niO.mQqgu'),
+  ('Luke Skywalker', 'skywalker@example.com','$2a$10$zRJfc5SsBZQKp129zViJW.WYQY.LJtjQKpQBPgSRidc6niO.mQqgu'),
+  ('Darth Vader', 'vader@example.com','$2a$10$zRJfc5SsBZQKp129zViJW.WYQY.LJtjQKpQBPgSRidc6niO.mQqgu');
   
