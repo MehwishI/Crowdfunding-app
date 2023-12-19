@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+import Logout from './components/Logout';
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/register' element={<RegisterForm/>}/>
         <Route path='/login' element={<LoginForm/>}/>
+        <Route path='/logout' element={<Logout/>}/>
     </Routes>
     
       

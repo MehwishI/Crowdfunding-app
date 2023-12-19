@@ -22,7 +22,7 @@ var donationsRouter = require ('./routes/donations');
 
 var app = express();
 const cors=require("cors");
-app.use(cors({origin: 'http://localhost:3000'}));
+app.use(cors({origin: 'http://localhost:3000', credentials:true}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
