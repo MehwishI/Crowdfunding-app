@@ -13,7 +13,7 @@ router.get("/register", (req, res) => {
   res.render("register", templateVars);
 });
 //when user clicks submit button on register view
-router.post("/api/register", (req, res) => {
+router.post("/register", (req, res) => {
   if (req.body.email === "" || req.body.password === "") {
     res.status(400).send("Email or password is empty");
   }
@@ -49,7 +49,7 @@ router.get("/login", (req, res) => {
   }
 });
 //login post route
-router.post("/api/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   console.log("reached login post route");
   const emailLogin = req.body.email;
   const pwdLogin = req.body.password;

@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 //import { useCookies } from "react-cookie";
 
 const Logout = async () => {
-  const response = await fetch("http://localhost:3001/users/logout", {
+  const response = await fetch("http://localhost:3001/api/users/logout", {
     method: "POST",
     credentials: "include",
   });
