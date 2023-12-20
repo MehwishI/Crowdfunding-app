@@ -63,5 +63,21 @@ const getProjectsByCategory = (category) => {
     });
 };
 
+// Get all projects belonging to a specific user
+const getProjectsByUserId = (userId) => {
+  return db.query(`
+    SELECT * FROM projects 
+    JOIN users ON projects.owner_id = users.id
+    WHERE users.id = $1
+  `, [userId])
+    .then((data) => {
+      return data.rows; // Return all projects found (or null if not found).
+    })
+    .catch((error) => {
+      console.error('Error retrieving projects by user ID:', error);
+      return null;
+    });
+};
 
-module.exports = { addProject, getProjects, getProjectById, getProjectByName, getProjectsByCategory };
+
+module.exports = { addProject, getProjects, getProjectById, getProjectByName, getProjectsByCategory, getProjectsByUserId };
