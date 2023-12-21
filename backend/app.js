@@ -32,14 +32,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 const session = require("express-session");
-app.use(
-  session({
-    secret: "your-secret-key",
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: !process.env.DEVELOPMENT }, // secure: true in production over HTTPS
-  })
-);
+// app.use(
+//   session({
+//     secret: "your-secret-key",
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: { secure: !process.env.DEVELOPMENT }, // secure: true in production over HTTPS
+//   })
+// );
 
 app.use("/", indexRouter);
 app.use("/api/users", usersRouter);

@@ -1,6 +1,18 @@
+import Cookies from 'js-cookie';
 import React from 'react';
-
+//in progress (by Mehwish)
 const User = () => {
+  const currentUserId = Cookies.get('userid')
+
+  const response = await fetch(`http://localhost:3001/api/projects/:${currentUserId}`, {
+    method: 'GET',
+    headers: {
+      "Content-Type": "application/json",
+    },
+    credentials: "include",
+    body: JSON.stringify(payload),
+  })
+
   return (
     <div className="page">
      
@@ -24,7 +36,7 @@ const User = () => {
           {/* Content for the fourth section */}
           <h2>Create your own project</h2>
           <p><a href="Create.jsx">
-    <button>Create Project!</button>
+    <button>Create a new Project!</button>
   </a></p>
         </div>
       </div>
