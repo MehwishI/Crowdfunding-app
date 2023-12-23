@@ -2,7 +2,7 @@ import React from "react";
 import Cookies from "js-cookie";
 
 import TopNavigation from "./TopNavigation";
-import ActiveProjects from "./ActiveProjects";
+import ProjectBox from './ProjectBox';
 import "./style.css";
 
 //list of all available projects
@@ -20,7 +20,7 @@ const Home = () => {
       <div className="bottom-section">
         {/* Active projects will display here */}
         <div className="active-projects">
-          <ActiveProjects />
+          <ProjectBox/>
         </div>
       </div>
     </div>
