@@ -1,18 +1,22 @@
-import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 //import { useCookies } from "react-cookie";
 
-const Logout = async () => {
-  const response = await fetch("http://localhost:3001/api/users/logout", {
-    method: "POST",
-    credentials: "include",
+const Logout = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const response = fetch("http://localhost:3001/api/users/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+    if (response.ok) {
+      navigate("/login");
+    } else {
+      return;
+      console.error(response.error);
+    }
   });
-  if (response.ok) {
-    return <Navigate to="/" />;
-  } else {
-    return;
-    console.error(response.error);
-  }
 };
 
 export default Logout;

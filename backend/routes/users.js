@@ -62,7 +62,8 @@ router.post("/login", async (req, res) => {
     //hash provided password and compare with saved password.
     if (bcrypt.compareSync(pwdLogin, userFound.password)) {
       //set login session cookie as user_id
-      res.cookie("userid", userFound.id, { secure: true, httpOnly: true });
+      res.cookie("userid", userFound.id, { secure: true });
+      console.log("userid cookie", req.cookies["userid"]);
       //req.session.user_id = userFound.id;
       res.status(200).send("User Found!");
     } else {

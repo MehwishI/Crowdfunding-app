@@ -35,7 +35,8 @@ const LoginForm = () => {
         setLoginStatus("Login successful");
 
         //redirect to /projects
-        return <Navigate to="/projects" />;
+        // <Navigate replace={true} to="/" />; //this should be changes to "/projects"
+        navigate("/");
       } else {
         // Handle error - maybe display error message to the user
         console.log("Unsuccessful Login, Try again!");

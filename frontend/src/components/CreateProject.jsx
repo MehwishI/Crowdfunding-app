@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import './style.css'; 
+import React, { useState } from "react";
+import "./style.css";
 
-const Create = () => {
+const CreateProject = () => {
   // state for form inputs
-  const [projectName, setProjectName] = useState('');
-  const [projectType, setProjectType] = useState('');
-  const [fundraisingGoal, setFundraisingGoal] = useState('');
+  const [projectName, setProjectName] = useState("");
+  const [projectType, setProjectType] = useState("");
+  const [fundraisingGoal, setFundraisingGoal] = useState("");
 
   // function for form submission
   const handleSubmit = (e) => {
@@ -60,4 +60,4 @@ const Create = () => {
   );
 };
 
-export default Create;
+export default CreateProject;

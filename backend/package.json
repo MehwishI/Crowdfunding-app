@@ -19,5 +19,8 @@
     "morgan": "~1.9.1",
     "nodemon": "^3.0.2",
     "pg": "^8.11.3"
+  },
+  "devDependencies": {
+    "react-error-overlay": "^6.0.9"
   }
 }
