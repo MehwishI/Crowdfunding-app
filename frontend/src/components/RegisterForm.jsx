@@ -47,7 +47,7 @@ const RegisterForm = () => {
   };
 
   const handleCancel = () => {
-    navigate.goBack();
+    navigate(-1);
   };
 
   return (
