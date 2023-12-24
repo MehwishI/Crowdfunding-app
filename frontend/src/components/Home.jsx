@@ -15,7 +15,8 @@ const Home = () => {
       <TopNavigation currentUserId={currentUserId} />
       <div className="center-section">
         {/* Placeholder for image */}
-        <div className="image-placeholder">Image</div>
+        <div className="image-placeholder"><img src="../images/fmg-small.png" /></div>
+        <p>Welcome to FundMe! A crowdfunding app</p>
       </div>
       <div className="bottom-section">
         {/* Active projects will display here */}

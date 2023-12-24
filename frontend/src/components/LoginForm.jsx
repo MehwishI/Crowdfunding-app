@@ -48,7 +48,7 @@ const LoginForm = () => {
   };
 
   const handleCancel = () => {
-    //navigate.goBack();
+    navigate(-1);
   };
 
   return (

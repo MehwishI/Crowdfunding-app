@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
+
 //import { useCookies } from "react-cookie";
 //import { Cookies } from "js-cookie";
 //import Cookies from "universal-cookie";
@@ -14,6 +16,9 @@ const TopNavigation = (props) => {
 
   return (
     <div className="top-nav-bar">
+      <div className="logo-container">
+        
+      </div>
       {!currentUserId ? (
         <div>
           <Link to={"/register"}>Register</Link>
