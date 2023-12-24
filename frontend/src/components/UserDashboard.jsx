@@ -1,5 +1,11 @@
 import Cookies from "js-cookie";
 import React from "react";
+import YourProject from "./YourProject";
+import Funding from "./Funding";
+import ProjectBox from "./ProjectBox";
+
+import "./style.css";
+
 import { useLocation, Link } from "react-router-dom";
 //in progress (by Mehwish)
 const UserDashboard = async (props) => {
@@ -28,18 +34,21 @@ const UserDashboard = async (props) => {
         <div className="section" id="yourproject">
           {/* Content for the first section */}
           <h2>Your Project</h2>
-          <p>content goes here</p>
+          {/* <p>content goes here</p> */}
+          <YourProject/>
         </div>
         <div className="section" id="funded">
           {/* Content for the second section */}
           <h2>What you're funding</h2>
-          <p>content goes here</p>
+          {/* <p>content goes here</p> */}
+          <Funding/>
         </div>
         <div className="section" id="active">
           {/* Content for the third section */}
 
           <h2>Active projects</h2>
-          <p>content goes here</p>
+          {/* <p>content goes here</p> */}
+          <ProjectBox/>
         </div>
         <div className="section" id="create">
           {/* Content for the fourth section */}

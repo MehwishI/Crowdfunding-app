@@ -1,3 +1,10 @@
+body {
+  background-image: url('./money.jpeg');
+  background-size: cover;
+  background-repeat: repeat;
+  margin: 0; 
+  padding: 0;
+}
 .main-page {
   display: flex;
   flex-direction: column;
@@ -28,3 +35,59 @@
 .form-input {
   margin-bottom: 16px;
 }
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #8799f6;
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  max-width: 300px;
+  width: 100%;
+}
+
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.register-form {
+  max-width: 300px;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+.section {
+  border: 2px solid #001f3f;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
