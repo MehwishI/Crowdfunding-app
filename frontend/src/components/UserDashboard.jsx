@@ -35,18 +35,22 @@ const UserDashboard = (props) => {
   useEffect(() => {
     const fetchDonationsData = async () => {
       const data = await getDonationsByUserId(currentUserId);
-      //console.log("donationsdata:", data);
-      setDonationsData(data.donationsData); // Assuming you have 'useState' to manage your donations state
-      console.log("donations data:", data);
+      // console.log("donationsdata in userdashboard:", data);
+      // Assuming you have 'useState' to manage your donations state
+      // console.log(
+      //   "if donationsData an array?",
+      //   Array.isArray(data.donationsdata)
+      // );
+      setDonationsData(data.donationsdata);
     };
 
     const fetchProjectsData = async () => {
       const data = await getProjectsByUserId(currentUserId);
-      console.log("projects data:", data);
-      console.log(
-        "if projectsData an array?",
-        Array.isArray(data.projectsData)
-      );
+      // console.log("projects data:", data);
+      // console.log(
+      //   "if projectsData an array?",
+      //   Array.isArray(data.projectsData)
+      // );
 
       setProjectsData(data.projectsData);
     };

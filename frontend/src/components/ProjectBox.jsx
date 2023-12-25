@@ -9,7 +9,7 @@ const ProjectBox = (props) => {
     //`/projects/${projectId}`
   };
   const { projectId, project } = props;
-  console.log("project details received: ", project);
+  //console.log("project details received: ", project);
   if (project) {
     return (
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
@@ -18,7 +18,7 @@ const ProjectBox = (props) => {
         <img className="project_box_pic" src={project.picture}></img>
 
         <p className="project_box_desc">{project.description}</p>
-        <p className="project_created_by">{project.created_by}</p>
+        <p className="project_created_by">Created By: {project.created_by}</p>
         <span className="project_box_funds">
           $
           {(project.funding_current || "0").toLocaleString("en-US", {

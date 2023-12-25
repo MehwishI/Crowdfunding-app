@@ -3,6 +3,7 @@ import "./style.css";
 import Donation from "./Donation";
 
 const Funding = (props) => {
+  // console.log("reached funding component:", props.donationsData);
   const { donationsData } = props;
 
   if (!donationsData) {
@@ -17,7 +18,7 @@ const Funding = (props) => {
     : null;
   // $(funding).append(donationsList);
 
-  return <ul className="funding">{donationsList}</ul>;
+  return <div className="funding">{donationsList}</div>;
 };
 
 export default Funding;
