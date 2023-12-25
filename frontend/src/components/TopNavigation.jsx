@@ -16,9 +16,7 @@ const TopNavigation = (props) => {
 
   return (
     <div className="top-nav-bar">
-      <div className="logo-container">
-        
-      </div>
+      <div className="logo-container"></div>
       {!currentUserId ? (
         <div>
           <Link to={"/register"}>Register</Link>

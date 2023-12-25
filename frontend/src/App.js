@@ -8,10 +8,15 @@ import LoginForm from "./components/LoginForm";
 import Logout from "./components/Logout";
 import UserDashboard from "./components/UserDashboard";
 import CreateProject from "./components/CreateProject";
+import TopNavigation from "./components/TopNavigation";
+import Cookies from "js-cookie";
 
 function App() {
+  const currentUserId = Cookies.get("userid");
+
   return (
     <div className="App">
+      <TopNavigation currentUserId={currentUserId} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterForm />} />

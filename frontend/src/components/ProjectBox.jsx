@@ -10,10 +10,19 @@ const ProjectBox = (props) => {
   };
   const { projectId, project } = props;
   //console.log("project details received: ", project);
+  const handleDonateclick = () => {
+    //make payment
+  };
   if (project) {
     return (
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
         <h2 className="project_box_name">{project.name || " "}</h2>
+        <button
+          className="project_box_donate_button"
+          onClick={handleDonateclick}
+        >
+          Make a donation!
+        </button>
 
         <img className="project_box_pic" src={project.picture}></img>
 

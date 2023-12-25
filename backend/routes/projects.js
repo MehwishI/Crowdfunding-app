@@ -4,13 +4,23 @@ var projectQueries = require("../db/queries/projects");
 
 // Get all projects
 router.get("/", async (req, res) => {
-  let projects = await projectQueries.getProjects();
+  //let projects = await projectQueries.getProjects();
 
-  if (projects) {
-    //res.render('projects')
-  } else {
-    res.status(403).send(`No projects found!`);
-  }
+  //const userid = req.cookies.userid;
+  await projectQueries
+    .getProjects()
+
+    .then((projectsData) => {
+      // res.status(200).send(`Project(s) found for user ${req.params.userid}!`);
+      console.log("projects returned:", projectsData);
+
+      res.json({ projectsData });
+    })
+    .catch((error) => {
+      console.error("Error retrieving projects :", error);
+      res.status(403).send(`No projects found !`);
+      return null;
+    });
 });
 
 // Display a single project

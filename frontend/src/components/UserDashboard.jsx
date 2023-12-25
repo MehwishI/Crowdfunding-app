@@ -14,18 +14,21 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 const UserDashboard = (props) => {
   const [donationsData, setDonationsData] = useState([]);
   const [projectsData, setProjectsData] = useState([]);
-  const { state } = useLocation();
-  //console.log("state received:", state);
+
+  const location = useLocation();
+  const currentUserId = location.state?.currentUserId;
+
+  // console.log("currentuserid received:", currentUserId);
   //console.log("props received:", props);
   const navigate = useNavigate();
-  if (!state.currentUserId) {
+  if (!currentUserId) {
     console.log("user not logged in, redirecting to login page");
     navigate("/login");
   }
-
-  const currentUserId = state.currentUserId;
+  // if (state) {
+  //const currentUserId = state ? null : state.currentUserId;
   // console.log(currentUserId);
-
+  // }
   //const projectsData = null;
   // getProjectsByUserId(currentUserId);
   // console.log("projectsData received to UserDashboard:", projectsData);
