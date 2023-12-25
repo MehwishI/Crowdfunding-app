@@ -3,19 +3,30 @@ import "./style.css";
 import ProjectBox from "./ProjectBox";
 
 const UserProject = (props) => {
-  //console.log("reached userproject component:", props.projectsData);
+  console.log("reached userproject component:", props.projectsData);
   const { projectsData } = props;
 
   if (!projectsData) {
     return <div>Loading data..</div>;
   }
+  console.log(
+    "if projectsDAta an array?",
+    Array.isArray(props.projectsData.projectsData)
+  );
 
-  // Check if projectsData is indeed an array before calling .map
+  for (var i in projectsData) {
+    console.log("project in for loop: ", projectsData[i]);
+  }
+  //Check if projectsData is indeed an array before calling .map
   const projectsList = Array.isArray(projectsData)
     ? projectsData.map((project) => (
         <ProjectBox key={project.id} project={project} />
       ))
     : null;
+
+  // const projectsList = projectsData.map((project) => (
+  //   <ProjectBox key={project.id} project={project} />
+  // ));
 
   return <div className="projectlist">{projectsList}</div>;
 };

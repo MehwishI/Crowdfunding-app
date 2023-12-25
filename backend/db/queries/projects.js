@@ -80,7 +80,8 @@ const getProjectsByCategory = (category) => {
 const getProjectsByUserId = (userId) => {
   return db
     .query(
-      `SELECT * FROM projects 
+      `SELECT projects.owner_id, users.name AS created_by, projects.name, projects.description, projects.category, projects.picture,
+      projects.funding_target, projects.funding_current, projects.end_date FROM projects
     JOIN users ON projects.owner_id = users.id
     WHERE users.id = $1
   `,

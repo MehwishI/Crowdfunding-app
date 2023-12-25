@@ -12,8 +12,8 @@ import "./style.css";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 //in progress (by Mehwish)
 const UserDashboard = (props) => {
-  const [donationsData, setDonationsData] = useState(null);
-  const [projectsData, setProjectsData] = useState(null);
+  const [donationsData, setDonationsData] = useState([]);
+  const [projectsData, setProjectsData] = useState([]);
   const { state } = useLocation();
   //console.log("state received:", state);
   //console.log("props received:", props);
@@ -36,19 +36,23 @@ const UserDashboard = (props) => {
     const fetchDonationsData = async () => {
       const data = await getDonationsByUserId(currentUserId);
       //console.log("donationsdata:", data);
-      setDonationsData(data); // Assuming you have 'useState' to manage your donations state
+      setDonationsData(data.donationsData); // Assuming you have 'useState' to manage your donations state
       console.log("donations data:", data);
     };
 
     const fetchProjectsData = async () => {
       const data = await getProjectsByUserId(currentUserId);
       console.log("projects data:", data);
+      console.log(
+        "if projectsData an array?",
+        Array.isArray(data.projectsData)
+      );
 
-      setProjectsData(data);
+      setProjectsData(data.projectsData);
     };
     fetchProjectsData();
     fetchDonationsData();
-  }, [currentUserId]);
+  }, []);
 
   return (
     <div className="page">

@@ -20,7 +20,7 @@ export async function getProjectsByUserId(userid) {
       // console.log("Raw response text: ", responseText);
 
       const projectsData = await response.json();
-      // console.log("projectsData returned from fetch: ", projectsData);
+      console.log("projectsData returned from fetch: ", projectsData);
       return projectsData;
     } else {
       console.error("Failed to fetch: ", response.status);
