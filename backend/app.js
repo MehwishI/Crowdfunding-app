@@ -49,16 +49,11 @@ const session = require("express-session");
 
 app.use("/", indexRouter);
 app.use("/api/users", usersRouter);
-//app.use('/api/register',usersRouter)
-//set routes here
-//app.use('/projects',projectsRouter);
+
 app.use("/api/projects", projectsRouter);
-//app.use('./contributions',contributionsRouter)
-//app.use('./api/contributions',contributionsApiRouter)
-app.use("./api/donations", donationsRouter);
+
+app.use("/api/donations", donationsRouter);
 //app.use('./api/donations',donationsApiRouter)
-//app.use('./api/projects/donate',projectsRouter);
-//app.use('./api/projects/donate',projectApiRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { defer } from "request/lib/helpers";
+//import { defer } from "request/lib/helpers";
 
 import "./style.css";
 

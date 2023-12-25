@@ -37,7 +37,12 @@ const getDonations = () => {
 // Get a donation by its ID
 const getDonationById = (donationId) => {
   return db
-    .query("SELECT * FROM donation WHERE id = $1", [donationId])
+    .query(
+      `SELECT donations.*, projects.name FROM donation JOIN
+    projects ON donations.project_id = projects.id    
+    WHERE id = $1`,
+      [donationId]
+    )
     .then((data) => {
       return data.rows[0]; // Return the first project found (or null if not found).
     })
@@ -55,6 +60,7 @@ const getDonationsByProjectId = (projectId) => {
     SELECT 
       donations.donor_id AS donor_id,
       donations.project_id AS project_id,
+      projects.name,
       donations.funding_amount AS funding_amount,
       donations.donation_date AS donation_date
     FROM donations 
@@ -79,7 +85,9 @@ const getDonationsByProjectName = (projectName) => {
       `
     SELECT 
       donations.donor_id AS donor_id,
+
       donations.project_id AS project_id,
+      projects.name
       donations.funding_amount AS funding_amount,
       donations.donation_date AS donation_date
     FROM donations 
@@ -99,16 +107,19 @@ const getDonationsByProjectName = (projectName) => {
 
 // Get all donations by a specfic user by user id
 const getDonationsByUserId = (userId) => {
+  //console.log("reached getDonationsByUserId query");
   return db
     .query(
       `
     SELECT 
       donations.donor_id AS donor_id,
       donations.project_id AS project_id,
+      projects.name AS project_name,
       donations.funding_amount AS funding_amount,
       donations.donation_date AS donation_date
     FROM donations 
     JOIN users ON donations.donor_id = users.id
+    JOIN projects ON donations.project_id= projects.id
     WHERE users.id = $1
     `,
       [userId]

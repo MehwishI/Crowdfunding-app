@@ -1,52 +1,67 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var projectQueries = require('../db/queries/projects')
+var projectQueries = require("../db/queries/projects");
 
 // Get all projects
-router.get('/api/projects', async (req,res)=> {
+router.get("/", async (req, res) => {
   let projects = await projectQueries.getProjects();
-  
+
   if (projects) {
     //res.render('projects')
   } else {
     res.status(403).send(`No projects found!`);
   }
-})
+});
 
 // Display a single project
-router.get('/api/projects/:id', async (req,res)=> {
-  let project = await projectQueries.getProjectById(req.params.id);
-
-  if (project) {
-    //Display project
-    res.status(200).send(`Project ${req.params.id} found!`);
-  } else {
-    res.status(403).send(`Project ${req.params.id} not found!`);
-  }
-}) ;
-
+router.get("/:id", async (req, res) => {
+  // let project = await projectQueries.getProjectById(req.params.id);
+  // if (project) {
+  //   //Display project
+  //   res.status(200).send(`Project ${req.params.id} found!`);
+  // } else {
+  //   res.status(403).send(`Project ${req.params.id} not found!`);
+  // }
+});
 
 // Show project creation page
-router.get('/api/projects/create', async (req,res) => {
-  //Show create project component?
-})
-
+router.get("/create", async (req, res) => {
+  //Show create project component? YES
+});
 
 // Delete a project
-router.post('/api/projects/delete/:id', async (req,res) => {
+router.post("/delete/:id", async (req, res) => {
   //Stretch
-})
+});
 
 // Display projects belonging to a user
-router.get('/api/projects/:userid', async (req,res)=> {
-  let project = await projectQueries.getProjectByUserId(req.params.userid);
+router.get("/user/:userid", async (req, res) => {
+  // console.log("reached project route");
+  //console.log("userid cookie", req.cookies.userid);
 
-  if (project) {
-    //Display projects
-    res.status(200).send(`Project(s) found for user ${req.params.userid}!`);
-  } else {
-    res.status(403).send(`No projects found for user ${req.params.userid}!`);
-  }
+  const userid = req.cookies.userid;
+  await projectQueries
+    .getProjectsByUserId(userid)
+
+    .then((projectsData) => {
+      // res.status(200).send(`Project(s) found for user ${req.params.userid}!`);
+      // console.log("projects returned:", projectsData);
+
+      res.json({ projectsData });
+    })
+    .catch((error) => {
+      console.error("Error retrieving projects by user ID:", error);
+      res.status(403).send(`No projects found for user ${userid}!`);
+      return null;
+    });
+
+  // if (projects) {
+  //Display projects
+  //   res.status(200).send(`Project(s) found for user ${req.params.userid}!`);
+  //   return projects;
+  // } else {
+  //   res.status(403).send(`No projects found for user ${req.params.userid}!`);
+  // }
 });
 
 module.exports = router;

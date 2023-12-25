@@ -56,14 +56,14 @@ router.post("/login", async (req, res) => {
 
   //find the user that matches with given email
   let userFound = await userQueries.getUserByEmail(emailLogin);
-  //console.log("userFound:",userFound)
+
   //if a user is found matched with given email, then compare password
   if (userFound !== undefined && userFound !== null) {
     //hash provided password and compare with saved password.
     if (bcrypt.compareSync(pwdLogin, userFound.password)) {
       //set login session cookie as user_id
       res.cookie("userid", userFound.id, { secure: true });
-      console.log("userid cookie", req.cookies["userid"]);
+      //console.log("userid cookie", req.cookies["userid"]);
       //req.session.user_id = userFound.id;
       res.status(200).send("User Found!");
     } else {

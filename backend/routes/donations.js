@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
 
 //GET: list of all donations made for a project id
 //getDonationsByProjectId
-router.get("/api/:projectid", async (req, res) => {
+router.get("/project/:projectid", async (req, res) => {
   const projectId = req.params.projectid;
   await donationQueries
     .getDonationsByProjectId(projectId)
@@ -36,8 +36,8 @@ router.get("/api/:projectid", async (req, res) => {
 
 //GET: list of all donations made by a user id
 //getDonationsByUserId
-router.get("/api/:userid", async (req, res) => {
-  const userId = req.params.userid;
+router.get("/userid", async (req, res) => {
+  const userId = req.cookies.userid;
   await donationQueries
     .getDonationsByUserId(userId)
     .then((donationsdata) => {
@@ -51,7 +51,7 @@ router.get("/api/:userid", async (req, res) => {
 
 //GET : get details for donation by a donation Id
 //getDonationById
-router.get("/api/:donationid", async (req, res) => {
+router.get("/:donationid", async (req, res) => {
   const donationId = req.params.donationid;
   await donationQueries
     .getDonationById(donationId)
