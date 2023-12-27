@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-const postCharge = require("stripe");
+//const postCharge = require("stripe");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 const ProjectBox = (props) => {
   // console.log("reached project box for project:", props);
@@ -8,18 +9,27 @@ const ProjectBox = (props) => {
     // TODO: Need to know what state needs to be modified to change pages
     //`/projects/${projectId}`
   };
+
+  const [selectedProject, setSelectedProject] = useState(null);
   const { projectId, project } = props;
+  const navigate = useNavigate();
   //console.log("project details received: ", project);
-  const handleDonateclick = () => {
-    //make payment
+  const handleDonateclick = (project) => {
+    console.log("project after donate button click", project);
+
+    setSelectedProject(project);
+    console.log("selectedProject", selectedProject); //will not show changed state
+    navigate("/donate");
+    //navigate(`/donate/${selectedProject.id}`); //redirect to checkout
   };
   if (project) {
     return (
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
         <h2 className="project_box_name">{project.name || " "}</h2>
         <button
+          type="button"
           className="project_box_donate_button"
-          onClick={handleDonateclick}
+          onClick={() => handleDonateclick(project)}
         >
           Make a donation!
         </button>

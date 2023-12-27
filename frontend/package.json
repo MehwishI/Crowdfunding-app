@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.4.0",
+    "@stripe/stripe-js": "^2.2.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -13,6 +15,7 @@
     "react-router-dom": "^6.21.0",
     "react-scripts": "^3.0.1",
     "react-stripe-elements": "^6.1.2",
+    "react-stripe-js": "^1.1.5",
     "universal-cookie": "^6.1.1",
     "web-vitals": "^2.1.4"
   },
