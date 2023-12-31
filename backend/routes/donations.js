@@ -66,3 +66,16 @@ router.get("/:donationid", async (req, res) => {
 //in progess (by Mehwish)
 //POST: make a donation (payment)
 ///payment stripe
+router.post("/create", async (req, res) => {
+  const donation = req.body;
+  await donationQueries
+    .addDonation(donation)
+    .then((result) => {
+      console.log("result:", result);
+      res.status(200).send("donation data saved sucessfully in database!");
+    })
+    .catch((error) => {
+      console.error("Error saving donation data:", error);
+      return null;
+    });
+});

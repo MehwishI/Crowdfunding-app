@@ -28,5 +28,6 @@ CREATE TABLE donations (
   project_id INTEGER REFERENCES projects(id) ON DELETE CASCADE,
   
   funding_amount INTEGER NOT NULL,
+  charge_id VARCHAR(255) NOT NULL,
   donation_date DATE NOT NULL
 );

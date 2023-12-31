@@ -59,7 +59,7 @@ const UserDashboard = (props) => {
     };
     fetchProjectsData();
     fetchDonationsData();
-  }, []);
+  }, [currentUserId]);
 
   return (
     <div className="page">

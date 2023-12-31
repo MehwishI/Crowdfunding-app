@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
 
     .then((projectsData) => {
       // res.status(200).send(`Project(s) found for user ${req.params.userid}!`);
-      console.log("projects returned:", projectsData);
+      // console.log("projects returned:", projectsData);
 
       res.json({ projectsData });
     })

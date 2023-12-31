@@ -4,12 +4,13 @@ const db = require("../connection");
 const addDonation = function (donation) {
   return db
     .query(
-      "INSERT INTO donations (doner_id, project_id, funding_amount, donation_date) VALUES ($1, $2, $3, $4) RETURNING *",
+      "INSERT INTO donations (donor_id, project_id, funding_amount,charge_id, donation_date) VALUES ($1, $2, $3, $4,$5) RETURNING *",
       [
-        donation.donorId,
-        donation.projectId,
-        donation.fundingAmount,
-        donation.donationDate,
+        donation.donor_id, ///userid
+        donation.project_id,
+        donation.funding_amount,
+        donation.charge_id,
+        donation.donation_date,
       ]
     )
     .then((result) => {

@@ -27,9 +27,9 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/userdashboard" element={<UserDashboard />} />
         <Route path="/createproject" element={<CreateProject />} />
-        <Route path="/donate" element={<Checkout />} />
+        {/* <Route path="/donate" element={<Checkout />} /> */}
 
-        {/* <Route path="/donate/:projectid" element={<CheckoutForm />} /> */}
+        <Route path="/donate/:projectid" element={<Checkout />} />
       </Routes>
     </div>
   );

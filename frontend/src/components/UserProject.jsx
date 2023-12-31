@@ -4,7 +4,7 @@ import ProjectBox from "./ProjectBox";
 
 const UserProject = (props) => {
   // console.log("reached userproject component:", props.projectsData);
-  const { projectsData } = props;
+  const { projectsData, currentUserId } = props;
 
   if (!projectsData) {
     return <div>Loading data..</div>;
@@ -20,7 +20,11 @@ const UserProject = (props) => {
   //Check if projectsData is indeed an array before calling .map
   const projectsList = Array.isArray(projectsData)
     ? projectsData.map((project) => (
-        <ProjectBox key={project.id} project={project} />
+        <ProjectBox
+          key={project.id}
+          project={project}
+          currentUserId={currentUserId}
+        />
       ))
     : null;
 

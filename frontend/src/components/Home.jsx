@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
-import TopNavigation from "./TopNavigation";
-import ProjectBox from "./ProjectBox";
+//import TopNavigation from "./TopNavigation";
+//import ProjectBox from "./ProjectBox";
 import { getAllProjects } from "../helpers/getusersdata";
 import "./style.css";
 import UserProject from "./UserProject";
@@ -36,7 +36,10 @@ const Home = () => {
         {/* Active projects will display here */}
         <div className="active-projects">
           <span className="title-active-projects">Available Projects</span>
-          <UserProject projectsData={projectsData} />
+          <UserProject
+            projectsData={projectsData}
+            currentUserId={currentUserId}
+          />
         </div>
       </div>
     </div>

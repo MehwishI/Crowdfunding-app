@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 
@@ -11,17 +11,31 @@ const ProjectBox = (props) => {
   };
 
   const [selectedProject, setSelectedProject] = useState(null);
-  const { projectId, project } = props;
+  const { projectId, project, currentUserId } = props;
   const navigate = useNavigate();
   //console.log("project details received: ", project);
   const handleDonateclick = (project) => {
-    console.log("project after donate button click", project);
+    //console.log("project after donate button click", project);
+    //check if a user is logged in
+    currentUserId ? setSelectedProject(project) : navigate("/login");
 
-    setSelectedProject(project);
-    console.log("selectedProject", selectedProject); //will not show changed state
-    navigate("/donate");
+    // console.log("selectedProject after setstate", selectedProject); //will not show changed state
+
+    // setSelectedProject(project);
+    // console.log("selectedProject after settimeout", selectedProject); //will not show changed state
+    // navigate("/donate");
     //navigate(`/donate/${selectedProject.id}`); //redirect to checkout
   };
+  useEffect(() => {
+    //if selected project is changed and donate butto is clicked
+    if (selectedProject) {
+      //console.log("selectedProject inside useEffect:", selectedProject);
+      navigate(`/donate/${selectedProject.id}`, { state: { selectedProject } });
+    }
+    //console.log();
+    // navigate("/donate");
+  }, [selectedProject, navigate]);
+
   if (project) {
     return (
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>

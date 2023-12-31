@@ -99,6 +99,7 @@ const getProjectsByUserId = (userId) => {
       return null;
     });
 };
+//reduce funding target by funding amount and incraease current funding ( Alex you want to work on this?)
 
 module.exports = {
   addProject,

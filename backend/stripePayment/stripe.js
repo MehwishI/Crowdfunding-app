@@ -14,8 +14,11 @@ async function postCharge(req, res) {
       source,
       receipt_email,
     });
+    console.log("charge after create charge", charge);
 
     if (!charge) throw new Error("charge unsuccessful");
+
+    
 
     res.status(200).json({
       charge,
