@@ -8,7 +8,6 @@ const Donation = (props) => {
     <div className="donation_box">
       <h2 className="donation_project_name">{donation.project_name}</h2>
       <span className="donation_box_funds">
-        $
         {(donation.funding_amount || " ").toLocaleString("en-US", {
           style: "currency", // This is a slower and obsolete formatting function, but it won't matter for this small a project
           currency: "CAD",
@@ -17,7 +16,7 @@ const Donation = (props) => {
       </span>{" "}
       <span>
         Date:{" "}
-        {donation.donation_date.toLocaleString( {
+        {donation.donation_date.toLocaleString({
           //not working yet
           year: "numeric",
           month: "long",

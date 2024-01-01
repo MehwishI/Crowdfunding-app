@@ -12,6 +12,7 @@ import TopNavigation from "./components/TopNavigation";
 import Cookies from "js-cookie";
 import CheckoutForm from "./components/CheckoutForm";
 import Checkout from "./components/Checkout";
+import PaymentSuccess from "./components/PaymentSuccess";
 
 function App() {
   const currentUserId = Cookies.get("userid");
@@ -19,7 +20,7 @@ function App() {
 
   return (
     <div className="App">
-      <TopNavigation currentUserId={currentUserId} />
+      {/* <TopNavigation currentUserId={currentUserId} /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<RegisterForm />} />
@@ -30,6 +31,7 @@ function App() {
         {/* <Route path="/donate" element={<Checkout />} /> */}
 
         <Route path="/donate/:projectid" element={<Checkout />} />
+        <Route path="/donate/paymentsuccess" element={<PaymentSuccess />} />
       </Routes>
     </div>
   );

@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 import UserProject from "./UserProject";
 import Funding from "./Funding";
+import TopNavigation from "./TopNavigation";
 
 import {
   getProjectsByUserId,
@@ -62,43 +63,46 @@ const UserDashboard = (props) => {
   }, [currentUserId]);
 
   return (
-    <div className="page">
-      <div className="container">
-        <div className="section" id="userproject">
-          {/* Content for the first section */}
-          <h2>My Projects</h2>
+    <div>
+      <TopNavigation currentUserId={currentUserId} />
+      <div className="page">
+        <div className="container">
+          <div className="section" id="userproject">
+            {/* Content for the first section */}
+            <h2>My Projects</h2>
 
-          <UserProject projectsData={projectsData} />
-        </div>
-        <div className="section" id="funded">
-          {/* Content for the second section */}
-          <h2>What you're funding</h2>
+            <UserProject projectsData={projectsData} />
+          </div>
+          <div className="section" id="funded">
+            {/* Content for the second section */}
+            <h2>What you're funding</h2>
 
-          {/*donations list*/}
-          <Funding donationsData={donationsData} />
-        </div>
-        {/* <div className="section" id="active">
+            {/*donations list*/}
+            <Funding donationsData={donationsData} />
+          </div>
+          {/* <div className="section" id="active">
           {/* Content for the third section */}
 
-        {/* <h2>Active projects</h2>
+          {/* <h2>Active projects</h2>
           {/* <p>content goes here</p> }
           <ProjectBox />
         </div> */}
-        <div className="section" id="create">
-          {/* Content for the fourth section */}
-          <h2>Create your own project</h2>
-          <p>
-            <button>
-              <Link
-                to={{
-                  pathname: "/createproject",
-                }}
-                state={{ currentUserId: currentUserId }}
-              >
-                Create a new Project!
-              </Link>
-            </button>
-          </p>
+          <div className="section" id="create">
+            {/* Content for the fourth section */}
+            <h2>Create your own project</h2>
+            <p>
+              <button>
+                <Link
+                  to={{
+                    pathname: "/createproject",
+                  }}
+                  state={{ currentUserId: currentUserId }}
+                >
+                  Create a new Project!
+                </Link>
+              </button>
+            </p>
+          </div>
         </div>
       </div>
     </div>

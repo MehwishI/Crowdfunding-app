@@ -34,7 +34,7 @@ router.get("/:id", async (req, res) => {
   // }
 });
 
-// Show project creation page
+// Show project creation page (ALEX are you working on it?)
 router.get("/create", async (req, res) => {
   //Show create project component? YES
 });
@@ -73,5 +73,8 @@ router.get("/user/:userid", async (req, res) => {
   //   res.status(403).send(`No projects found for user ${req.params.userid}!`);
   // }
 });
+//Alex , are you willing to work on it?
+//update project details
+//reduce funding target by funding amount and incraease current funding ( Alex you want to work on this?)
 
 module.exports = router;

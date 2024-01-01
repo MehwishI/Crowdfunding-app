@@ -22,6 +22,8 @@ body {
   padding-bottom: 20px;
   background-color: #8799f6;
   width: 100%;
+  font-weight: bold;
+  font-size: large;
 }
 
 .top-nav-bar a {
@@ -128,4 +130,7 @@ body {
 .title-active-projects {
   font-size: 37px;
   font-weight: 500;
+}
+.success {
+  color: "Green";
 }

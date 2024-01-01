@@ -76,8 +76,23 @@ router.post("/login", async (req, res) => {
   }
 });
 router.post("/logout", (req, res) => {
-  res.clearCookie("userid");
-  return res.redirect("/");
+  console.log("reached logut post route");
+  try {
+    res.clearCookie("userid");
+    // console.log(
+    //   "userid cookie in logout after clear cookie",
+    //   req.cookies["userid"]
+    // );
+    // if (!req.cookies.userid) {
+    //   console.log("Logout  successful!");
+    res.status(200).send("Logout successful!");
+    // } else {
+    //   console.log("Logout not successful");
+    //   res.status(403).send("Logout not successful!");
+    // }
+  } catch (error) {
+    console.error("Logout not successful due to the error: ", error);
+  }
 });
 
 module.exports = router;

@@ -4,18 +4,26 @@ import { useNavigate } from "react-router-dom";
 
 const Logout = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const response = fetch("http://localhost:3001/api/users/logout", {
+  const fetchLogout = async () => {
+    await fetch("http://localhost:3001/api/users/logout", {
       method: "POST",
       credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-    if (response.ok) {
-      navigate("/login");
-    } else {
-      console.error(response.error);
-      return;
-    }
+  };
+
+  useEffect(() => {
+    const response = fetchLogout();
+    // console.log("response received from logout", response);
+    // if (response.status === 200) {
+    navigate("/login");
+    //  return;
+    // } else {
+    //   console.error(response.error);
+    //   return;
+    // }
   });
 };
 

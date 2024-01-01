@@ -15,7 +15,7 @@ const ProjectBox = (props) => {
   const navigate = useNavigate();
   //console.log("project details received: ", project);
   const handleDonateclick = (project) => {
-    //console.log("project after donate button click", project);
+    
     //check if a user is logged in
     currentUserId ? setSelectedProject(project) : navigate("/login");
 

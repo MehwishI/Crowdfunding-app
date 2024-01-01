@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import {
   useStripe,
@@ -12,18 +12,16 @@ import {
   CardExpiryElement,
   CardCvcElement,
 } from "@stripe/react-stripe-js";
+import TopNavigation from "./TopNavigation";
 //import axios from "axios";
 import "./CheckoutForm.css";
 import { saveDonationData } from "../helpers/saveDonationData";
 
 const CheckoutForm = ({ selectedProject }) => {
-  // console.log(
-  //   "reached checkout form component selectedproject,",
-  //   selectedProject
-  // );
   //  if (selectedProduct === null) history.push('/')
   const stripe = useStripe();
   const elements = useElements();
+  const navigate = useNavigate();
 
   let receiptUrl = null;
   let success = false;
@@ -90,48 +88,45 @@ const CheckoutForm = ({ selectedProject }) => {
         donation_date: new Date(),
       };
       const result = saveDonationData(donationData);
+      if (success) {
+        navigate("/donate/paymentsuccess", { state: { receiptUrl } });
+      }
     }
 
     //setReceiptUrl(order.receipt_url);
   };
 
-  if (success) {
-    //not working yet (in progress)
-    return (
-      <div className="success">
-        <h2>Payment Successful!</h2>
-        <a href={receiptUrl}>View Receipt</a>
-        <Link to="/">Home</Link>
-      </div>
-    );
-  }
   return (
-    <div className="checkout-form">
-      <form onSubmit={handleSubmit}>
-        <label>Enter Amount:</label>
-        <input
-          name="donationAmount"
-          value={donationAmount}
-          onChange={(e) => {
-            setDonationAmount(e.target.value);
-          }}
-        />
-        <label>
-          Card details
-          <CardNumberElement />
-        </label>
-        <label>
-          Expiration date
-          <CardExpiryElement />
-        </label>
-        <label>
-          CVC
-          <CardCvcElement />
-        </label>
-        <button type="submit" className="order-button">
-          Pay
-        </button>
-      </form>
+    <div>
+      <TopNavigation />
+      <div className="checkout-form">
+        <h3>Make a donation</h3>
+        <form onSubmit={handleSubmit}>
+          <label>Enter Amount:</label>
+          <input
+            name="donationAmount"
+            value={donationAmount}
+            onChange={(e) => {
+              setDonationAmount(e.target.value);
+            }}
+          />
+          <label>
+            Card details
+            <CardNumberElement />
+          </label>
+          <label>
+            Expiration date
+            <CardExpiryElement />
+          </label>
+          <label>
+            CVC
+            <CardCvcElement />
+          </label>
+          <button type="submit" className="order-button">
+            Pay
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

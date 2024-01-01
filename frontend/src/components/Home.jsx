@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
-//import TopNavigation from "./TopNavigation";
+import TopNavigation from "./TopNavigation";
 //import ProjectBox from "./ProjectBox";
 import { getAllProjects } from "../helpers/getusersdata";
 import "./style.css";
@@ -10,11 +10,14 @@ import UserProject from "./UserProject";
 //list of all available projects
 const Home = () => {
   //const cookies = new Cookies();
-  const currentUserId = Cookies.get("userid");
+  let currentUserId = Cookies.get("userid");
   const [projectsData, setProjectsData] = useState([]);
   //state to store projectsData
   useEffect(() => {
     const fetchData = async () => {
+      //set currentuserid everytime this page loads
+      let currentUserId = Cookies.get("userid");
+
       const data = await getAllProjects();
       //console.log("projectsData returned by helper function", data);
       setProjectsData(data.projectsData); //check if its projectsdata in small letters
@@ -24,7 +27,7 @@ const Home = () => {
 
   return (
     <div className="main-page">
-      {/* <TopNavigation currentUserId={currentUserId} /> */}
+      <TopNavigation currentUserId={currentUserId} />
       <div className="center-section">
         {/* Placeholder for image */}
         <div className="image-placeholder">

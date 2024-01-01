@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import ProjectBox from "./ProjectBox";
-
+import TopNavigation from "./TopNavigation";
 const UserProject = (props) => {
   // console.log("reached userproject component:", props.projectsData);
   const { projectsData, currentUserId } = props;
@@ -28,11 +28,12 @@ const UserProject = (props) => {
       ))
     : null;
 
-  // const projectsList = projectsData.map((project) => (
-  //   <ProjectBox key={project.id} project={project} />
-  // ));
-
-  return <div className="projectlist">{projectsList}</div>;
+  return (
+    <div>
+      {/* <TopNavigation currentUserId={currentUserId} /> */}
+      <div className="projectlist">{projectsList}</div>
+    </div>
+  );
 };
 
 export default UserProject;

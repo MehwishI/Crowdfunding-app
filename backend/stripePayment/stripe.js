@@ -10,15 +10,13 @@ async function postCharge(req, res) {
 
     const charge = await stripe.charges.create({
       amount,
-      currency: "usd",
+      currency: "cad",
       source,
       receipt_email,
     });
     console.log("charge after create charge", charge);
 
     if (!charge) throw new Error("charge unsuccessful");
-
-    
 
     res.status(200).json({
       charge,

@@ -3,20 +3,22 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 //import { useCookies } from "react-cookie";
-//import { Cookies } from "js-cookie";
+import Cookies from "js-cookie";
 //import Cookies from "universal-cookie";
 
 const TopNavigation = (props) => {
   //const [cookies] = useCookies(["userid"]);
   // const cookies = new Cookies();
-  const currentUserId = props.currentUserId;
+  //const currentUserId = props.currentUserId;
   //.get("userid");
-  //Cookies.get("userid");
+  const currentUserId = Cookies.get("userid");
   //console.log("currentUserId:", currentUserId);
 
   return (
     <div className="top-nav-bar">
-      <div className="logo-container"></div>
+      <div className="logo-container">
+        Fund Me! - A crowdfunding application
+      </div>
       {!currentUserId ? (
         <div>
           <Link to={"/register"}>Register</Link>
