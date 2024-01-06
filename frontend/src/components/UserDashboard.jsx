@@ -1,4 +1,4 @@
-import Cookies from "js-cookie";
+//import Cookies from "js-cookie";
 import React, { useState, useEffect } from "react";
 import UserProject from "./UserProject";
 import Funding from "./Funding";
@@ -11,7 +11,7 @@ import {
 import "./style.css";
 
 import { useLocation, Link, useNavigate } from "react-router-dom";
-//in progress (by Mehwish)
+
 const UserDashboard = (props) => {
   const [donationsData, setDonationsData] = useState([]);
   const [projectsData, setProjectsData] = useState([]);
@@ -19,8 +19,6 @@ const UserDashboard = (props) => {
   const location = useLocation();
   const currentUserId = location.state?.currentUserId;
 
-  // console.log("currentuserid received:", currentUserId);
-  //console.log("props received:", props);
   const navigate = useNavigate();
   if (!currentUserId) {
     console.log("user not logged in, redirecting to login page");

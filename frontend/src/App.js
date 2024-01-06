@@ -8,9 +8,9 @@ import LoginForm from "./components/LoginForm";
 import Logout from "./components/Logout";
 import UserDashboard from "./components/UserDashboard";
 import CreateProject from "./components/CreateProject";
-import TopNavigation from "./components/TopNavigation";
+//import TopNavigation from "./components/TopNavigation";
 import Cookies from "js-cookie";
-import CheckoutForm from "./components/CheckoutForm";
+//import CheckoutForm from "./components/CheckoutForm";
 import Checkout from "./components/Checkout";
 import PaymentSuccess from "./components/PaymentSuccess";
 

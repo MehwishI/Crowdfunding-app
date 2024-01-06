@@ -16,11 +16,11 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       //set currentuserid everytime this page loads
-      let currentUserId = Cookies.get("userid");
+      //currentUserId = Cookies.get("userid");
 
       const data = await getAllProjects();
-      //console.log("projectsData returned by helper function", data);
-      setProjectsData(data.projectsData); //check if its projectsdata in small letters
+
+      setProjectsData(data.projectsData);
     };
     fetchData();
   }, []);
@@ -31,19 +31,20 @@ const Home = () => {
       <div className="center-section">
         {/* Placeholder for image */}
         <div className="image-placeholder">
-          <img src="../images/fmg-small.png" />
+          <img src="../images/fmg-small.png" alt="title" />
         </div>
         <p>Welcome to FundMe! A crowdfunding app</p>
       </div>
-      <div className="bottom-section">
-        {/* Active projects will display here */}
-        <div className="active-projects">
-          <span className="title-active-projects">Available Projects</span>
-          <UserProject
-            projectsData={projectsData}
-            currentUserId={currentUserId}
-          />
-        </div>
+
+      {/* Active projects will display here */}
+      <div className="active-projects">
+        <span className="title-active-projects">Available Projects</span>
+        <UserProject
+          projectsData={projectsData}
+          currentUserId={currentUserId}
+        />
+        <br />
+        <div className="bottom-section">Copyright 2024 - LightHouseLabs.ca</div>
       </div>
     </div>
   );

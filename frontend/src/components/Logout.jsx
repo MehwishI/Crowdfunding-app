@@ -15,15 +15,9 @@ const Logout = () => {
   };
 
   useEffect(() => {
-    const response = fetchLogout();
-    // console.log("response received from logout", response);
-    // if (response.status === 200) {
+    fetchLogout();
+
     navigate("/login");
-    //  return;
-    // } else {
-    //   console.error(response.error);
-    //   return;
-    // }
   });
 };
 

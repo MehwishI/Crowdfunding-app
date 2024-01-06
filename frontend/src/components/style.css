@@ -18,8 +18,13 @@ body {
   justify-content: space-between;
   display: flex;
   position: relative;
-  padding-top: 10px;
+
   padding-bottom: 20px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+
   background-color: #8799f6;
   width: 100%;
   font-weight: bold;
@@ -48,12 +53,12 @@ body {
   width: 750px;
 }
 
-.bottom-section {
-}
-
-.container {
+.create_project-container {
   text-align: center;
   margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .form-label {
@@ -128,9 +133,48 @@ body {
   margin: 10px;
 }
 .title-active-projects {
-  font-size: 37px;
+  font-size: 33px;
   font-weight: 500;
 }
 .success {
   color: "Green";
+}
+.project_box {
+  padding: 7px;
+  border-block: 1px;
+  border-color: black;
+  border-style: dotted;
+  border-left-width: 1px;
+  border-right-width: 1px;
+}
+.active-projects {
+  width: 70%;
+}
+.name_and_button {
+  display: flex;
+  justify-content: space-between;
+}
+.project_box_donate_button {
+  background-color: #046daa;
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 48px;
+  padding: 5px 20px;
+}
+.btn_create {
+  background-color: #046daa;
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 48px;
+  padding: 5px 20px;
 }

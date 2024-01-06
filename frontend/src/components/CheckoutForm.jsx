@@ -1,21 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import {
-  useStripe,
-  useElements,
-  PaymentElement,
-} from "@stripe/react-stripe-js";
+import TopNavigation from "./TopNavigation";
+import "./CheckoutForm.css";
+import { saveDonationData } from "../helpers/saveDonationData";
+import { updateProjectFunding } from "../helpers/updateProjectFunding";
+import { useStripe, useElements } from "@stripe/react-stripe-js";
 
 import {
   CardNumberElement,
   CardExpiryElement,
   CardCvcElement,
 } from "@stripe/react-stripe-js";
-import TopNavigation from "./TopNavigation";
-//import axios from "axios";
-import "./CheckoutForm.css";
-import { saveDonationData } from "../helpers/saveDonationData";
 
 const CheckoutForm = ({ selectedProject }) => {
   //  if (selectedProduct === null) history.push('/')
@@ -50,7 +46,7 @@ const CheckoutForm = ({ selectedProject }) => {
         console.error("error occurred", error);
       });
     const payload = {
-      amount: donationAmount * 100, //converted $ to  cents
+      amount: donationAmount,
       //currency: "usd",
       source: token.id,
       receipt_email: "mehwish219@outlook.com",
@@ -68,11 +64,11 @@ const CheckoutForm = ({ selectedProject }) => {
     );
     if (response.ok) {
       const order = await response.json();
-      console.log("order response received from fetch", order);
+      //console.log("order response received from fetch", order);
       success = true;
       receiptUrl = order.charge.receipt_url;
-      console.log("receiptUrl", receiptUrl);
-      console.log("success", success);
+      // console.log("receiptUrl", receiptUrl);
+      //console.log("success", success);
       //
       //save donation payment info to db
       const donationData = {
@@ -89,6 +85,19 @@ const CheckoutForm = ({ selectedProject }) => {
       };
       const result = saveDonationData(donationData);
       if (success) {
+        //update project increase-curent funding-, decrease funding - target.
+
+        //call a helper function
+
+        const result1 = updateProjectFunding(
+          selectedProject.id,
+          order.charge.amount
+        );
+        if (result1 && result) {
+          console.log("project funding upadated successfully!");
+        } else {
+          console.log("project funding not upadated!");
+        }
         navigate("/donate/paymentsuccess", { state: { receiptUrl } });
       }
     }

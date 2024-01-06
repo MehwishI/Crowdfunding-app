@@ -4,15 +4,16 @@ const db = require("../connection");
 const addProject = function (project) {
   return db
     .query(
-      "INSERT INTO projects (owner_id, name, description, category, picture, funding_target, funding_current) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      "INSERT INTO projects (owner_id, name, description, category, picture, funding_target, funding_current,end_date) VALUES ($1, $2, $3, $4, $5, $6, $7,$8) RETURNING *",
       [
         project.ownerId,
-        project.name,
-        project.description,
-        project.category,
-        project.picture,
-        project.fundingTarget,
-        project.fundingCurrent,
+        project.projectName,
+        project.projectDesc,
+        project.projectCategory,
+        project.projectPicture,
+        project.funding_target,
+        project.funding_current,
+        project.projectEndDate,
       ]
     )
     .then((result) => {
@@ -101,6 +102,23 @@ const getProjectsByUserId = (userId) => {
 };
 //reduce funding target by funding amount and incraease current funding ( Alex you want to work on this?)
 
+const updateProjectFunding = (projectId, funding_amount) => {
+  return db
+    .query(
+      `UPDATE projects SET funding_current = funding_current+ $2,
+      funding_target=funding_target - $2 WHERE id= $1`,
+      [projectId, funding_amount]
+    )
+    .then((result) => {
+      console.log("Project funding updated successfully!");
+      return result.rows[0];
+    })
+    .catch((err) => {
+      console.log("Project funding not updated!", err.message);
+      return null;
+    });
+};
+
 module.exports = {
   addProject,
   getProjects,
@@ -108,4 +126,5 @@ module.exports = {
   getProjectByName,
   getProjectsByCategory,
   getProjectsByUserId,
+  updateProjectFunding,
 };

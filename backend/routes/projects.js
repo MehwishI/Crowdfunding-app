@@ -34,9 +34,22 @@ router.get("/:id", async (req, res) => {
   // }
 });
 
-// Show project creation page (ALEX are you working on it?)
-router.get("/create", async (req, res) => {
+
+router.post("/create", async (req, res) => {
   //Show create project component? YES
+
+  const project = req.body;
+
+  await projectQueries
+    .addProject(project)
+    .then((result) => {
+      console.log("result:", result);
+      res.status(200).send("Project data saved sucessfully in database!");
+    })
+    .catch((error) => {
+      console.error("Error saving project data:", error);
+      return null;
+    });
 });
 
 // Delete a project
@@ -76,5 +89,18 @@ router.get("/user/:userid", async (req, res) => {
 //Alex , are you willing to work on it?
 //update project details
 //reduce funding target by funding amount and incraease current funding ( Alex you want to work on this?)
-
+router.post("/update/funding", async (req, res) => {
+  const projectId = req.body.projectId;
+  const funding_amount = req.body.funding_amount;
+  await projectQueries
+    .updateProjectFunding(projectId, funding_amount)
+    .then((result) => {
+      console.log("result:", result);
+      res.status(200).send("project funding updated sucessfully in database!");
+    })
+    .catch((error) => {
+      console.error("Error updating project funding:", error);
+      return null;
+    });
+});
 module.exports = router;

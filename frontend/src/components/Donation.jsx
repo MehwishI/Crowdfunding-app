@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 
 const Donation = (props) => {
-  const { donationId, donation } = props;
+  const { donation } = props;
 
   return (
     <div className="donation_box">

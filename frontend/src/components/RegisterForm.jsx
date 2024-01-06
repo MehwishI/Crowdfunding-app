@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 //import { defer } from "request/lib/helpers";
 
 import "./style.css";
@@ -29,20 +29,20 @@ const RegisterForm = () => {
         },
         body: JSON.stringify(payload),
       });
-      // console.log("response",response)
 
       if (response.ok) {
-        // Handle success - maybe clear form or show a success message
+        // Handle success
         console.log("User registered successfully!");
-        return <Navigate to="/projects" />;
+        return navigate("/login");
       } else {
         // Handle error - maybe display error message to the user
         console.log("Unsuccessful registration");
-        return <Navigate to="/" />;
+        return navigate("/");
       }
     } catch (error) {
       // Handle network error - maybe display error message to the user
-      return <Navigate to="/" />;
+      console.error(error);
+      return navigate("/");
     }
   };
 
