@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS rewards CASCADE;
+
+
+CREATE TABLE rewards(
+  id SERIAL PRIMARY KEY NOT NULL,
+  project_id INTEGER REFERENCES projects(id) ON DELETE CASCADE,
+  
+  title VARCHAR(255) NOT NULL,
+  quantity VARCHAR(100)  NULL,
+  type VARCHAR(255) NOT NULL,
+  location VARCHAR(255) NULL
+  
+);

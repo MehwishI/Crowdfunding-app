@@ -58,6 +58,7 @@ const ProjectBox = (props) => {
           Remaining Funds: CA $
           {project.funding_target - project.funding_current}{" "}
         </span>
+        <br />
       </div>
     );
   } else return <div>Projects details not available now.</div>;
