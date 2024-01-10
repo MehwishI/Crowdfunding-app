@@ -10,5 +10,5 @@ VALUES
   (5,'Personalized Photo Album',null,'Gift',null),
   (6,'Off','3%','Discount','XYZ Grocery Store'),
   (7,'Off','2.5%','Discount','ABC Chinese resturant'),
-  (10,'Off','2.5%','Discount','XYZ Grocery Store'),
-  (11,'Off','2.5%','Discount','ABC Grocery Store');
+  (1,'Off','2.5%','Discount','XYZ Grocery Store'),
+  (2,'Off','2.5%','Discount','ABC Grocery Store');
