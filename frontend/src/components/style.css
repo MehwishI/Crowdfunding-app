@@ -45,12 +45,12 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 40vh;
+  height: 60vh;
   width: 100%;
   font-weight: bolder;
   font-size: 35px;
-  height: 200px;
-  width: 750px;
+  
+  
 }
 
 .create_project-container {
@@ -149,6 +149,10 @@ body {
 }
 .active-projects {
   width: 70%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin-top: auto;
 }
 .name_and_button {
   display: flex;
@@ -177,4 +181,9 @@ body {
   font-size: 16px;
   height: 48px;
   padding: 5px 20px;
+}
+
+.logo-container {
+  text-align: left; 
+  margin: auto; 
 }

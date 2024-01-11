@@ -6,6 +6,7 @@ import TopNavigation from "./TopNavigation";
 import { getAllProjects } from "../helpers/getusersdata";
 import "./style.css";
 import UserProject from "./UserProject";
+import Img from "../images/fmg-small.png"
 
 //list of all available projects
 const Home = () => {
@@ -31,20 +32,32 @@ const Home = () => {
       <div className="center-section">
         {/* Placeholder for image */}
         <div className="image-placeholder">
-          <img src="../images/fmg-small.png" alt="title" />
+        <br />
+        
+        
+
+          <img 
+          src= {Img}
+          style={{ width: '75%', height: 'auto' }} />
         </div>
         <p>Welcome to FundMe! A crowdfunding app</p>
+        <br />
+        
+
       </div>
 
       {/* Active projects will display here */}
       <div className="active-projects">
+      <br />
+          
+
         <span className="title-active-projects">Available Projects</span>
         <UserProject
           projectsData={projectsData}
           currentUserId={currentUserId}
         />
         <br />
-        <div className="bottom-section">Copyright 2024 - LightHouseLabs.ca</div>
+        
       </div>
     </div>
   );
