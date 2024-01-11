@@ -29,9 +29,11 @@ const addProject = function (project) {
 const getProjects = () => {
   return db
     .query(
-      `SELECT projects.id, projects.owner_id, users.name AS created_by, projects.name, projects.description, projects.category, projects.picture,
-    projects.funding_target, projects.funding_current, projects.end_date FROM projects
-  JOIN users ON projects.owner_id = users.id`
+      `
+      SELECT projects.id, projects.owner_id, users.name AS created_by, projects.name, projects.description, projects.category, projects.picture,
+        projects.funding_target, projects.funding_current, projects.end_date FROM projects
+      JOIN users ON projects.owner_id = users.id
+      `
     )
     .then((data) => {
       return data.rows; // Return all projects found (or null if not found).
@@ -86,10 +88,10 @@ const getProjectsByUserId = (userId) => {
   return db
     .query(
       `SELECT projects.owner_id, users.name AS created_by, projects.name, projects.description, projects.category, projects.picture,
-      projects.funding_target, projects.funding_current, projects.end_date FROM projects
-    JOIN users ON projects.owner_id = users.id
-    WHERE users.id = $1
-  `,
+        projects.funding_target, projects.funding_current, projects.end_date FROM projects
+      JOIN users ON projects.owner_id = users.id
+      WHERE users.id = $1
+      `,
       [userId]
     )
     .then((data) => {
@@ -101,20 +103,23 @@ const getProjectsByUserId = (userId) => {
     });
 };
 
+<<<<<<< HEAD
 //reduce funding target by funding amount and incraease current funding
+=======
+//Reduce funding target by funding amount and increase current funding
+>>>>>>> d995922cf79acdee26cc742d9e2c85619655a308
 const updateProjectFunding = (projectId, funding_amount) => {
   return db
     .query(
-      `UPDATE projects SET funding_current = funding_current+ $2,
-      funding_target=funding_target - $2 WHERE id= $1`,
+      `UPDATE projects SET funding_current = funding_current + $2 WHERE id = $1`,
       [projectId, funding_amount]
     )
     .then((result) => {
-      console.log("Project funding updated successfully!");
+      console.log(`Project ${projectId} funding changed by ${funding_amount}.`);
       return result.rows[0];
     })
     .catch((err) => {
-      console.log("Project funding not updated!", err.message);
+      console.log("Error updating project funding:", err.message);
       return null;
     });
 };
