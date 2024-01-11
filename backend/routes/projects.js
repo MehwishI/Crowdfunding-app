@@ -34,7 +34,6 @@ router.get("/:id", async (req, res) => {
   // }
 });
 
-
 router.post("/create", async (req, res) => {
   //Show create project component? YES
 

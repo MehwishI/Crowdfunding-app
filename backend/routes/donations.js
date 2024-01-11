@@ -63,7 +63,7 @@ router.get("/:donationid", async (req, res) => {
       return null;
     });
 });
-//in progess (by Mehwish)
+
 //POST: make a donation (payment)
 ///payment stripe
 router.post("/create", async (req, res) => {

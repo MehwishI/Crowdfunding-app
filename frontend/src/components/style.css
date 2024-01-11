@@ -50,8 +50,6 @@ body {
   width: 100%;
   font-weight: bolder;
   font-size: 35px;
-  
-  
 }
 
 .create_project-container {
@@ -88,7 +86,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 300px;
 }
 
 .login-form {
@@ -185,6 +183,6 @@ body {
 }
 
 .logo-container {
-  text-align: left; 
-  margin: auto; 
+  text-align: left;
+  margin: auto;
 }

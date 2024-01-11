@@ -58,6 +58,8 @@ const LoginForm = () => {
   return (
     <div>
       <TopNavigation currentUserId={currentUserId} />
+      <br />
+      <h3>User Login</h3>
       <div className="login-container">
         <form className="login-form">
           <div className="form-group">

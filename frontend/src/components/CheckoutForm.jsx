@@ -12,6 +12,7 @@ import {
   CardExpiryElement,
   CardCvcElement,
 } from "@stripe/react-stripe-js";
+import { getRewardsByProjectId } from "../helpers/getRewardsData";
 
 const CheckoutForm = ({ selectedProject }) => {
   //  if (selectedProduct === null) history.push('/')
@@ -23,8 +24,41 @@ const CheckoutForm = ({ selectedProject }) => {
   let success = false;
   //const [receiptUrl, setReceiptUrl] = useState("");
   const [donationAmount, setDonationAmount] = useState(0);
+  if (!stripe || !elements) {
+    // Stripe.js hasn't yet loaded.
+    // Make sure to disable form submission until Stripe.js has loaded.
+    return;
+  }
 
-  console.log("elements:", elements);
+  // const cardNumber = elements.getElement(CardNumberElement);
+  // const cardExpiry = elements.getElement(CardExpiryElement);
+  // const cardCvc = elements.getElement(CardCvcElement);
+
+  // cardNumber.on("change", function (event) {
+  //   var displayError = document.getElementById("card-errors");
+  //   if (event.error) {
+  //     displayError.textContent = event.error.message;
+  //   } else {
+  //     displayError.textContent = "";
+  //   }
+  // });
+  // cardExpiry.on("change", function (event) {
+  //   var displayError = document.getElementById("card-errors");
+  //   if (event.error) {
+  //     displayError.textContent = event.error.message;
+  //   } else {
+  //     displayError.textContent = "";
+  //   }
+  // });
+  // cardCvc.on("change", function (event) {
+  //   var displayError = document.getElementById("card-errors");
+  //   if (event.error) {
+  //     displayError.textContent = event.error.message;
+  //   } else {
+  //     displayError.textContent = "";
+  //   }
+  // });
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -34,6 +68,47 @@ const CheckoutForm = ({ selectedProject }) => {
       return;
     }
     const cardElement = elements.getElement(CardNumberElement);
+    //const cardExpiry = elements.getElement(CardExpiryElement);
+    //const cardCvc = elements.getElement(CardCvcElement);
+
+    // cardElement.on("change", function (event) {
+    //   var displayError = document.getElementById("card-errors");
+    //   if (event.error) {
+    //     displayError.textContent = event.error.message;
+    //   } else {
+    //     displayError.textContent = "";
+    //   }
+    // });
+    // cardExpiry.on("change", function (event) {
+    //   var displayError = document.getElementById("card-errors");
+    //   if (event.error) {
+    //     displayError.textContent = event.error.message;
+    //   } else {
+    //     displayError.textContent = "";
+    //   }
+    // });
+    // cardCvc.on("change", function (event) {
+    //   var displayError = document.getElementById("card-errors");
+    //   if (event.error) {
+    //     displayError.textContent = event.error.message;
+    //   } else {
+    //     displayError.textContent = "";
+    //   }
+    // });
+    elements.submit().then(function (result) {
+      // Handle result.error
+      var displayError = document.getElementById("card-errors");
+      if (result.error) {
+        console.log("Card elements error ", result.error.message);
+
+        displayError.textContent = result.error.message;
+        return;
+      } else {
+        displayError.textContent = "";
+      }
+    });
+
+    //creating token
     let token = null;
 
     await stripe
@@ -60,10 +135,9 @@ const CheckoutForm = ({ selectedProject }) => {
       credentials: "include",
       body: JSON.stringify(payload),
     });
-    //console.log("response received from fetch stripe", response.json());
     if (response.ok) {
       const order = await response.json();
-      console.log("order response received from fetch", order.charge.amount);
+      //console.log("order response received from fetch", order.charge.amount);
       success = true;
       receiptUrl = order.charge.receipt_url;
 
@@ -83,10 +157,8 @@ const CheckoutForm = ({ selectedProject }) => {
       };
       const result = saveDonationData(donationData);
       if (success) {
-        //update project increase-curent funding-, decrease funding - target.
-
+        //update project increase-curent funding-,
         //call a helper function
-
         const result1 = updateProjectFunding(
           selectedProject.id,
           order.charge.amount
@@ -96,7 +168,15 @@ const CheckoutForm = ({ selectedProject }) => {
         } else {
           console.log("project funding not upadated!");
         }
-        navigate("/donate/paymentsuccess", { state: { receiptUrl } });
+
+        //getrewards data
+        const rewards = await getRewardsByProjectId(selectedProject.id);
+        console.log("rewards returned in checkoutform", rewards);
+        const data = { receiptUrl: receiptUrl, rewards: rewards };
+
+        navigate("/donate/paymentsuccess", {
+          state: { data },
+        });
       }
     }
 
@@ -116,22 +196,26 @@ const CheckoutForm = ({ selectedProject }) => {
             onChange={(e) => {
               setDonationAmount(e.target.value);
             }}
+            required
           />
           <label>
             Card details
-            <CardNumberElement />
+            <CardNumberElement required />
           </label>
           <label>
             Expiration date
-            <CardExpiryElement />
+            <CardExpiryElement required />
           </label>
           <label>
             CVC
-            <CardCvcElement />
+            <CardCvcElement required />
           </label>
           <button type="submit" className="order-button">
             Pay
           </button>
+          <label id="card-errors" className="card-errors">
+            Error will be displayed here
+          </label>
         </form>
       </div>
     </div>

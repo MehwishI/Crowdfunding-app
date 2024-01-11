@@ -1,6 +1,6 @@
 //update project  funding
 export async function updateProjectFunding(projectId, funding_amount) {
-  console.log("projectid, donation amount received", projectId, funding_amount);
+  //console.log("projectid, donation amount received", projectId, funding_amount);
 
   const payload = {
     projectId: projectId,
@@ -22,7 +22,7 @@ export async function updateProjectFunding(projectId, funding_amount) {
       console.log("Project funding updated successfully!");
       return true;
     } else {
-      console.log("Project fuding not updated successfully!");
+      console.log("Project fuding not updated!");
       return false;
     }
   } catch (error) {

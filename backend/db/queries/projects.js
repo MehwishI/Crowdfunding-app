@@ -103,11 +103,7 @@ const getProjectsByUserId = (userId) => {
     });
 };
 
-<<<<<<< HEAD
-//reduce funding target by funding amount and incraease current funding
-=======
 //Reduce funding target by funding amount and increase current funding
->>>>>>> d995922cf79acdee26cc742d9e2c85619655a308
 const updateProjectFunding = (projectId, funding_amount) => {
   return db
     .query(

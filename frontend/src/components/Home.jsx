@@ -6,7 +6,7 @@ import TopNavigation from "./TopNavigation";
 import { getAllProjects } from "../helpers/getusersdata";
 import "./style.css";
 import UserProject from "./UserProject";
-import Img from "../images/fmg-small.png"
+import Img from "../images/fmg-small.png";
 
 //list of all available projects
 const Home = () => {
@@ -32,28 +32,17 @@ const Home = () => {
       <div className="center-section">
         {/* Placeholder for image */}
         <div className="image-placeholder">
-        <br />
-        
-        
+          <br />
 
-          <img 
-          src= {Img}
-          style={{ width: '75%', height: 'auto' }} />
+          <img src={Img} style={{ width: "75%", height: "auto" }} />
         </div>
-<<<<<<< HEAD
-        <p>Welcome to FundMe! A CrowdFunding Application</p>
-=======
         <p>Welcome to FundMe! A crowdfunding app</p>
         <br />
-        
-
->>>>>>> d995922cf79acdee26cc742d9e2c85619655a308
       </div>
 
       {/* Active projects will display here */}
       <div className="active-projects">
-      <br />
-          
+        <br />
 
         <span className="title-active-projects">Available Projects</span>
         <UserProject
@@ -61,7 +50,6 @@ const Home = () => {
           currentUserId={currentUserId}
         />
         <br />
-        
       </div>
     </div>
   );

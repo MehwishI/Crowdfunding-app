@@ -15,6 +15,7 @@ var projectsRouter = require("./routes/projects");
 //var contributionsApiRouter = require ('./routes/contributions-api');
 var donationsRouter = require("./routes/donations");
 var stripeRouter = require("./routes/striperoute");
+var rewardsRouter = require("./routes/rewards");
 
 //---------------------------------//
 
@@ -55,6 +56,9 @@ app.use("/api/projects", projectsRouter);
 app.use("/api/donations", donationsRouter);
 
 app.use("/api/stripe", stripeRouter);
+app.use("/api/rewards", rewardsRouter);
+
+//app.use("/api/rewards", rewardsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

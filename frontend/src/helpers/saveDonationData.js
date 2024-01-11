@@ -1,6 +1,6 @@
 //save donation payment data to db
 export async function saveDonationData(donationData) {
-  console.log("received donation data", donationData);
+  
   try {
     const response = await fetch("http://localhost:3001/api/donations/create", {
       method: "POST",
@@ -14,7 +14,7 @@ export async function saveDonationData(donationData) {
       console.log("Donation data successfully saved!");
       return true;
     } else {
-      console.log("Donation data successfully saved!");
+      console.log("Donation data not saved!");
       return false;
     }
   } catch (error) {

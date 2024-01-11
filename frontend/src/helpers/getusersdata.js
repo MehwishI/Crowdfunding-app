@@ -15,7 +15,6 @@ export async function getProjectsByUserId(userid) {
     //const responseText = await clonedResponse.text(); // This won’t consume the original response
     // console.log("Raw response text before: ", responseText);
     if (response.ok) {
-      
       const projectsData = await response.json();
       return projectsData;
     } else {
@@ -23,7 +22,6 @@ export async function getProjectsByUserId(userid) {
       return null;
     }
   } catch (error) {
-   
     console.error("Fetch error: ", error);
     return null;
   }
@@ -56,7 +54,7 @@ export async function getDonationsByUserId(userid) {
 //get all available projects
 export async function getAllProjects() {
   try {
-    const response = await fetch(`http://localhost:3001/api/projects/`, {
+    const response = await fetch(`/api/projects/`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
