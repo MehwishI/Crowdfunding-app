@@ -46,29 +46,27 @@ const CheckoutForm = ({ selectedProject }) => {
         console.error("error occurred", error);
       });
     const payload = {
-      amount: donationAmount,
+      amount: donationAmount * 100,
       //currency: "usd",
       source: token.id,
       receipt_email: "mehwish219@outlook.com",
     };
-    const response = await fetch(
-      `http://localhost:3001/api/stripe/charge/${selectedProject.id}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(payload),
-      }
-    );
+    console.log("donatin amount", donationAmount);
+    const response = await fetch(`/api/stripe/charge/${selectedProject.id}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(payload),
+    });
+    //console.log("response received from fetch stripe", response.json());
     if (response.ok) {
       const order = await response.json();
-      //console.log("order response received from fetch", order);
+      console.log("order response received from fetch", order.charge.amount);
       success = true;
       receiptUrl = order.charge.receipt_url;
-      // console.log("receiptUrl", receiptUrl);
-      //console.log("success", success);
+
       //
       //save donation payment info to db
       const donationData = {
@@ -77,7 +75,7 @@ const CheckoutForm = ({ selectedProject }) => {
         ///projectid
         project_id: selectedProject.id,
         //amount
-        funding_amount: order.charge.amount,
+        funding_amount: order.charge.amount / 100,
         //chargeid
         charge_id: order.charge.id,
         //date

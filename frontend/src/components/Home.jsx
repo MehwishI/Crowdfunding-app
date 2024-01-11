@@ -33,7 +33,7 @@ const Home = () => {
         <div className="image-placeholder">
           <img src="../images/fmg-small.png" alt="title" />
         </div>
-        <p>Welcome to FundMe! A crowdfunding app</p>
+        <p>Welcome to FundMe! A CrowdFunding Application</p>
       </div>
 
       {/* Active projects will display here */}

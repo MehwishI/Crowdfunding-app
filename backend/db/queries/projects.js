@@ -100,8 +100,8 @@ const getProjectsByUserId = (userId) => {
       return null;
     });
 };
-//reduce funding target by funding amount and incraease current funding ( Alex you want to work on this?)
 
+//reduce funding target by funding amount and incraease current funding
 const updateProjectFunding = (projectId, funding_amount) => {
   return db
     .query(

@@ -1,8 +1,8 @@
 var express = require("express");
 var router = express.Router();
-//const postCharge = require("stripe");
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+console.log("reached stripe.js");
 
 async function postCharge(req, res) {
   try {
@@ -26,6 +26,7 @@ async function postCharge(req, res) {
     res.status(500).json({
       message: error.message,
     });
+    console.log("error:", error.message);
   }
 }
 
