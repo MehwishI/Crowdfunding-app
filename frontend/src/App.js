@@ -2,14 +2,15 @@ import React from "react";
 
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import Cookies from "js-cookie";
 import Home from "./components/Home";
 import RegisterForm from "./components/RegisterForm";
 import LoginForm from "./components/LoginForm";
 import Logout from "./components/Logout";
 import UserDashboard from "./components/UserDashboard";
 import CreateProject from "./components/CreateProject";
+import EditProject from "./components/EditProject";
 //import TopNavigation from "./components/TopNavigation";
-import Cookies from "js-cookie";
 //import CheckoutForm from "./components/CheckoutForm";
 import Checkout from "./components/Checkout";
 import PaymentSuccess from "./components/PaymentSuccess";
@@ -32,6 +33,7 @@ function App() {
 
         <Route path="/donate/:projectid" element={<Checkout />} />
         <Route path="/donate/paymentsuccess" element={<PaymentSuccess />} />
+        <Route path="/edit/:projectid" element={<EditProject />} />
       </Routes>
     </div>
   );

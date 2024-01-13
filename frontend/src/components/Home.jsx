@@ -36,7 +36,7 @@ const Home = () => {
 
           <img src={Img} style={{ width: "75%", height: "auto" }} />
         </div>
-        <p>Welcome to FundMe! A crowdfunding app</p>
+        <p>Welcome to FundMe! A Crowdfunding Application</p>
         <br />
       </div>
 

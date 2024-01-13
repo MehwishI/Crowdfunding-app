@@ -3,7 +3,6 @@ import "./style.css";
 import { useNavigate } from "react-router-dom";
 
 const ProjectBox = (props) => {
-  // console.log("reached project box for project:", props);
   const goToProjectPage = (projectId) => {
     // Redirect to individual project page
     // TODO: Need to know what state needs to be modified to change pages
@@ -11,17 +10,26 @@ const ProjectBox = (props) => {
   };
 
   const [selectedProject, setSelectedProject] = useState(null);
+  const [donateBtn, setDonateBtnClicked] = useState(false);
+  const [editBtn, setEditBtnClicked] = useState(false);
   const { projectId, project, currentUserId } = props;
   const navigate = useNavigate();
-  //console.log("project details received: ", project);
   const handleDonateclick = (project) => {
-    //check if a user is logged in
+    setDonateBtnClicked(true);
+    currentUserId ? setSelectedProject(project) : navigate("/login");
+  };
+  const handleEditClick = (project) => {
+    setEditBtnClicked(true);
     currentUserId ? setSelectedProject(project) : navigate("/login");
   };
   useEffect(() => {
     //if selected project is changed and donate butto is clicked
-    if (selectedProject) {
+    if (selectedProject && donateBtn) {
       navigate(`/donate/${selectedProject.id}`, { state: { selectedProject } });
+    } else if (selectedProject && editBtn) {
+      navigate(`/edit/${selectedProject.id}`, {
+        state: { selectedProject },
+      });
     }
   }, [selectedProject, navigate]);
 
@@ -30,6 +38,11 @@ const ProjectBox = (props) => {
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
         <div className="name_and_button">
           <h2 className="project_box_name">{project.name || " "}</h2>
+          <button
+            type="button"
+            className="project_box_edit_button"
+            onClick={() => handleEditClick(project)}
+          ></button>
           <button
             type="button"
             className="project_box_donate_button"

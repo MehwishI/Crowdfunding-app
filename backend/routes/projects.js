@@ -4,16 +4,11 @@ var projectQueries = require("../db/queries/projects");
 
 // Get all projects
 router.get("/", async (req, res) => {
-  //let projects = await projectQueries.getProjects();
-
   //const userid = req.cookies.userid;
   await projectQueries
     .getProjects()
 
     .then((projectsData) => {
-      // res.status(200).send(`Project(s) found for user ${req.params.userid}!`);
-      // console.log("projects returned:", projectsData);
-
       res.json({ projectsData });
     })
     .catch((error) => {
@@ -50,10 +45,36 @@ router.post("/create", async (req, res) => {
       return null;
     });
 });
+router.post("/edit", async (req, res) => {
+  //Show edit project component? YES
+
+  const project = req.body;
+
+  await projectQueries
+    .editProject(project)
+    .then((result) => {
+      console.log("result:", result);
+      res.status(200).send("Project data saved sucessfully in database!");
+    })
+    .catch((error) => {
+      console.error("Error saving project data:", error);
+      return null;
+    });
+});
 
 // Delete a project
 router.post("/delete/:id", async (req, res) => {
   //Stretch
+  await projectQueries
+    .deleteProject(req.params.id)
+    .then((result) => {
+      console.log("result:", result);
+      res.status(200).send("Project data deleted sucessfully from database!");
+    })
+    .catch((error) => {
+      console.error("Error deleting project data:", error);
+      return null;
+    });
 });
 
 // Display projects belonging to a user
@@ -85,7 +106,6 @@ router.get("/user/:userid", async (req, res) => {
   //   res.status(403).send(`No projects found for user ${req.params.userid}!`);
   // }
 });
-//Alex , are you willing to work on it?
 //update project details
 //reduce funding target by funding amount and incraease current funding ( Alex you want to work on this?)
 router.post("/update/funding", async (req, res) => {

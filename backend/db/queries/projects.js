@@ -128,4 +128,5 @@ module.exports = {
   getProjectsByCategory,
   getProjectsByUserId,
   updateProjectFunding,
+  editProject,
 };
