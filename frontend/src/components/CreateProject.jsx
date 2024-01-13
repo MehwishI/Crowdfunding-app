@@ -52,8 +52,11 @@ const CreateProject = () => {
       <h2>Create a New Project</h2>
       <div className="create_project-container">
         <form onSubmit={handleSubmit}>
+        
           <label className="form-label">
+            <div className="left">
             Project Name:
+            </div>
             <input
               className="form-input"
               type="text"
@@ -62,9 +65,13 @@ const CreateProject = () => {
               required
             />
           </label>
+          
+        
 
           <label className="form-label">
+          <div className="left">
             Select Category:
+          </div>
             <select
               className="form-input"
               value={projectCategory}
@@ -78,7 +85,9 @@ const CreateProject = () => {
             </select>
           </label>
           <label className="form-label">
+          <div className="left">
             Description:
+          </div>
             <input
               className="form-input"
               type="text"
@@ -87,7 +96,9 @@ const CreateProject = () => {
             />
           </label>
           <label className="form-label">
+          <div className="left">
             Picture:
+          </div>
             <input
               className="form-input"
               type="text"
@@ -97,7 +108,9 @@ const CreateProject = () => {
           </label>
 
           <label className="form-label">
+          <div className="left">
             Fundraising Goal:
+          </div>
             <input
               className="form-input"
               type="number"
@@ -107,7 +120,9 @@ const CreateProject = () => {
             />
           </label>
           <label className="form-label">
+          <div className="left">
             Current Funding:
+          </div>
             <input
               className="form-input"
               type="text"
@@ -116,13 +131,16 @@ const CreateProject = () => {
             />
           </label>
           <label className="form-label">
+          <div className="left">
             End Date:
+          </div>
             <input
               className="form-input"
               type="date"
               value={projectEndDate}
               onChange={(e) => setProjectEndDate(e.target.value)}
               required
+              style={{ width: "320px" }}
             />
           </label>
 
