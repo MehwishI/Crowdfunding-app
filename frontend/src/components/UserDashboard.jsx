@@ -85,22 +85,7 @@ const UserDashboard = (props) => {
           {/* <p>content goes here</p> }
           <ProjectBox />
         </div> */}
-          <div className="section" id="create">
-            {/* Content for the fourth section */}
-            <h2>Create your own project</h2>
-            <p>
-              <button>
-                <Link
-                  to={{
-                    pathname: "/createproject",
-                  }}
-                  state={{ currentUserId: currentUserId }}
-                >
-                  Create a new Project!
-                </Link>
-              </button>
-            </p>
-          </div>
+          
         </div>
       </div>
     </div>

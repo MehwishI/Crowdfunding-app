@@ -1,9 +1,9 @@
 body {
   background-image: url("../images/pilecoin.png");
   background-size: cover;
-  /* background-repeat: repeat; */
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 .main-page {
   display: flex;
@@ -14,30 +14,49 @@ body {
 }
 
 .top-nav-bar {
-  left: 20px;
-  align-self: flex-end;
   justify-content: space-between;
+  align-items: center;
   display: flex;
   position: relative;
-
   padding-bottom: 20px;
-
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 20px;
   padding-top: 20px;
-
   background-color: #8799f6;
   width: 100%;
   font-weight: bold;
   font-size: large;
+  margin-right: 10px;
+}
+
+.top-nav-bar > div {
+  flex-shrink: 0;
+}
+
+.logo-container {
+  text-align: left; 
+  margin: auto; 
+  cursor: pointer;
 }
 
 .top-nav-bar a {
   align-self: flex-end;
   margin-right: 15px;
-  right: 0;
-  margin-left: auto;
   text-align: right;
+  align-items: flex-start;
+}
+
+@media (max-width: 800px) {
+  .top-nav-bar {
+    flex-direction: column;
+    align-items: stretch;
+
+  }
+  .top-nav-bar a {
+    margin-top: 10;
+    align-items: center;
+    
+  }
 }
 
 .center-section {
@@ -50,19 +69,23 @@ body {
   width: 100%;
   font-weight: bolder;
   font-size: 35px;
+  
+  
 }
 
 .create_project-container {
-  text-align: center;
   margin-top: 50px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
 }
 
 .form-label {
-  display: block;
+  display: flex;
   margin-bottom: 8px;
+  align-items: center;
 }
 
 .form-input {
@@ -86,7 +109,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  height: 100vh;
 }
 
 .login-form {
@@ -106,9 +129,19 @@ body {
   width: 100%;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.left {
+  display: flex;
+  width: 100%;
+  margin-bottom: 16px;
 }
+
+
+.form-input {
+  flex-grow: 1;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
 
 .form-group label {
   display: block;
@@ -125,12 +158,22 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
+@media (min-width: 800px) {
+.container {
+  display: flex;
+}
+
 .section {
   border: 2px solid #001f3f;
   border-radius: 10px;
   padding: 20px;
   margin: 10px;
+  flex: 1;
+  margin-right: 20px;
 }
+}
+
 .title-active-projects {
   font-size: 33px;
   font-weight: 500;
@@ -180,9 +223,4 @@ body {
   font-size: 16px;
   height: 48px;
   padding: 5px 20px;
-}
-
-.logo-container {
-  text-align: left;
-  margin: auto;
 }
