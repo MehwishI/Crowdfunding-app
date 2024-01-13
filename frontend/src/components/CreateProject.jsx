@@ -3,8 +3,15 @@ import "./style.css";
 import TopNavigation from "./TopNavigation";
 import { createProject } from "../helpers/createProject";
 import Cookies from "js-cookie";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const CreateProject = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const currentUserId = location.state?.currentUserId;
+  if (!currentUserId) {
+    navigate("/login");
+  }
   // state for form inputs
   const [projectName, setProjectName] = useState("");
   const [projectCategory, setProjectCategory] = useState("");
@@ -52,11 +59,8 @@ const CreateProject = () => {
       <h2>Create a New Project</h2>
       <div className="create_project-container">
         <form onSubmit={handleSubmit}>
-        
           <label className="form-label">
-            <div className="left">
-            Project Name:
-            </div>
+            <div className="left">Project Name:</div>
             <input
               className="form-input"
               type="text"
@@ -65,13 +69,9 @@ const CreateProject = () => {
               required
             />
           </label>
-          
-        
 
           <label className="form-label">
-          <div className="left">
-            Select Category:
-          </div>
+            <div className="left">Select Category:</div>
             <select
               className="form-input"
               value={projectCategory}
@@ -85,9 +85,7 @@ const CreateProject = () => {
             </select>
           </label>
           <label className="form-label">
-          <div className="left">
-            Description:
-          </div>
+            <div className="left">Description:</div>
             <input
               className="form-input"
               type="text"
@@ -96,9 +94,7 @@ const CreateProject = () => {
             />
           </label>
           <label className="form-label">
-          <div className="left">
-            Picture:
-          </div>
+            <div className="left">Picture:</div>
             <input
               className="form-input"
               type="text"
@@ -108,9 +104,7 @@ const CreateProject = () => {
           </label>
 
           <label className="form-label">
-          <div className="left">
-            Fundraising Goal:
-          </div>
+            <div className="left">Fundraising Goal:</div>
             <input
               className="form-input"
               type="number"
@@ -120,9 +114,7 @@ const CreateProject = () => {
             />
           </label>
           <label className="form-label">
-          <div className="left">
-            Current Funding:
-          </div>
+            <div className="left">Current Funding:</div>
             <input
               className="form-input"
               type="text"
@@ -131,9 +123,7 @@ const CreateProject = () => {
             />
           </label>
           <label className="form-label">
-          <div className="left">
-            End Date:
-          </div>
+            <div className="left">End Date:</div>
             <input
               className="form-input"
               type="date"
@@ -143,10 +133,20 @@ const CreateProject = () => {
               style={{ width: "320px" }}
             />
           </label>
-
-          <button type="submit" className="btn_create">
-            Submit
-          </button>
+          <div className="create_box_buttons">
+            <button type="submit" className="btn_create">
+              Submit
+            </button>
+            <button
+              type="submit"
+              className="button"
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     </div>

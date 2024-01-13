@@ -34,9 +34,10 @@ body {
 }
 
 .logo-container {
-  text-align: left; 
-  margin: auto; 
+  text-align: left;
+  margin: auto;
   cursor: pointer;
+  margin-left: 30px;
 }
 
 .top-nav-bar a {
@@ -50,12 +51,10 @@ body {
   .top-nav-bar {
     flex-direction: column;
     align-items: stretch;
-
   }
   .top-nav-bar a {
     margin-top: 10;
     align-items: center;
-    
   }
 }
 
@@ -69,8 +68,6 @@ body {
   width: 100%;
   font-weight: bolder;
   font-size: 35px;
-  
-  
 }
 p.center-section {
   font-size: 30px;
@@ -138,13 +135,11 @@ p.center-section {
   margin-bottom: 16px;
 }
 
-
 .form-input {
   flex-grow: 1;
   padding: 8px;
   box-sizing: border-box;
 }
-
 
 .form-group label {
   display: block;
@@ -163,18 +158,19 @@ p.center-section {
 }
 
 @media (min-width: 800px) {
-.container {
-  display: flex;
-}
+  .container {
+    display: flex;
+    padding-top: 70px;
+  }
 
-.section {
-  border: 2px solid #001f3f;
-  border-radius: 10px;
-  padding: 20px;
-  margin: 10px;
-  flex: 1;
-  margin-right: 20px;
-}
+  .section {
+    border: 2px solid #001f3f;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    flex: 1;
+    margin-right: 20px;
+  }
 }
 
 .title-active-projects {
@@ -202,8 +198,25 @@ p.center-section {
 .name_and_button {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.box_buttons {
+  display: flex;
+  align-items: flex-end;
 }
 .project_box_donate_button {
+  background-color: #046daa;
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 48px;
+  padding: 5px 20px;
+}
+.project_box_edit_button {
   background-color: #046daa;
   border: none;
   color: white;
@@ -226,4 +239,34 @@ p.center-section {
   font-size: 16px;
   height: 48px;
   padding: 5px 20px;
+}
+.button {
+  background-color: #046daa;
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 48px;
+  padding: 5px 20px;
+}
+
+.edit_project_container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
+}
+.edit_button_panel {
+  display: flex;
+  justify-content: space-between;
+}
+.create_box_buttons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
 }

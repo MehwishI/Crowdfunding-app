@@ -24,15 +24,6 @@ const UserDashboard = (props) => {
     console.log("user not logged in, redirecting to login page");
     navigate("/login");
   }
-  // if (state) {
-  //const currentUserId = state ? null : state.currentUserId;
-  // console.log(currentUserId);
-  // }
-  //const projectsData = null;
-  // getProjectsByUserId(currentUserId);
-  // console.log("projectsData received to UserDashboard:", projectsData);
-  // const donationsData = getDonationsByUserId(currentUserId);
-  // console.log("donationsData returned: ", donationsData);
 
   useEffect(() => {
     const fetchDonationsData = async () => {
@@ -48,11 +39,6 @@ const UserDashboard = (props) => {
 
     const fetchProjectsData = async () => {
       const data = await getProjectsByUserId(currentUserId);
-      // console.log("projects data:", data);
-      // console.log(
-      //   "if projectsData an array?",
-      //   Array.isArray(data.projectsData)
-      // );
 
       setProjectsData(data.projectsData);
     };
@@ -64,12 +50,16 @@ const UserDashboard = (props) => {
     <div>
       <TopNavigation currentUserId={currentUserId} />
       <div className="page">
+        {/* <h3>My Dashboard</h3> */}
         <div className="container">
           <div className="section" id="userproject">
             {/* Content for the first section */}
             <h2>My Projects</h2>
 
-            <UserProject projectsData={projectsData} />
+            <UserProject
+              projectsData={projectsData}
+              currentUserId={currentUserId}
+            />
           </div>
           <div className="section" id="funded">
             {/* Content for the second section */}
@@ -78,14 +68,6 @@ const UserDashboard = (props) => {
             {/*donations list*/}
             <Funding donationsData={donationsData} />
           </div>
-          {/* <div className="section" id="active">
-          {/* Content for the third section */}
-
-          {/* <h2>Active projects</h2>
-          {/* <p>content goes here</p> }
-          <ProjectBox />
-        </div> */}
-          
         </div>
       </div>
     </div>

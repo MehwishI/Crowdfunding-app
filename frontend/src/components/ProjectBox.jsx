@@ -20,10 +20,15 @@ const ProjectBox = (props) => {
   };
   const handleEditClick = (project) => {
     setEditBtnClicked(true);
+    console.log("editBtn:", editBtn);
+    console.log("currentuserid inside handleeditclick:", currentUserId);
+
     currentUserId ? setSelectedProject(project) : navigate("/login");
+    console.log("editBtn:", editBtn);
   };
   useEffect(() => {
-    //if selected project is changed and donate butto is clicked
+    //if selected project is changed and donate button is clicked
+    console.log("editBtn:", editBtn);
     if (selectedProject && donateBtn) {
       navigate(`/donate/${selectedProject.id}`, { state: { selectedProject } });
     } else if (selectedProject && editBtn) {
@@ -31,25 +36,33 @@ const ProjectBox = (props) => {
         state: { selectedProject },
       });
     }
-  }, [selectedProject, navigate]);
+  }, [selectedProject, donateBtn, editBtn, navigate]);
 
   if (project) {
     return (
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
         <div className="name_and_button">
           <h2 className="project_box_name">{project.name || " "}</h2>
-          <button
-            type="button"
-            className="project_box_edit_button"
-            onClick={() => handleEditClick(project)}
-          ></button>
-          <button
-            type="button"
-            className="project_box_donate_button"
-            onClick={() => handleDonateclick(project)}
-          >
-            Make a donation
-          </button>
+          <div className="box_buttons">
+            {window.location.href === "http://localhost:3000/userdashboard" ? (
+              <button
+                type="button"
+                className="project_box_edit_button"
+                onClick={() => handleEditClick(project)}
+              >
+                Edit project
+              </button>
+            ) : (
+              ""
+            )}
+            <button
+              type="button"
+              className="project_box_donate_button"
+              onClick={() => handleDonateclick(project)}
+            >
+              Make a donation
+            </button>
+          </div>
         </div>
         <img
           className="project_box_pic"

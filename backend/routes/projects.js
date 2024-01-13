@@ -37,7 +37,7 @@ router.post("/create", async (req, res) => {
   await projectQueries
     .addProject(project)
     .then((result) => {
-      console.log("result:", result);
+      console.log("result after creation:", result);
       res.status(200).send("Project data saved sucessfully in database!");
     })
     .catch((error) => {
@@ -46,19 +46,18 @@ router.post("/create", async (req, res) => {
     });
 });
 router.post("/edit", async (req, res) => {
-  //Show edit project component? YES
-
   const project = req.body;
 
   await projectQueries
     .editProject(project)
     .then((result) => {
-      console.log("result:", result);
+      console.log("result after editing:", result);
       res.status(200).send("Project data saved sucessfully in database!");
     })
     .catch((error) => {
       console.error("Error saving project data:", error);
-      return null;
+      res.status(400).send(error);
+      // return null;
     });
 });
 
@@ -79,9 +78,6 @@ router.post("/delete/:id", async (req, res) => {
 
 // Display projects belonging to a user
 router.get("/user/:userid", async (req, res) => {
-  // console.log("reached project route");
-  //console.log("userid cookie", req.cookies.userid);
-
   const userid = req.cookies.userid;
   await projectQueries
     .getProjectsByUserId(userid)

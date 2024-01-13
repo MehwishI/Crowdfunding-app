@@ -79,10 +79,14 @@ const LoginForm = () => {
             />
           </div>
           <div className="form-actions">
-            <button type="button" onClick={handleLoginSubmit}>
+            <button
+              type="button"
+              className="button"
+              onClick={handleLoginSubmit}
+            >
               Submit
             </button>
-            <button type="button" onClick={handleCancel}>
+            <button type="button" className="button" onClick={handleCancel}>
               Cancel
             </button>
           </div>

@@ -105,7 +105,8 @@ const getProjectsByCategory = (category) => {
 const getProjectsByUserId = (userId) => {
   return db
     .query(
-      `SELECT 
+      `SELECT
+        projects.id,
         projects.owner_id,
         users.name AS created_by,
         projects.name,
@@ -133,7 +134,10 @@ const getProjectsByUserId = (userId) => {
 // Change funding of a specific project by a specific amount
 const updateProjectFunding = (projectId, funding_amount) => {
   return db
-    .query(`UPDATE projects SET funding_current = funding_current + $2 WHERE id = $1`, [projectId, funding_amount])
+    .query(
+      `UPDATE projects SET funding_current = funding_current + $2 WHERE id = $1`,
+      [projectId, funding_amount]
+    )
     .then((result) => {
       console.log(`Project ${projectId} funding changed by ${funding_amount}.`);
       return result.rows[0];
@@ -146,22 +150,23 @@ const updateProjectFunding = (projectId, funding_amount) => {
 
 // Update existing project
 const editProject = function (project) {
+  console.log("project recieved in editProject query", project);
   return db
+
     .query(
       `UPDATE projects SET
-        owner_id = $2,
-        name = $3, 
-        description = $4, 
-        category = $5, 
-        picture $6, 
-        funding_target = $7,
-        funding_current = $8,
-        end_date = $9
+       
+        name = $2, 
+        description = $3, 
+        category = $4, 
+        picture = $5, 
+        funding_target = $6,
+        funding_current = $7,
+        end_date = $8
         WHERE id = $1
         RETURNING *`,
       [
-        project.id,
-        project.ownerId,
+        project.projectid,
         project.projectName,
         project.projectDesc,
         project.projectCategory,
@@ -172,6 +177,7 @@ const editProject = function (project) {
       ]
     )
     .then((result) => {
+      console.log("result in query after editing", result.rows);
       return result.rows[0];
     })
     .catch((error) => {
@@ -202,5 +208,5 @@ module.exports = {
   getProjectsByUserId,
   updateProjectFunding,
   editProject,
-  deleteProject
+  deleteProject,
 };

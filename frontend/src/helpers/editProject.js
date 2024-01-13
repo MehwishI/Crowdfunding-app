@@ -1,6 +1,6 @@
 //save create project  data to db
 export async function editProject(projectData) {
-  // console.log("received project data", projectData);
+  console.log("received project data", projectData);
   try {
     const response = await fetch("/api/projects/edit", {
       method: "POST",
@@ -10,6 +10,7 @@ export async function editProject(projectData) {
       },
       credentials: "include",
     });
+    console.log("response", response);
     if (response.ok) {
       console.log("Project data successfully saved after editing!");
       return true;

@@ -11,11 +11,15 @@ const PaymentSuccess = () => {
       <TopNavigation />
       <div className="success">
         <h2>Thank you for making a donation!</h2>
-        <h3>
-          Congratulations! You have won a {reward.quantity} {reward.title}</h3>
-        {reward.location && <h3>at {reward.location}</h3>}
-       
-        <p>More details will be sent to your registered email address.</p>
+        {reward && (
+          <div>
+            <h3>
+              Congratulations! You have won a {reward.quantity} {reward.title}
+            </h3>
+            {reward.location && <h3>at {reward.location}</h3>}
+            <p>More details will be sent to your registered email address.</p>
+          </div>
+        )}
         <a href={state.data.receiptUrl}>View Receipt</a>
         <Link to="/">Home</Link>
       </div>

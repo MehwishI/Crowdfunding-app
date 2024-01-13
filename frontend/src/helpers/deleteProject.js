@@ -2,7 +2,7 @@
 export async function deleteProject(projectid) {
   // console.log("received donation data", projectData);
   try {
-    const response = await fetch("/api/projects/delete/:projectid", {
+    const response = await fetch(`/api/projects/delete/${projectid}`, {
       method: "POST",
       //body: JSON.stringify(projectData),
       headers: {
