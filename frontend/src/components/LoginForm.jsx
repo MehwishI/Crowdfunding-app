@@ -51,10 +51,6 @@ const LoginForm = () => {
     }
   };
 
-  const handleCancel = () => {
-    navigate(-1);
-  };
-
   return (
     <div>
       <TopNavigation currentUserId={currentUserId} />
@@ -63,16 +59,18 @@ const LoginForm = () => {
       <div className="login-container">
         <form className="login-form">
           <div className="form-group">
-            <label>Email:</label>
+            <label className="left">Email:</label>
             <input
+              className="form-input"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="form-group">
-            <label>Password:</label>
+            <label className="left">Password:</label>
             <input
+              className="form-input"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -86,7 +84,11 @@ const LoginForm = () => {
             >
               Submit
             </button>
-            <button type="button" className="button" onClick={handleCancel}>
+            <button
+              type="button"
+              className="button"
+              onClick={() => navigate(-1)}
+            >
               Cancel
             </button>
           </div>

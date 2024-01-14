@@ -161,7 +161,7 @@ const EditProject = () => {
               Save
             </button>
             <button
-              type="submit"
+              
               className="button"
               onClick={() => {
                 navigate(-1);

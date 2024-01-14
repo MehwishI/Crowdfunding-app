@@ -22,6 +22,11 @@ const CreateProject = () => {
   const [currentFunding, setCurrentFunding] = useState(0);
   const [projectEndDate, setProjectEndDate] = useState("");
 
+  const [rewardTitle, setRewardTitle] = useState("");
+  const [rewardType, setRewardType] = useState("");
+  const [rewardQuantity, setRewardQuantity] = useState("");
+  const [rewardLocation, setRewardLocation] = useState("");
+
   // function for form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,7 +74,6 @@ const CreateProject = () => {
               required
             />
           </label>
-
           <label className="form-label">
             <div className="left">Select Category:</div>
             <select
@@ -102,7 +106,6 @@ const CreateProject = () => {
               onChange={(e) => setProjectPicture(e.target.value)}
             />
           </label>
-
           <label className="form-label">
             <div className="left">Fundraising Goal:</div>
             <input
@@ -131,6 +134,49 @@ const CreateProject = () => {
               onChange={(e) => setProjectEndDate(e.target.value)}
               required
               style={{ width: "320px" }}
+            />
+          </label>
+          <h4>Add Rewards (optional)</h4>
+          <label className="form-label">
+            <div className="left">Title</div>
+            <input
+              className="form-input"
+              type="text"
+              value={rewardTitle}
+              onChange={(e) => setRewardTitle(e.target.value)}
+            />
+          </label>
+
+          <label className="form-label">
+            <div className="left">Type:</div>
+            <select
+              className="form-input"
+              value={rewardType}
+              onChange={(e) => setRewardType(e.target.value)}
+              required
+            >
+              <option value="">Select reward type</option>
+              <option value="Discount">Discount</option>
+              <option value="Gift">Gift</option>
+              <option value="Gift Card">Gift Card</option>
+            </select>
+          </label>
+          <label className="form-label">
+            <div className="left">Quantity</div>
+            <input
+              className="form-input"
+              type="text"
+              value={rewardQuantity}
+              onChange={(e) => setRewardQuantity(e.target.value)}
+            />
+          </label>
+          <label className="form-label">
+            <div className="left">Location</div>
+            <input
+              className="form-input"
+              type="text"
+              value={rewardLocation}
+              onChange={(e) => setRewardLocation(e.target.value)}
             />
           </label>
           <div className="create_box_buttons">

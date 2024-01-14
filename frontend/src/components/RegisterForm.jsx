@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import { defer } from "request/lib/helpers";
-
+import TopNavigation from "./TopNavigation";
 import "./style.css";
 
 const RegisterForm = () => {
@@ -51,41 +50,50 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="register-container">
-      <form className="register-form">
-        <div className="form-group">
-          <label>User Name:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUserName(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="form-actions">
-          <button type="button" onClick={handleRegisterSubmit}>
-            Register
-          </button>
-          <button type="button" onClick={handleCancel}>
-            Cancel
-          </button>
-        </div>
-      </form>
+    <div>
+      <TopNavigation />
+      <div className="register-container">
+        <h3>User Registration </h3>
+        <br />
+        <form className="register-form">
+          <div className="form-group">
+            <label>User Name:</label>
+            <input
+              type="text"
+              value={username}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label>Email:</label>
+            <input
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="form-actions">
+            <button
+              type="button"
+              className="button"
+              onClick={handleRegisterSubmit}
+            >
+              Register
+            </button>
+            <button type="button" className="button" onClick={handleCancel}>
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

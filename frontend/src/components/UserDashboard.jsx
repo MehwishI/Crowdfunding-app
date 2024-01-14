@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import UserProject from "./UserProject";
 import Funding from "./Funding";
 import TopNavigation from "./TopNavigation";
+import Cookies from "js-cookie";
 
 import {
   getProjectsByUserId,
@@ -17,7 +18,8 @@ const UserDashboard = (props) => {
   const [projectsData, setProjectsData] = useState([]);
 
   const location = useLocation();
-  const currentUserId = location.state?.currentUserId;
+  const currentUserId = Cookies.get("userid");
+  //location.state?.currentUserId;
 
   const navigate = useNavigate();
   if (!currentUserId) {

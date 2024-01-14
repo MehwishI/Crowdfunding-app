@@ -34,9 +34,9 @@ const Home = () => {
         <div className="image-placeholder">
           <br />
 
-          <img src={Img} style={{ width: "75%", height: "auto" }}  alt="logo"/>
+          <img src={Img} style={{ width: "60%", height: "auto" }} alt="logo" />
         </div>
-        <p>Welcome to FundMe! A Crowdfunding Application</p>
+        <p className="welcome_name">Welcome to FundMe! A Crowdfunding Application</p>
         <br />
       </div>
 
@@ -44,7 +44,7 @@ const Home = () => {
       <div className="active-projects">
         <br />
 
-        <span className="title-active-projects">Available Projects</span>
+        <span className="title-active-projects">Popular Projects</span>
         <UserProject
           projectsData={projectsData}
           currentUserId={currentUserId}

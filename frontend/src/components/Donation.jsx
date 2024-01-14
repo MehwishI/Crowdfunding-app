@@ -14,6 +14,7 @@ const Donation = (props) => {
         })}{" "}
         raised!
       </span>{" "}
+      <br />
       <span>
         Date:{" "}
         {donation.donation_date.toLocaleString({

@@ -4,7 +4,7 @@ import "./style.css";
 
 //import { useCookies } from "react-cookie";
 import Cookies from "js-cookie";
-//import Cookies from "universal-cookie";
+import Img from "../images/fmg-small.png";
 
 const TopNavigation = () => {
   //const [cookies] = useCookies(["userid"]);
@@ -20,7 +20,8 @@ const TopNavigation = () => {
   return (
     <div className="top-nav-bar">
       <div className="logo-container" onClick={handleTitleClick}>
-        Fund Me! - A crowdfunding application
+        <img src={Img} style={{ width: "10%", height: "auto" }} alt="logo" />
+        Crowdfunding Application
       </div>
       {!currentUserId ? (
         <div>

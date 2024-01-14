@@ -42,7 +42,7 @@ const ProjectBox = (props) => {
     return (
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
         <div className="name_and_button">
-          <h2 className="project_box_name">{project.name || " "}</h2>
+          <h3 className="project_box_name">{project.name || " "}</h3>
           <div className="box_buttons">
             {window.location.href === "http://localhost:3000/userdashboard" ? (
               <button
@@ -60,7 +60,7 @@ const ProjectBox = (props) => {
               className="project_box_donate_button"
               onClick={() => handleDonateclick(project)}
             >
-              Make a donation
+              Donate and earn rewards
             </button>
           </div>
         </div>
