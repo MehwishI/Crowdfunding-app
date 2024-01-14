@@ -131,6 +131,10 @@ const CreateProject = () => {
               <option value="charity">Charity</option>
               <option value="medical">Medical</option>
               <option value="personal">Personal</option>
+              <option value="animals">Animals</option>
+              <option value="emergency">Emergency</option>
+
+              <option value="memorial">Memorial</option>
             </select>
           </label>
           <label className="form-label">

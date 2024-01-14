@@ -55,6 +55,7 @@ const ProjectBox = (props) => {
             ) : (
               ""
             )}
+            {""}
             <button
               type="button"
               className="project_box_donate_button"

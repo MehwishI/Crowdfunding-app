@@ -48,12 +48,27 @@ const UserDashboard = (props) => {
     fetchDonationsData();
   }, [currentUserId]);
 
+  const handleprojectClick = () => {
+    document.getElementById("userproject").style.display = "inline";
+    document.getElementById("funded").style.display = "none";
+  };
+  const handlefundingClick = () => {
+    document.getElementById("userproject").style.display = "none";
+    document.getElementById("funded").style.display = "inline";
+  };
+
   return (
     <div>
       <TopNavigation currentUserId={currentUserId} />
       <div className="page">
         {/* <h3>My Dashboard</h3> */}
         <div className="container">
+          <div className="projects-fundings">
+            <a onClick={() => handleprojectClick()}>My Projects</a>
+            {""}
+            <a onClick={() => handlefundingClick()}>My Fundings</a>
+          </div>
+
           <div className="section" id="userproject">
             {/* Content for the first section */}
             <h2>My Projects</h2>

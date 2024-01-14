@@ -1,6 +1,7 @@
 body {
   background-image: url("../images/pilecoin.png");
   background-size: cover;
+  opacity: 1;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -22,7 +23,7 @@ body {
   padding-left: 10px;
   padding-right: 20px;
   padding-top: 20px;
-  background-color: #8799f6;
+  background-color: lightgray;
   width: 100%;
   font-weight: bold;
   font-size: large;
@@ -43,7 +44,7 @@ body {
   font-size: 20px;
 }
 .welcome_name {
-  font-size: smaller;
+  font-size: 30px;
 }
 
 .top-nav-bar a {
@@ -173,13 +174,13 @@ p.center-section {
 @media (min-width: 800px) {
   .container {
     display: flex;
+    flex-direction: column;
     padding-top: 70px;
     padding-right: 30px;
     padding-left: 30px;
   }
 
   .section {
-    border: 2px solid #001f3f;
     border-radius: 10px;
     padding: 20px;
     margin: 10px;
@@ -189,11 +190,18 @@ p.center-section {
 }
 
 .title-active-projects {
-  font-size: 33px;
+  font-size: 25px;
   font-weight: 500;
 }
 .success {
   color: "Green";
+  width: 800px;
+  margin: 0 auto;
+  position: absolute;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .project_box {
   padding: 7px;
@@ -218,6 +226,8 @@ p.center-section {
 .box_buttons {
   display: flex;
   align-items: flex-end;
+  width: 370px;
+  justify-content: space-between;
 }
 .project_box_donate_button {
   background-color: #046daa;
@@ -309,4 +319,19 @@ p.center-section {
 .reward-checkbox {
   height: 30px;
   width: 20px;
+}
+.projects-fundings {
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  font-weight: bold;
+}
+.projects-fundings a {
+  padding-right: 20px;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+#funded {
+  display: none;
 }
