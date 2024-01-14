@@ -53,6 +53,7 @@ body {
   text-align: right;
   align-items: flex-start;
   text-decoration: none;
+  color: #046daa;
 }
 
 @media (max-width: 800px) {
@@ -330,6 +331,7 @@ p.center-section {
   padding-right: 20px;
   cursor: pointer;
   font-size: 25px;
+  color: #046daa;
 }
 
 #funded {
