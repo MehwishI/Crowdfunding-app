@@ -20,4 +20,32 @@ const getRewardsbyProjectId = (projectId) => {
     });
 };
 
-module.exports = { getRewardsbyProjectId };
+const addReward = function (reward) {
+  return db
+    .query(
+      `INSERT INTO rewards (
+        project_id,
+        title,
+        quantity,
+        type,
+        location
+      ) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+
+      [
+        reward.project_id,
+        reward.rewardTitle,
+        reward.rewardQuantity,
+        reward.rewardType,
+        reward.rewardLocation,
+      ]
+    )
+    .then((result) => {
+      return result.rows[0];
+    })
+    .catch((error) => {
+      console.error("Error creating new reward:", error.message);
+      return null;
+    });
+};
+
+module.exports = { getRewardsbyProjectId, addReward };

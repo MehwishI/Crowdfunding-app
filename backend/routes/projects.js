@@ -38,7 +38,8 @@ router.post("/create", async (req, res) => {
     .addProject(project)
     .then((result) => {
       console.log("result after creation:", result);
-      res.status(200).send("Project data saved sucessfully in database!");
+      res.status(200).send(result);
+      // return result;
     })
     .catch((error) => {
       console.error("Error saving project data:", error);
@@ -51,7 +52,7 @@ router.post("/edit", async (req, res) => {
   await projectQueries
     .editProject(project)
     .then((result) => {
-      console.log("result after editing:", result);
+      //console.log("result after editing:", result);
       res.status(200).send("Project data saved sucessfully in database!");
     })
     .catch((error) => {
