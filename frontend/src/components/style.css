@@ -23,11 +23,12 @@ body {
   padding-left: 10px;
   padding-right: 20px;
   padding-top: 20px;
-  background-color: lightgray;
+  background-color: #046daa;
   width: 100%;
   font-weight: bold;
   font-size: large;
   margin-right: 10px;
+  color: white;
 }
 
 .top-nav-bar > div {
@@ -53,7 +54,7 @@ body {
   text-align: right;
   align-items: flex-start;
   text-decoration: none;
-  color: #046daa;
+  color: white;
 }
 
 @media (max-width: 800px) {
@@ -253,6 +254,10 @@ p.center-section {
   font-size: 16px;
   height: 48px;
   padding: 5px 20px;
+}
+.project_box_pic {
+  width: 400px;
+  height: 300px;
 }
 .btn_create {
   background-color: #046daa;

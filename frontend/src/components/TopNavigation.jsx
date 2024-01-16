@@ -24,7 +24,7 @@ const TopNavigation = () => {
         Crowdfunding Application
       </div>
       {!currentUserId ? (
-        <div>
+        <div className="nav-bar-links">
           <Link to={"/register"}>Register</Link>
 
           <Link to={"/login"}>Login</Link>

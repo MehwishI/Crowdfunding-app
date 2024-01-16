@@ -36,6 +36,10 @@ const ProjectBox = (props) => {
         state: { selectedProject },
       });
     }
+    if (window.location.href !== "http://localhost:3000/userdashboard") {
+      document.getElementById("box-buttons").style.display = "inline";
+      document.getElementById("box-buttons").style.width = "250px";
+    }
   }, [selectedProject, donateBtn, editBtn, navigate]);
 
   if (project) {
@@ -43,7 +47,7 @@ const ProjectBox = (props) => {
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
         <div className="name_and_button">
           <h3 className="project_box_name">{project.name || " "}</h3>
-          <div className="box_buttons">
+          <div className="box_buttons" id="box-buttons">
             {window.location.href === "http://localhost:3000/userdashboard" ? (
               <button
                 type="button"
