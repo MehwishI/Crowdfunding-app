@@ -13,7 +13,7 @@ const EditProject = () => {
   const project = location.state?.selectedProject;
   // state for form inputs
 
-  console.log("selectproject received in editProject", project);
+  //console.log("selectproject received in editProject", project);
 
   const [projectName, setProjectName] = useState(project.name);
   const [projectCategory, setProjectCategory] = useState(project.category);
@@ -25,6 +25,8 @@ const EditProject = () => {
   );
   const [currentFunding, setCurrentFunding] = useState(project.funding_current);
   const [projectEndDate, setProjectEndDate] = useState(project.end_date);
+
+  console.log("end date:", projectEndDate);
 
   // function for form submission
   const handleSubmit = async (e) => {
@@ -161,7 +163,6 @@ const EditProject = () => {
               Save
             </button>
             <button
-              
               className="button"
               onClick={() => {
                 navigate(-1);

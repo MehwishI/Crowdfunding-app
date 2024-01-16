@@ -36,7 +36,7 @@ router.get("/project/:projectid", async (req, res) => {
 
 //GET: list of all donations made by a user id
 //getDonationsByUserId
-router.get("/userid", async (req, res) => {
+router.get("/:userid", async (req, res) => {
   const userId = req.cookies.userid;
   await donationQueries
     .getDonationsByUserId(userId)

@@ -7,9 +7,6 @@ import Cookies from "js-cookie";
 import Img from "../images/fmg-small.png";
 
 const TopNavigation = () => {
-  //const [cookies] = useCookies(["userid"]);
-  // const cookies = new Cookies();
-  //const currentUserId = props.currentUserId;
   const navigate = useNavigate();
   const currentUserId = Cookies.get("userid");
   //console.log("currentUserId:", currentUserId);

@@ -100,4 +100,8 @@
     text-align: center;
     margin-top: 1em;
   }
+  .card-errors {
+    color: red;
+    align-items: left;
+  }
 }

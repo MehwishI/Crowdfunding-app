@@ -30,14 +30,17 @@ export async function getProjectsByUserId(userid) {
 
 export async function getDonationsByUserId(userid) {
   try {
-    const response = await fetch(`http://localhost:3001/api/donations/userid`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-      // dataType: "json",
-    });
+    const response = await fetch(
+      `http://localhost:3001/api/donations/${userid}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        // dataType: "json",
+      }
+    );
     if (response.ok) {
       const donationsData = await response.json();
       //console.log("donationsData from fetch: ", donationsData);
