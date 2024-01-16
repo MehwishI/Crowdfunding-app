@@ -3,7 +3,7 @@ INSERT INTO projects
 VALUES
   (1, 
   'Cure for Cancer', 
-  'We are Super-Future Labs and we\'re here to fix an issue that has long plagued humanity. We just need a small donation of a million dollars.', 
+  'We are Super-Future Labs and we are here to fix an issue that has long plagued humanity. We just need a small donation of a million dollars.', 
   'Medical', 
   'https://i.pinimg.com/736x/35/26/51/352651f4f9d139ad4a1df77830ac8f9e.jpg',
   1000000, 
@@ -12,7 +12,7 @@ VALUES
   
   (2, 
   'Pay my Mortgage', 
-  'Please help. I\'m drowning.', 
+  'Please help. I am drowning.', 
   'Personal', 
   'https://hypothequecreative.com/wp-content/uploads/2022/05/buy-6971881_1920-1024x730.jpg',
   600000, 
@@ -21,7 +21,7 @@ VALUES
   
   (2, 
   'Pay My Medical Bills', 
-  'Broke a bunch of bones, lost my job, and now I\'m breaking the bank. Please help!', 
+  'Broke a bunch of bones, lost my job, and now I am breaking the bank. Please help!', 
   'Medical', 
   'https://cdn.discordapp.com/attachments/1151238243648536618/1195530714662326352/gimmemoney.jpg',
   50000, 
@@ -39,7 +39,9 @@ VALUES
   
   (2, 
   'Charity School', 
-  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 
+  'Help us build a school for the future in the inner city of Townville! 
+  
+  Many of the less fortunate do not have the means to study or eat properly to do their best in school, so we will be providing food and care services to relieve many families of some of this burden.', 
   'Charity', 
   'https://i.pinimg.com/736x/75/f2/ab/75f2ab90ea1adf158c0177139479d06c.jpg',
   5000000, 
@@ -48,7 +50,7 @@ VALUES
   
   (3, 
   'Make a Kid Smile', 
-  'There isn\'t much that\'s worth more than this.', 
+  'There is not much that is worth more than this.', 
   'Charity', 
   'https://www.smilezrus.com/files/2020/02/shutterstock_735971812.jpg',
   70000, 
