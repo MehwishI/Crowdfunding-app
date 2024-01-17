@@ -27,6 +27,7 @@ const CheckoutForm = ({ selectedProject }) => {
   const [errorExist, setErrorExist] = useState(false);
   const [formErrors, setFormErrors] = useState(null);
 
+  console.log(selectedProject);
   // useEffect(() => {
   //   if (errorExist) {
   //     document.getElementById("checkoutForm").reset();
@@ -91,8 +92,8 @@ const CheckoutForm = ({ selectedProject }) => {
     });
 
     try {
-      console.log("Creating token");
-      console.log("cardElement", cardElement);
+      // console.log("Creating token");
+      // console.log("cardElement", cardElement);
       const { error, token } = await stripe.createToken(cardElement);
       if (error) {
         // throw error;
@@ -188,6 +189,9 @@ const CheckoutForm = ({ selectedProject }) => {
   return (
     <div>
       <TopNavigation />
+      <div className="project-name">
+        You are donating for : {selectedProject.name}
+      </div>
       <div className="checkout-form">
         <h3>Make a donation</h3>
         {formErrors && (
@@ -196,16 +200,17 @@ const CheckoutForm = ({ selectedProject }) => {
           </label>
         )}
         <form id="checkoutForm" onSubmit={handleSubmit}>
-          <label>Enter Amount:
-          <input className="inputcheck"
-            name="donationAmount"
-            value={donationAmount}
-            onChange={(e) => {
-              validateAmount(e.target.value);
-              //setDonationAmount(e.target.value);
-            }}
-            required
-          />
+          <label>
+            Enter Amount ($):
+            <input
+              name="donationAmount"
+              value={donationAmount}
+              onChange={(e) => {
+                validateAmount(e.target.value);
+                //setDonationAmount(e.target.value);
+              }}
+              required
+            />
           </label>
           <label>
             Card details
@@ -220,7 +225,7 @@ const CheckoutForm = ({ selectedProject }) => {
             <CardCvcElement required />
           </label>
           <div className="checkout">
-          <button
+            <button
               type="submit"
               className="button"
               onClick={() => {
@@ -230,13 +235,10 @@ const CheckoutForm = ({ selectedProject }) => {
               Cancel
             </button>
             <button type="submit" className="button">
-            Pay
+              Pay
             </button>
-            </div>
-          <label id="card-errors" className="card-errors">
-            
-          </label>
-          
+          </div>
+          <label id="card-errors" className="card-errors"></label>
         </form>
       </div>
     </div>

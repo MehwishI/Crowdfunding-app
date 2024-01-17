@@ -34,7 +34,7 @@ const Home = () => {
         <div className="image-placeholder">
           <br />
 
-          <img src={Img} style={{ width: "45%", height: "auto" }} alt="logo" />
+          <img src={Img} style={{ width: "35%", height: "auto" }} alt="logo" />
         </div>
         <p className="welcome_name">Welcome to FundMe!</p>
         <br />
@@ -42,8 +42,6 @@ const Home = () => {
 
       {/* Active projects will display here */}
       <div className="active-projects">
-        <br />
-
         <span className="title-active-projects">Popular Projects</span>
         <UserProject
           projectsData={projectsData}

@@ -42,10 +42,13 @@ body {
   margin-left: 30px;
   align-items: center;
   display: flex;
-  font-size: 20px;
+  font-size: 25px;
 }
+
 .welcome_name {
   font-size: 30px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .top-nav-bar a {
@@ -55,6 +58,7 @@ body {
   align-items: flex-start;
   text-decoration: none;
   color: white;
+  font-size: large;
 }
 
 @media (max-width: 800px) {
@@ -75,7 +79,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 270px;
+  height: 175px;
 
   width: 100%;
   font-weight: bolder;
@@ -84,7 +88,15 @@ body {
 p.center-section {
   font-size: 30px;
 }
-
+.image-placeholder {
+  height: 120px;
+}
+.project_created_by {
+  font-weight: bold;
+}
+.project_box_funds {
+  font-weight: bold;
+}
 .create_project-container {
   margin-top: 50px;
   display: flex;
@@ -92,8 +104,21 @@ p.center-section {
   justify-content: space-between;
   align-items: center;
   overflow-x: hidden;
-}
+  background: white;
+  border: white;
+  border-radius: 30px;
+  width: 70%;
+  height: auto;
 
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 10px;
+}
+.createForm {
+  font-weight: bold;
+}
 .form-label {
   display: flex;
   margin-bottom: 8px;
@@ -177,7 +202,7 @@ p.center-section {
   .container {
     display: flex;
     flex-direction: column;
-    padding-top: 70px;
+    padding-top: 35px;
     padding-right: 30px;
     padding-left: 30px;
   }
@@ -211,19 +236,20 @@ p.center-section {
 
 .project_box {
   padding: 7px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
   border-block: 1px;
-  border-color: black;
-  border-style: dotted;
+  margin-top: 40px;
   border-left-width: 1px;
   border-right-width: 1px;
   border: 3px solid #000;
-  border-radius: 10px; 
+  border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
-  
 }
 .active-projects {
-  width: 70%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -233,13 +259,19 @@ p.center-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
 }
 .box_buttons {
   display: flex;
   align-items: flex-end;
-  width: 370px;
+
   justify-content: space-between;
+
+  width: 250px;
 }
+
 .project_box_donate_button {
   background-color: #046daa;
   border: none;
@@ -251,6 +283,10 @@ p.center-section {
   font-size: 16px;
   height: 48px;
   padding: 5px 20px;
+  margin-left: 10px;
+}
+.project_box_name {
+  font-size: 26px;
 }
 .project_box_edit_button {
   background-color: #046daa;
@@ -313,6 +349,19 @@ p.center-section {
 .donation_project_name {
   font-size: 1.3em;
 }
+.donation_box {
+  padding: 7px;
+  padding-bottom: 20px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-block: 1px;
+  margin-top: 40px;
+  border-left-width: 1px;
+  border-right-width: 1px;
+  background: white;
+  border: white;
+  border-radius: 40px;
+}
 
 .create-project-reward {
   display: none;
@@ -337,7 +386,7 @@ p.center-section {
 }
 .projects-fundings {
   display: flex;
-  height: 70px;
+  height: 45px;
   justify-content: center;
   font-weight: bold;
 }
@@ -346,6 +395,21 @@ p.center-section {
   cursor: pointer;
   font-size: 25px;
   color: #046daa;
+}
+.fundings {
+  width: 60%;
+  margin: auto;
+
+  min-height: 100vh;
+  margin-top: auto;
+}
+
+.userproject {
+  width: 60%;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  min-height: 100vh;
+  margin: auto;
 }
 
 .checkout {
@@ -362,12 +426,21 @@ p.center-section {
   border-color: black;
   border-style: dotted;
   border: 3px solid #000;
-  border-radius: 10px; 
+  border-radius: 10px;
   padding: 10px;
   margin-bottom: 20px;
   display: block;
 }
 
 #funded {
-  display: none;
+}
+.project-name {
+  font-size: 30px;
+  font-weight: bold;
+}
+.box_buttons_dash {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 10px;
+  display: flex;
 }
