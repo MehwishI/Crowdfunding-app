@@ -81,6 +81,9 @@ const RegisterForm = () => {
             />
           </div>
           <div className="form-actions">
+            <button type="button" className="button" onClick={handleCancel}>
+              Cancel
+            </button>
             <button
               type="button"
               className="button"
@@ -88,9 +91,7 @@ const RegisterForm = () => {
             >
               Register
             </button>
-            <button type="button" className="button" onClick={handleCancel}>
-              Cancel
-            </button>
+            
           </div>
         </form>
       </div>

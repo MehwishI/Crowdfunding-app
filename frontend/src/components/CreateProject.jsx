@@ -182,7 +182,7 @@ const CreateProject = () => {
               value={projectEndDate}
               onChange={(e) => setProjectEndDate(e.target.value)}
               required
-              style={{ width: "320px" }}
+              style={{ width: "500px" }}
             />
           </label>
           <label className="form-label-reward">
@@ -240,9 +240,6 @@ const CreateProject = () => {
             </label>
           </div>
           <div className="create_box_buttons">
-            <button type="submit" className="btn_create">
-              Submit
-            </button>
             <button
               type="submit"
               className="button"
@@ -252,6 +249,10 @@ const CreateProject = () => {
             >
               Cancel
             </button>
+            <button type="submit" className="button">
+              Submit
+            </button>
+            
           </div>
         </form>
       </div>

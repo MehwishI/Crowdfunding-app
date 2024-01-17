@@ -340,8 +340,8 @@ const CheckoutForm = ({ selectedProject }) => {
         <h3>Make a donation</h3>
         <label id="card-errors" className="card-errors"></label>
         <form id="checkoutForm" onSubmit={handleSubmit}>
-          <label>Enter Amount:</label>
-          <input
+          <label>Enter Amount:
+          <input className="inputcheck"
             name="donationAmount"
             value={donationAmount}
             onChange={(e) => {
@@ -350,6 +350,7 @@ const CheckoutForm = ({ selectedProject }) => {
             }}
             required
           />
+          </label>
           <label>
             Card details
             <CardNumberElement required />
@@ -362,14 +363,24 @@ const CheckoutForm = ({ selectedProject }) => {
             CVC
             <CardCvcElement required />
           </label>
+          <div className="checkout">
           <button
-            type="submit"
-            className="order-button"
-            id="checkout-btn"
-            disabled={errorExist}
-          >
+              type="submit"
+              className="button"
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              Cancel
+            </button>
+            <button type="submit" className="button">
             Pay
-          </button>
+            </button>
+            </div>
+          <label id="card-errors" className="card-errors">
+            
+          </label>
+          
         </form>
       </div>
     </div>
