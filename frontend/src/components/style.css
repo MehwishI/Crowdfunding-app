@@ -243,8 +243,8 @@ p.center-section {
   margin-top: 40px;
   border-left-width: 1px;
   border-right-width: 1px;
-  border: 3px solid #000;
-  border-radius: 10px;
+  background-color: white;
+  border-radius: 35px;
   padding: 10px;
   margin-bottom: 20px;
 }
@@ -423,13 +423,13 @@ p.center-section {
 
 .donation_box {
   border-block: 1px;
-  border-color: black;
-  border-style: dotted;
-  border: 3px solid #000;
-  border-radius: 10px;
+  margin-bottom: 15px;
+
+  border-radius: 30px;
   padding: 10px;
   margin-bottom: 20px;
   display: block;
+  width: 500px;
 }
 
 #funded {
@@ -443,4 +443,5 @@ p.center-section {
   padding-right: 15px;
   margin-left: 10px;
   display: flex;
+  width: 300px;
 }

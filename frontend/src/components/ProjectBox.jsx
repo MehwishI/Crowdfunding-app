@@ -57,7 +57,7 @@ const ProjectBox = (props) => {
             {window.location.href === "http://localhost:3000/userdashboard" ? (
               <button
                 type="button"
-                className="button"
+                className="project_box_edit_button"
                 onClick={() => handleEditClick(project)}
               >
                 Edit project
@@ -68,7 +68,7 @@ const ProjectBox = (props) => {
             {""}
             <button
               type="button"
-              className="button"
+              className="project_box_donate_button"
               onClick={() => handleDonateclick(project)}
             >
               Donate and earn rewards
