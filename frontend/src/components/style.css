@@ -241,8 +241,8 @@ p.center-section {
 }
 
 .title-active-projects {
-  font-size: 25px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: bold;
 }
 .success {
   color: "Green";
@@ -273,18 +273,21 @@ p.center-section {
 }
 
 .project_box {
-  padding: 7px;
   padding-bottom: 20px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 20px;
+  padding-left: 20px;
   border-block: 1px;
   margin-top: 40px;
   border-left-width: 1px;
   border-right-width: 1px;
   background-color: white;
   border-radius: 35px;
-  padding: 10px;
+
   margin-bottom: 20px;
+  font-size: 20px;
+}
+.project_box_desc {
+  font-size: 18px;
 }
 .active-projects {
   width: 60%;
@@ -309,15 +312,18 @@ p.center-section {
 
   width: 250px;
 }
+.project_box_div {
+}
 
 .project_box_donate_button {
-  background-color: #046daa;
   border: none;
-  color: white;
 
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  background-color: #046daa;
+  color: white;
+  font-weight: bolder;
 
   height: 54px;
   padding: 5px 15px;
@@ -325,7 +331,7 @@ p.center-section {
   font-size: 18px;
 }
 .project_box_name {
-  font-size: 26px;
+  font-size: 30px;
 }
 .project_box_edit_button {
   background-color: #046daa;
@@ -339,6 +345,7 @@ p.center-section {
   height: 55px;
   padding: 5px 20px;
   padding-bottom: 10px;
+  font-weight: bolder;
 }
 .project_box_pic {
   width: 400px;
@@ -484,7 +491,7 @@ p.center-section {
   right: 0;
 }
 .userproject {
-  width: 60%;
+  width: 55%;
   margin-bottom: 0px;
   margin-top: 0px;
   min-height: 100vh;

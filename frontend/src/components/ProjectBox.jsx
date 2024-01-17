@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
+import Progressbar from "./Progressbar";
 
 const ProjectBox = (props) => {
   const goToProjectPage = (projectId) => {
@@ -48,31 +49,34 @@ const ProjectBox = (props) => {
   if (project) {
     return (
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
-        <div className="name_and_button">
-          <h3 className="project_box_name">{project.name || " "}</h3>
-          <div
-            className={!dashboard ? "box_buttons" : "box_buttons_dash"}
-            id="box-buttons"
-          >
-            {window.location.href === "http://localhost:3000/userdashboard" ? (
+        <div className="project_box_div">
+          <div className="name_and_button">
+            <h3 className="project_box_name">{project.name || " "}</h3>
+            <div
+              className={!dashboard ? "box_buttons" : "box_buttons_dash"}
+              id="box-buttons"
+            >
+              {window.location.href ===
+              "http://localhost:3000/userdashboard" ? (
+                <button
+                  type="button"
+                  className="project_box_edit_button"
+                  onClick={() => handleEditClick(project)}
+                >
+                  Edit project
+                </button>
+              ) : (
+                ""
+              )}
+              {""}
               <button
                 type="button"
-                className="project_box_edit_button"
-                onClick={() => handleEditClick(project)}
+                className="project_box_donate_button"
+                onClick={() => handleDonateclick(project)}
               >
-                Edit project
+                Donate and earn rewards
               </button>
-            ) : (
-              ""
-            )}
-            {""}
-            <button
-              type="button"
-              className="project_box_donate_button"
-              onClick={() => handleDonateclick(project)}
-            >
-              Donate and earn rewards
-            </button>
+            </div>
           </div>
         </div>
         <img
@@ -85,17 +89,23 @@ const ProjectBox = (props) => {
         <p className="project_created_by">Created By: {project.created_by}</p>
         <span className="project_box_funds">
           {(project.funding_current || "0").toLocaleString("en-US", {
-            style: "currency", // This is a slower and obsolete formatting function, but it won't matter for this small a project
+            style: "currency",
             currency: "CAD",
           })}{" "}
           raised!
         </span>
         <br />
         <span className="project_box_funds">
-          Remaining Funds: CA $
+          Remaining Funds: CA$
           {project.funding_target - project.funding_current}{" "}
         </span>
         <br />
+
+        <Progressbar
+          bgcolor="#65FF00"
+          progress={Math.round((project.funding_current / project.funding_target) * 100)}
+          height={40}
+        />
       </div>
     );
   } else return <div>Projects details not available now.</div>;
