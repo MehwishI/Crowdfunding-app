@@ -106,9 +106,9 @@ const CreateProject = () => {
     <div>
       {" "}
       <TopNavigation />
-      <h2>Create a New Project</h2>
       <div className="create_project-container">
-        <form onSubmit={handleSubmit}>
+        <h2>Create a New Project</h2>
+        <form onSubmit={handleSubmit} className="createForm">
           <label className="form-label">
             <div className="left">Project Name:</div>
             <input
@@ -182,7 +182,6 @@ const CreateProject = () => {
               value={projectEndDate}
               onChange={(e) => setProjectEndDate(e.target.value)}
               required
-              style={{ width: "320px" }}
             />
           </label>
           <label className="form-label-reward">
@@ -240,9 +239,6 @@ const CreateProject = () => {
             </label>
           </div>
           <div className="create_box_buttons">
-            <button type="submit" className="btn_create">
-              Submit
-            </button>
             <button
               type="submit"
               className="button"
@@ -251,6 +247,9 @@ const CreateProject = () => {
               }}
             >
               Cancel
+            </button>
+            <button type="submit" className="btn_create">
+              Submit
             </button>
           </div>
         </form>

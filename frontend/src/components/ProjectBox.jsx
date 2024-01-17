@@ -12,6 +12,8 @@ const ProjectBox = (props) => {
   const [selectedProject, setSelectedProject] = useState(null);
   const [donateBtn, setDonateBtnClicked] = useState(false);
   const [editBtn, setEditBtnClicked] = useState(false);
+  const [dashboard, setDashboard] = useState(false);
+
   const { projectId, project, currentUserId } = props;
   const navigate = useNavigate();
   const handleDonateclick = (project) => {
@@ -39,6 +41,7 @@ const ProjectBox = (props) => {
     if (window.location.href !== "http://localhost:3000/userdashboard") {
       document.getElementById("box-buttons").style.display = "inline";
       document.getElementById("box-buttons").style.width = "250px";
+      setDashboard(true);
     }
   }, [selectedProject, donateBtn, editBtn, navigate]);
 
@@ -47,7 +50,10 @@ const ProjectBox = (props) => {
       <div className="project_box" onClick={() => goToProjectPage(project.id)}>
         <div className="name_and_button">
           <h3 className="project_box_name">{project.name || " "}</h3>
-          <div className="box_buttons" id="box-buttons">
+          <div
+            className={!dashboard ? "box_buttons" : "box_buttons_dash"}
+            id="box-buttons"
+          >
             {window.location.href === "http://localhost:3000/userdashboard" ? (
               <button
                 type="button"
@@ -85,7 +91,7 @@ const ProjectBox = (props) => {
           raised!
         </span>
         <br />
-        <span>
+        <span className="project_box_funds">
           Remaining Funds: CA $
           {project.funding_target - project.funding_current}{" "}
         </span>

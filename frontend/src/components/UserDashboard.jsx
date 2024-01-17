@@ -40,6 +40,12 @@ const UserDashboard = (props) => {
       const data = await getProjectsByUserId(currentUserId);
 
       setProjectsData(data.projectsData);
+      data.projectsData.length !== 0
+        ? setProjectsExist(true)
+        : setProjectsExist(false);
+
+      document.getElementById("userproject").style.display = "inline";
+      document.getElementById("funded").style.display = "none";
     };
     fetchProjectsData();
     fetchDonationsData();
@@ -59,12 +65,12 @@ const UserDashboard = (props) => {
   const handlefundingClick = () => {
     //console.log("donationsExist", donationsExist);
     // console.log("donationssDAta", donationsData);
-    donationsData.length !== 0
-      ? setDonationsExist(true)
-      : setDonationsExist(false);
 
     document.getElementById("userproject").style.display = "none";
     document.getElementById("funded").style.display = "inline";
+    donationsData.length !== 0
+      ? setDonationsExist(true)
+      : setDonationsExist(false);
   };
 
   return (
@@ -79,7 +85,7 @@ const UserDashboard = (props) => {
             <a onClick={() => handlefundingClick()}>My Fundings</a>
           </div>
 
-          <div className="section" id="userproject">
+          <div className="userproject" id="userproject">
             {/* Content for the first section */}
             <h2>My Projects</h2>
             {projectsExist ? (
@@ -91,7 +97,7 @@ const UserDashboard = (props) => {
               <p>No projects to show!</p>
             )}
           </div>
-          <div className="section" id="funded">
+          <div className="fundings" id="funded">
             {/* Content for the second section */}
             <h2>What you're funding</h2>
             {donationsExist ? (

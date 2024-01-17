@@ -27,6 +27,7 @@ const CheckoutForm = ({ selectedProject }) => {
   const [errorExist, setErrorExist] = useState(false);
   const [formErrors, setFormErrors] = useState(null);
 
+  console.log(selectedProject);
   // useEffect(() => {
   //   if (errorExist) {
   //     document.getElementById("checkoutForm").reset();
@@ -91,8 +92,8 @@ const CheckoutForm = ({ selectedProject }) => {
     });
 
     try {
-      console.log("Creating token");
-      console.log("cardElement", cardElement);
+      // console.log("Creating token");
+      // console.log("cardElement", cardElement);
       const { error, token } = await stripe.createToken(cardElement);
       if (error) {
         // throw error;
@@ -188,6 +189,9 @@ const CheckoutForm = ({ selectedProject }) => {
   return (
     <div>
       <TopNavigation />
+      <div className="project-name">
+        You are donating for : {selectedProject.name}
+      </div>
       <div className="checkout-form">
         <h3>Make a donation</h3>
         {formErrors && (
@@ -196,7 +200,7 @@ const CheckoutForm = ({ selectedProject }) => {
           </label>
         )}
         <form id="checkoutForm" onSubmit={handleSubmit}>
-          <label>Enter Amount:</label>
+          <label>Enter Amount ($):</label>
           <input
             name="donationAmount"
             value={donationAmount}
