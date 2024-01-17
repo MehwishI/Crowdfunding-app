@@ -43,7 +43,7 @@ VALUES
   
   Many of the less fortunate do not have the means to study or eat properly to do their best in school, so we will be providing food and care services to relieve many families of some of this burden.', 
   'Charity', 
-  'https://i.pinimg.com/736x/75/f2/ab/75f2ab90ea1adf158c0177139479d06c.jpg',
+  'https://static.vecteezy.com/system/resources/previews/015/529/452/original/100th-day-of-school-cartoon-colored-clipart-free-vector.jpg',
   5000000, 
   5000,
   '2024-04-01'),
