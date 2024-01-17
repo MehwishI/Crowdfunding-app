@@ -4,7 +4,7 @@ import "./style.css";
 
 //import { useCookies } from "react-cookie";
 import Cookies from "js-cookie";
-import Img from "../images/fmg-small.png";
+import Img from "../images/fm-w.png";
 
 const TopNavigation = () => {
   const navigate = useNavigate();
