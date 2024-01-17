@@ -59,11 +59,12 @@ const LoginForm = () => {
     <div>
       <TopNavigation currentUserId={currentUserId} />
       <br />
-      <h3>User Login</h3>
+
       <div className="login-container">
+        <h2>User Login</h2>
         <form className="login-form">
           <div className="form-group">
-            <label>Email:</label>
+            <label className="form-label">Email:</label>
             <input
               type="text"
               value={email}
@@ -71,7 +72,7 @@ const LoginForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Password:</label>
+            <label className="form-label">Password:</label>
             <input
               type="password"
               value={password}
@@ -82,10 +83,13 @@ const LoginForm = () => {
             <button type="button" className="button" onClick={handleCancel}>
               Cancel
             </button>
-            <button type="button" className="button" onClick={handleLoginSubmit}>
+            <button
+              type="button"
+              className="button"
+              onClick={handleLoginSubmit}
+            >
               Submit
             </button>
-            
           </div>
         </form>
 

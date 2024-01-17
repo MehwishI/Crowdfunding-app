@@ -27,7 +27,6 @@ const CheckoutForm = ({ selectedProject }) => {
   const [errorExist, setErrorExist] = useState(false);
   const [formErrors, setFormErrors] = useState(null);
 
-  console.log(selectedProject);
   // useEffect(() => {
   //   if (errorExist) {
   //     document.getElementById("checkoutForm").reset();
@@ -48,7 +47,7 @@ const CheckoutForm = ({ selectedProject }) => {
   const validateAmount = (amount) => {
     if (amount > 0) {
       setDonationAmount(amount);
-      document.getElementById("checkout-btn").disabled = false;
+      // document.getElementById("checkout-btn").disabled = false;
 
       // return true;
     } else {
@@ -104,76 +103,81 @@ const CheckoutForm = ({ selectedProject }) => {
         setErrorExist(true);
         setFormErrors(error.message);
       } else {
-        document.getElementById("checkout-btn").disabled = false;
+        //document.getElementById("checkout-btn").disabled = false;
         // document.getElementById("card-errors").innerText = "";
         setErrorExist(false);
         setFormErrors(null);
 
         //api CALL
-        const payload = {
-          amount: donationAmount * 100,
-          //currency: "usd",
-          source: token.id,
-          receipt_email: "mehwish219@outlook.com",
-        };
-        console.log("donatin amount", donationAmount);
-        const response = await fetch(
-          `/api/stripe/charge/${selectedProject.id}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            credentials: "include",
-            body: JSON.stringify(payload),
-          }
-        );
-        if (response.ok) {
-          const order = await response.json();
-          //console.log("order response received from fetch", order.charge.amount);
-          success = true;
-          receiptUrl = order.charge.receipt_url;
-
-          //
-          //save donation payment info to db
-          const donationData = {
-            //userid
-            donor_id: Cookies.get("userid"),
-            ///projectid
-            project_id: selectedProject.id,
-            //amount
-            funding_amount: order.charge.amount / 100,
-            //chargeid
-            charge_id: order.charge.id,
-            //date
-            donation_date: new Date().toDateString(), //need to fixed , just save as date
+        try {
+          const payload = {
+            amount: donationAmount * 100,
+            //currency: "usd",
+            source: token.id,
+            receipt_email: "mehwish219@outlook.com",
           };
-          const result = saveDonationData(donationData);
-          if (success) {
-            //update project increase-curent funding-,
-            //call a helper function
-            const result1 = updateProjectFunding(
-              selectedProject.id,
-              order.charge.amount
-            );
-            if (result1 && result) {
-              console.log("project funding upadated successfully!");
-            } else {
-              console.log("project funding not upadated!");
+          console.log("donation amount", donationAmount);
+          const response = await fetch(
+            `/api/stripe/charge/${selectedProject.id}`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              credentials: "include",
+              body: JSON.stringify(payload),
             }
+          );
+          if (response.ok) {
+            const order = await response.json();
+            //console.log("order response received from fetch", order.charge.amount);
+            success = true;
+            receiptUrl = order.charge.receipt_url;
 
-            //getrewards data
-            const rewards = await getRewardsByProjectId(selectedProject.id);
-            console.log("rewards returned in checkoutform", rewards);
-            const data = { receiptUrl: receiptUrl, rewards: rewards };
+            //
+            //save donation payment info to db
+            const donationData = {
+              //userid
+              donor_id: Cookies.get("userid"),
+              ///projectid
+              project_id: selectedProject.id,
+              //amount
+              funding_amount: order.charge.amount / 100,
+              //chargeid
+              charge_id: order.charge.id,
+              //date
+              donation_date: new Date().toDateString(), //need to fixed , just save as date
+            };
+            const result = saveDonationData(donationData);
+            if (success) {
+              //update project increase-curent funding-,
+              //call a helper function
+              const result1 = updateProjectFunding(
+                selectedProject.id,
+                order.charge.amount
+              );
+              if (result1 && result) {
+                console.log("project funding upadated successfully!");
+              } else {
+                console.log("project funding not upadated!");
+              }
 
-            navigate("/donate/paymentsuccess", {
-              state: { data },
-            });
+              //getrewards data
+              const rewards = await getRewardsByProjectId(selectedProject.id);
+              console.log("rewards returned in checkoutform", rewards);
+              const data = { receiptUrl: receiptUrl, rewards: rewards };
+
+              navigate("/donate/paymentsuccess", {
+                state: { data },
+              });
+            }
           }
+          //
+          //token1 = token;
+        } catch (error) {
+          setFormErrors(error.message);
+          console.log("Error in saving ", error.message);
         }
-        //
-        //token1 = token;
       }
     } catch (err) {
       setFormErrors(err.message);
@@ -189,9 +193,8 @@ const CheckoutForm = ({ selectedProject }) => {
   return (
     <div>
       <TopNavigation />
-      <div className="project-name">
-        You are donating for : {selectedProject.name}
-      </div>
+      You are donating for :
+      <div className="project-name">{selectedProject.name}</div>
       <div className="checkout-form">
         <h3>Make a donation</h3>
         {formErrors && (

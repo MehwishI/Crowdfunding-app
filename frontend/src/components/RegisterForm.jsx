@@ -53,11 +53,11 @@ const RegisterForm = () => {
     <div>
       <TopNavigation />
       <div className="register-container">
-        <h3>User Registration </h3>
+        <h2>User Registration </h2>
         <br />
         <form className="register-form">
           <div className="form-group">
-            <label>User Name:</label>
+            <label className="form-label">User Name</label>
             <input
               type="text"
               value={username}
@@ -65,7 +65,7 @@ const RegisterForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Email:</label>
+            <label className="form-label">Email</label>
             <input
               type="text"
               value={email}
@@ -73,7 +73,7 @@ const RegisterForm = () => {
             />
           </div>
           <div className="form-group">
-            <label>Password:</label>
+            <label className="form-label">Password:</label>
             <input
               type="password"
               value={password}
@@ -91,7 +91,6 @@ const RegisterForm = () => {
             >
               Register
             </button>
-            
           </div>
         </form>
       </div>

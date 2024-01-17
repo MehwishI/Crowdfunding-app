@@ -4,6 +4,7 @@ import UserProject from "./UserProject";
 import Funding from "./Funding";
 import TopNavigation from "./TopNavigation";
 import Cookies from "js-cookie";
+import { Link } from "react-router-dom";
 
 import {
   getProjectsByUserId,
@@ -94,7 +95,15 @@ const UserDashboard = (props) => {
                 currentUserId={currentUserId}
               />
             ) : (
-              <p>No projects to show!</p>
+              <div className="no_data">
+                <p>No projects to show!</p>
+                <Link
+                  to={{ pathname: "/createproject" }}
+                  state={{ currentUserId: currentUserId }}
+                >
+                  <button className="button">START A FUND ME PROJECT</button>
+                </Link>
+              </div>
             )}
           </div>
           <div className="fundings" id="funded">
@@ -103,7 +112,14 @@ const UserDashboard = (props) => {
             {donationsExist ? (
               <Funding donationsData={donationsData} />
             ) : (
-              <div>You do not have any fundings to show!</div>
+              <div className="no_data">
+                <p>You do not have any fundings to show!</p>
+                <Link to={{ pathname: "/" }}>
+                  <button className="button">
+                    GO TO LIST OF OPEN PROJECTS TO DONATE
+                  </button>
+                </Link>
+              </div>
             )}
           </div>
         </div>

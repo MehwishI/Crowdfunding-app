@@ -24,7 +24,9 @@ const EditProject = () => {
     project.funding_target
   );
   const [currentFunding, setCurrentFunding] = useState(project.funding_current);
-  const [projectEndDate, setProjectEndDate] = useState(project.end_date);
+  const [projectEndDate, setProjectEndDate] = useState(
+    new Date(project.end_date)
+  );
 
   console.log("end date:", projectEndDate);
 
@@ -78,9 +80,9 @@ const EditProject = () => {
     <div>
       {" "}
       <TopNavigation />
-      <h2>Edit Project {projectName}</h2>
       <div className="edit_project_container">
-        <form onSubmit={handleSubmit}>
+        <h2>Edit Project: {projectName}</h2>
+        <form onSubmit={handleSubmit} className="editForm">
           <label className="form-label">
             <div className="left">Project Name:</div>
             <input
@@ -151,17 +153,13 @@ const EditProject = () => {
             <input
               className="form-input"
               type="date"
-              value={projectEndDate}
+              defaultValue={projectEndDate}
               onChange={(e) => setProjectEndDate(e.target.value)}
               required
-              style={{ width: "320px" }}
             />
           </label>
 
           <div className="edit_button_panel">
-            <button type="submit" className="button">
-              Save
-            </button>
             <button
               className="button"
               onClick={() => {
@@ -176,6 +174,9 @@ const EditProject = () => {
               onClick={(e) => handleDeleteClick(e)}
             >
               Delete
+            </button>
+            <button type="submit" className="button">
+              Save
             </button>
           </div>
         </form>

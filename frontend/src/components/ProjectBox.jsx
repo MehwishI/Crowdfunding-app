@@ -38,9 +38,9 @@ const ProjectBox = (props) => {
         state: { selectedProject },
       });
     }
-    if (window.location.href !== "http://localhost:3000/userdashboard") {
-      document.getElementById("box-buttons").style.display = "inline";
-      document.getElementById("box-buttons").style.width = "250px";
+    if (window.location.href === "http://localhost:3000/userdashboard") {
+      //document.getElementById("box-buttons").style.display = "inline";
+      //document.getElementById("box-buttons").style.width = "250px";
       setDashboard(true);
     }
   }, [selectedProject, donateBtn, editBtn, navigate]);

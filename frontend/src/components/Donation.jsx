@@ -15,15 +15,12 @@ const Donation = (props) => {
         raised!
       </span>{" "}
       <br />
-      <span>
+      <div>
         Date:{" "}
-        {donation.donation_date.toLocaleString({
-          //not working yet
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-      </span>
+        {donation.donation_date instanceof Date
+          ? donation.donation_date.toLocaleDateString()
+          : new Date(donation.donation_date).toLocaleDateString()}
+      </div>
     </div>
   );
 };

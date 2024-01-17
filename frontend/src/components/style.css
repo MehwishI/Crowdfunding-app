@@ -30,7 +30,9 @@ body {
   margin-right: 10px;
   color: white;
 }
-
+.nav-bar-links {
+  display: flex;
+}
 .top-nav-bar > div {
   flex-shrink: 0;
 }
@@ -42,9 +44,18 @@ body {
   margin-left: 30px;
   align-items: center;
   display: flex;
-  font-size: 25px;
+  font-size: 23px;
+  width: 500px;
 }
-
+.nav_buttons {
+  background-color: white;
+  font-size: smaller;
+  height: 46px;
+  width: 150px;
+  font-weight: bold;
+  color: #046dac;
+  padding: 5px;
+}
 .welcome_name {
   font-size: 30px;
   margin-top: 10px;
@@ -58,7 +69,7 @@ body {
   align-items: flex-start;
   text-decoration: none;
   color: white;
-  font-size: large;
+  font-size: 20px;
 }
 
 @media (max-width: 800px) {
@@ -108,6 +119,8 @@ p.center-section {
   border: white;
   border-radius: 30px;
   width: 70%;
+  width: 750px;
+
   height: auto;
 
   padding-bottom: 20px;
@@ -118,6 +131,7 @@ p.center-section {
 }
 .createForm {
   font-weight: bold;
+  font-size: 20px;
 }
 .form-label {
   display: flex;
@@ -128,6 +142,7 @@ p.center-section {
 .form-input {
   margin-bottom: 16px;
   width: 500px;
+  font-size: 20px;
 }
 
 .footer {
@@ -145,10 +160,18 @@ p.center-section {
 
 .login-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
   height: 40vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
 }
 
 .login-form {
@@ -190,6 +213,7 @@ p.center-section {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
+  height: 45px;
 }
 
 .form-actions {
@@ -229,6 +253,20 @@ p.center-section {
   bottom: 0;
   left: 0;
   right: 0;
+  font-size: 25px;
+
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: max-content;
+  margin-bottom: 0px;
+  /* border-bottom-width: 100px; */
+  padding-bottom: 50px;
+  padding-top: 50px;
+  font-size: larger;
 }
 .projectlist {
   margin-top: 30px;
@@ -280,10 +318,11 @@ p.center-section {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  height: 48px;
-  padding: 5px 20px;
+
+  height: 54px;
+  padding: 5px 15px;
   margin-left: 10px;
+  font-size: 18px;
 }
 .project_box_name {
   font-size: 26px;
@@ -296,9 +335,10 @@ p.center-section {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  height: 48px;
+  font-size: 18px;
+  height: 55px;
   padding: 5px 20px;
+  padding-bottom: 10px;
 }
 .project_box_pic {
   width: 400px;
@@ -324,9 +364,10 @@ p.center-section {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  height: 48px;
+  font-size: 18px;
+  height: 54px;
   padding: 5px 20px;
+  font-weight: bold;
 }
 
 .edit_project_container {
@@ -336,6 +377,25 @@ p.center-section {
   justify-content: space-between;
   align-items: center;
   overflow-x: hidden;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow-x: hidden;
+  background: white;
+  border: white;
+  border-radius: 30px;
+  width: 70%;
+  width: 750px;
+
+  height: auto;
+
+  padding-bottom: 20px;
+  padding-left: 20px;
+  margin: auto;
+  margin-top: 30px;
+  padding-top: 10px;
 }
 .edit_button_panel {
   display: flex;
@@ -361,6 +421,8 @@ p.center-section {
   background: white;
   border: white;
   border-radius: 40px;
+  width: 100%;
+  font-size: 20px;
 }
 
 .create-project-reward {
@@ -397,13 +459,30 @@ p.center-section {
   color: #046daa;
 }
 .fundings {
-  width: 60%;
+  width: 46%;
   margin: auto;
 
   min-height: 100vh;
   margin-top: auto;
 }
+.fundings p {
+  font-weight: bold;
+  font-size: large;
+}
+.funding {
+  margin: auto;
 
+  min-height: 100vh;
+  margin-top: auto;
+}
+.no_data {
+  margin: 0 auto;
+  position: absolute;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 .userproject {
   width: 60%;
   margin-bottom: 0px;
@@ -411,10 +490,20 @@ p.center-section {
   min-height: 100vh;
   margin: auto;
 }
+.userproject p {
+  font-weight: bold;
+  font-size: large;
+}
 
 .checkout {
   display: flex;
   justify-content: space-between;
+}
+.checkout-form {
+  width: 443px;
+
+  height: 550px;
+  padding-bottom: 10px;
 }
 
 .inputcheck {
@@ -444,4 +533,8 @@ p.center-section {
   margin-left: 10px;
   display: flex;
   width: 300px;
+}
+.editForm {
+  font-weight: bold;
+  font-size: 20px;
 }

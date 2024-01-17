@@ -17,34 +17,39 @@ const TopNavigation = () => {
   return (
     <div className="top-nav-bar">
       <div className="logo-container" onClick={handleTitleClick}>
-        <img src={Img} style={{ width: "10%", height: "auto" }} alt="logo" />
-        Crowdfunding Application
+        <img src={Img} style={{ width: "20%", height: "auto" }} alt="logo" />
+        &nbsp; CROWDFUNDING PLATFORM
       </div>
-      {!currentUserId ? (
-        <div className="nav-bar-links">
-          <Link to={"/register"}>Register</Link>
-
-          <Link to={"/login"}>Login</Link>
-        </div>
-      ) : (
-        <div>
-          <Link
-            to={{ pathname: "/createproject" }}
-            state={{ currentUserId: currentUserId }}
-          >
-            Create a new project
-          </Link>
-          <Link
-            to={{
-              pathname: "/userdashboard",
-            }}
-            state={{ currentUserId: currentUserId }}
-          >
-            My Dashboard
-          </Link>
-          <Link to={"/logout"}>Logout</Link>
-        </div>
-      )}
+      <div className="nav-bar-links">
+        <Link to={"/"}>HOME</Link>&nbsp;&nbsp;&nbsp;
+        {!currentUserId ? (
+          <div className="nav-bar-links">
+            <Link to={"/register"}> REGISTER</Link>
+            &nbsp;&nbsp;&nbsp;
+            <Link to={"/login"}> LOGIN</Link>
+          </div>
+        ) : (
+          <div>
+            <Link
+              to={{ pathname: "/createproject" }}
+              state={{ currentUserId: currentUserId }}
+            >
+              START A FUND ME
+            </Link>
+            &nbsp;&nbsp;&nbsp;
+            <Link
+              to={{
+                pathname: "/userdashboard",
+              }}
+              state={{ currentUserId: currentUserId }}
+            >
+              MY DASHBOARD
+            </Link>
+            &nbsp;&nbsp;&nbsp;
+            <Link to={"/logout"}>LOGOUT</Link>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
