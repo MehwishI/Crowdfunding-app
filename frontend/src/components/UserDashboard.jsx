@@ -11,11 +11,13 @@ import {
 } from "../helpers/getusersdata";
 import "./style.css";
 
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const UserDashboard = (props) => {
   const [donationsData, setDonationsData] = useState([]);
   const [projectsData, setProjectsData] = useState([]);
+  const [projectsExist, setProjectsExist] = useState(false);
+  const [donationsExist, setDonationsExist] = useState(false);
 
   const location = useLocation();
   const currentUserId = Cookies.get("userid");
@@ -30,13 +32,8 @@ const UserDashboard = (props) => {
   useEffect(() => {
     const fetchDonationsData = async () => {
       const data = await getDonationsByUserId(currentUserId);
-      // console.log("donationsdata in userdashboard:", data);
-      // Assuming you have 'useState' to manage your donations state
-      // console.log(
-      //   "if donationsData an array?",
-      //   Array.isArray(data.donationsdata)
-      // );
       setDonationsData(data.donationsdata);
+      setDonationsExist(true);
     };
 
     const fetchProjectsData = async () => {
@@ -49,10 +46,23 @@ const UserDashboard = (props) => {
   }, [currentUserId]);
 
   const handleprojectClick = () => {
+    // console.log("projectsExist", projectsExist);
+    // console.log("projectsDAta", projectsData);
+
+    projectsData.length !== 0
+      ? setProjectsExist(true)
+      : setProjectsExist(false);
+
     document.getElementById("userproject").style.display = "inline";
     document.getElementById("funded").style.display = "none";
   };
   const handlefundingClick = () => {
+    //console.log("donationsExist", donationsExist);
+    // console.log("donationssDAta", donationsData);
+    donationsData.length !== 0
+      ? setDonationsExist(true)
+      : setDonationsExist(false);
+
     document.getElementById("userproject").style.display = "none";
     document.getElementById("funded").style.display = "inline";
   };
@@ -72,18 +82,23 @@ const UserDashboard = (props) => {
           <div className="section" id="userproject">
             {/* Content for the first section */}
             <h2>My Projects</h2>
-
-            <UserProject
-              projectsData={projectsData}
-              currentUserId={currentUserId}
-            />
+            {projectsExist ? (
+              <UserProject
+                projectsData={projectsData}
+                currentUserId={currentUserId}
+              />
+            ) : (
+              <p>No projects to show!</p>
+            )}
           </div>
           <div className="section" id="funded">
             {/* Content for the second section */}
             <h2>What you're funding</h2>
-
-            {/*donations list*/}
-            <Funding donationsData={donationsData} />
+            {donationsExist ? (
+              <Funding donationsData={donationsData} />
+            ) : (
+              <div>You do not have any fundings to show!</div>
+            )}
           </div>
         </div>
       </div>
