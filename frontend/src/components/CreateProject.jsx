@@ -147,7 +147,7 @@ const CreateProject = () => {
             />
           </label>
           <label className="form-label">
-            <div className="left">Picture:</div>
+            <div className="left">Picture URL:</div>
             <input
               className="form-input"
               type="text"

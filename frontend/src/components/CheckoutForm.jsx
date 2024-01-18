@@ -310,7 +310,7 @@ const CheckoutForm = ({ selectedProject }) => {
     } else {
       console.log("Amount cannot be 0 or less than 0");
 
-      document.getElementById("checkoutForm").reset();
+      // document.getElementById("checkoutForm").reset();
       // document.getElementById("checkout-btn").disabled = true;
       setErrorExist(true);
       setFormErrors("Amount must be greater than 0");
@@ -332,7 +332,7 @@ const CheckoutForm = ({ selectedProject }) => {
     elements.submit().then(function (result) {
       console.log("result:", result.error);
       if (result.error) {
-        document.getElementById("checkoutForm").reset();
+        //document.getElementById("checkoutForm").reset();
       } else {
         setFormErrors(null);
         //document.getElementById("card-errors").style.display = "none";
@@ -425,7 +425,7 @@ const CheckoutForm = ({ selectedProject }) => {
     } catch (err) {
       setFormErrors(err.message);
       // document.getElementById("card-errors").innerText = err.message;
-      document.getElementById("checkoutForm").reset();
+      //document.getElementById("checkoutForm").reset();
       // document.getElementById("checkout-btn").disabled = true;
       console.log("Card elements error in  catch ", err.message);
       //window.location.reload();
@@ -445,7 +445,7 @@ const CheckoutForm = ({ selectedProject }) => {
         <h3>Make a donation</h3>
         {formErrors && (
           <label id="card-errors" className="card-errors">
-            Error(s): {formErrors}
+            Error: {formErrors}
           </label>
         )}
         <form id="checkoutForm" onSubmit={handleSubmit}>
