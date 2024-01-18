@@ -4,12 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Progressbar from "./Progressbar";
 
 const ProjectBox = (props) => {
-  const goToProjectPage = (projectId) => {
-    // Redirect to individual project page
-    // TODO: Need to know what state needs to be modified to change pages
-    //`/projects/${projectId}`
-  };
-
   const [selectedProject, setSelectedProject] = useState(null);
   const [donateBtn, setDonateBtnClicked] = useState(false);
   const [editBtn, setEditBtnClicked] = useState(false);
@@ -48,7 +42,7 @@ const ProjectBox = (props) => {
 
   if (project) {
     return (
-      <div className="project_box" onClick={() => goToProjectPage(project.id)}>
+      <div className="project_box">
         <div className="project_box_div">
           <div className="name_and_button">
             <h3 className="project_box_name">{project.name || " "}</h3>
@@ -88,7 +82,7 @@ const ProjectBox = (props) => {
         <p className="project_box_desc">{project.description}</p>
         <p className="project_created_by">Created By: {project.created_by}</p>
         <span className="project_box_funds">
-          {(project.funding_current || "0").toLocaleString("en-US", {
+          {(project.funding_current || "CA$0").toLocaleString("en-US", {
             style: "currency",
             currency: "CAD",
           })}{" "}
@@ -96,15 +90,18 @@ const ProjectBox = (props) => {
         </span>
         <br />
         <span className="project_box_funds">
-          Remaining Funds: CA$
-          {project.funding_target - project.funding_current}{" "}
+          Funds Still Needed:&nbsp;
+          {project.funding_current >= project.funding_target ? "CA$0" : (project.funding_target - project.funding_current).toLocaleString("en-US", {
+            style: "currency",
+            currency: "CAD",
+          })}{" "}
         </span>
         <br />
 
         <Progressbar
           bgcolor="#65FF00"
           progress={Math.round((project.funding_current / project.funding_target) * 100)}
-          height={40}
+          height={34}
         />
       </div>
     );
