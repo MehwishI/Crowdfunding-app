@@ -34,6 +34,7 @@ function App() {
         <Route path="/donate/:projectid" element={<Checkout />} />
         <Route path="/donate/paymentsuccess" element={<PaymentSuccess />} />
         <Route path="/edit/:projectid" element={<EditProject />} />
+        {/* <Route path="/projectype" element={<ShowProjects type={type} />} /> */}
       </Routes>
     </div>
   );

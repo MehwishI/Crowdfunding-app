@@ -13,7 +13,7 @@ const ProjectDropdown = () => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu className="proj_dropdown_items">
-        <a href="#/action-1" className="proj_dropdown_items">
+        <a href="#/" className="proj_dropdown_items">
           Charity
         </a>
         <a href="#/action-1" className="proj_dropdown_items">
