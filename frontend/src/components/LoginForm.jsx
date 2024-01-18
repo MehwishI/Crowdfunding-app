@@ -90,7 +90,7 @@ const LoginForm = () => {
               className="button"
               onClick={handleLoginSubmit}
             >
-              Submit
+              Login
             </button>
           </div>
         </form>

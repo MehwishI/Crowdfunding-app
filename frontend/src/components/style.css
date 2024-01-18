@@ -403,6 +403,7 @@ p.center-section {
 }
 .project_box_desc {
   font-size: 20px;
+  font-weight: bold;
 }
 .active-projects {
   width: 60%;
@@ -641,7 +642,7 @@ p.center-section {
 }
 .userproject p {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .inputcheck {
@@ -659,6 +660,9 @@ p.center-section {
   width: 500px;
 }
 
+.donation_box_funds {
+  font-weight: bold;
+}
 #funded {
 }
 
@@ -667,7 +671,7 @@ p.center-section {
   padding-right: 15px;
   margin-left: 10px;
   display: flex;
-  width: 300px;
+  width: auto;
 }
 .editForm {
   font-weight: bold;

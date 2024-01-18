@@ -249,7 +249,7 @@ const CreateProject = () => {
               Cancel
             </button>
             <button type="submit" className="btn_create">
-              Submit
+              Save
             </button>
           </div>
         </form>

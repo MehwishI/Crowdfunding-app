@@ -57,7 +57,7 @@ const ProjectBox = (props) => {
                   className="project_box_edit_button"
                   onClick={() => handleEditClick(project)}
                 >
-                  Edit project
+                  EDIT DETAILS
                 </button>
               ) : (
                 ""
@@ -68,7 +68,7 @@ const ProjectBox = (props) => {
                 className="project_box_donate_button"
                 onClick={() => handleDonateclick(project)}
               >
-                Donate and earn rewards
+                DONATE AND EARN REWARDS
               </button>
             </div>
           </div>
@@ -81,6 +81,7 @@ const ProjectBox = (props) => {
 
         <p className="project_box_desc">{project.description}</p>
         <p className="project_created_by">Created By: {project.created_by}</p>
+        <br />
         <span className="project_box_funds">
           {(project.funding_current || "CA$0").toLocaleString("en-US", {
             style: "currency",
@@ -89,18 +90,26 @@ const ProjectBox = (props) => {
           raised!
         </span>
         <br />
+
         <span className="project_box_funds">
           Funds Still Needed:&nbsp;
-          {project.funding_current >= project.funding_target ? "CA$0" : (project.funding_target - project.funding_current).toLocaleString("en-US", {
-            style: "currency",
-            currency: "CAD",
-          })}{" "}
+          {project.funding_current >= project.funding_target
+            ? "CA$0"
+            : (project.funding_target - project.funding_current).toLocaleString(
+                "en-US",
+                {
+                  style: "currency",
+                  currency: "CAD",
+                }
+              )}{" "}
         </span>
         <br />
 
         <Progressbar
           bgcolor="#65FF00"
-          progress={Math.round((project.funding_current / project.funding_target) * 100)}
+          progress={Math.round(
+            (project.funding_current / project.funding_target) * 100
+          )}
           height={34}
         />
       </div>

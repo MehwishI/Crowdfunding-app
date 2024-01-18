@@ -153,7 +153,7 @@ const EditProject = () => {
             <input
               className="form-input"
               type="date"
-              defaultValue={projectEndDate}
+              defaultValue={projectEndDate.toLocaleDateString("en-CA")}
               onChange={(e) => setProjectEndDate(e.target.value)}
               required
             />
