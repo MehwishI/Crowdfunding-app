@@ -34,7 +34,7 @@ const Home = () => {
         <div className="image-placeholder">
           <br />
 
-          <img src={Img} style={{ width: "45%", height: "auto" }} alt="logo" />
+          <img src={Img} style={{ width: "40%", height: "auto" }} alt="logo" />
         </div>
         <p className="welcome_name">Welcome to FundMe!</p>
         <br />

@@ -19,6 +19,8 @@ const UserDashboard = (props) => {
   const [projectsData, setProjectsData] = useState([]);
   const [projectsExist, setProjectsExist] = useState(false);
   const [donationsExist, setDonationsExist] = useState(false);
+  const [showProjects, setShowProjects] = useState(true);
+  const [showFundings, setShowFundings] = useState(false);
 
   const location = useLocation();
   const currentUserId = Cookies.get("userid");
@@ -59,16 +61,25 @@ const UserDashboard = (props) => {
     projectsData.length !== 0
       ? setProjectsExist(true)
       : setProjectsExist(false);
-
+    setShowProjects(true);
+    setShowFundings(false);
     document.getElementById("userproject").style.display = "inline";
+    // document.getElementById("showProjects").style.backgroundColor = "white";
     document.getElementById("funded").style.display = "none";
+    // document.getElementById("showFundings").style.backgroundColor = "none";
   };
   const handlefundingClick = () => {
     //console.log("donationsExist", donationsExist);
     // console.log("donationssDAta", donationsData);
 
+    setShowProjects(false);
+    setShowFundings(true);
     document.getElementById("userproject").style.display = "none";
+    // document.getElementById("showProjects").style.backgroundColor = "none";
     document.getElementById("funded").style.display = "inline";
+
+    // document.getElementById("showFundings").style.backgroundColor = "white";
+
     donationsData.length !== 0
       ? setDonationsExist(true)
       : setDonationsExist(false);
@@ -81,14 +92,30 @@ const UserDashboard = (props) => {
         {/* <h3>My Dashboard</h3> */}
         <div className="container">
           <div className="projects-fundings">
-            <a onClick={() => handleprojectClick()}>My Projects</a>
+            <a
+              onClick={() => handleprojectClick()}
+              id="showProjects"
+              className={
+                showProjects ? "dash-link-active" : "dash-link-inactive"
+              }
+            >
+              My Projects
+            </a>
             {""}
-            <a onClick={() => handlefundingClick()}>My Fundings</a>
+            <a
+              onClick={() => handlefundingClick()}
+              id="showFundings"
+              className={
+                showFundings ? "dash-link-active" : "dash-link-inactive"
+              }
+            >
+              My Fundings
+            </a>
           </div>
 
           <div className="userproject" id="userproject">
             {/* Content for the first section */}
-            <h2>My Projects</h2>
+            <div className="dash-heading">My Projects</div>
             {projectsExist ? (
               <UserProject
                 projectsData={projectsData}
@@ -101,14 +128,14 @@ const UserDashboard = (props) => {
                   to={{ pathname: "/createproject" }}
                   state={{ currentUserId: currentUserId }}
                 >
-                  <button className="button">START A FUND ME PROJECT</button>
+                  <button className="button">START A FUNDME PROJECT</button>
                 </Link>
               </div>
             )}
           </div>
           <div className="fundings" id="funded">
             {/* Content for the second section */}
-            <h2>What you're funding</h2>
+            <div className="dash-heading">What you're funding</div>
             {donationsExist ? (
               <Funding donationsData={donationsData} />
             ) : (

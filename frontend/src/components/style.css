@@ -53,8 +53,69 @@ body::before {
   font-size: large;
   margin-right: 10px;
   color: white;
-  position: sticky ; top :0;
+  position: sticky;
+  top: 0;
 }
+/* .top-nav-bar a {
+  align-self: flex-end;
+  margin-right: 15px;
+  text-align: right;
+  align-items: flex-start;
+  text-decoration: none;
+
+  font-size: 20px;
+  padding: 10px;
+} */
+/* .top-nav-bar a:active {
+  background-color: white !important;
+  color: #046daa !important;
+  border-radius: 30px;
+}
+
+.top-nav-bar a:focus {
+  background-color: white;
+  color: #046daa;
+  border-radius: 30px;
+}
+.top-nav-bar a::selection {
+  background-color: white !important;
+  color: #046daa !important;
+  border-radius: 30px;
+} */
+/* .top-nav-bar a:hover {
+  background-color: white;
+  color: #046daa;
+  border-radius: 30px;
+} */
+.nav-bar-inactive-item {
+  background-color: #046daa;
+  color: white;
+  border-radius: 30px;
+
+  align-self: flex-end;
+  margin-right: 15px;
+  text-align: right;
+  align-items: flex-start;
+  text-decoration: none;
+
+  font-size: 20px;
+  padding: 10px;
+}
+.nav-bar-active-item {
+  background-color: white;
+  color: #046daa;
+  border-radius: 30px;
+
+  align-self: flex-end;
+  margin-right: 15px;
+  text-align: right;
+  align-items: flex-start;
+  text-decoration: none;
+
+  font-size: 20px;
+  padding: 10px;
+}
+
 .nav-bar-links {
   display: flex;
 }
@@ -71,7 +132,6 @@ body::before {
   display: flex;
   font-size: 23px;
   width: 500px;
-  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 }
 .nav_buttons {
   background-color: white;
@@ -90,18 +150,6 @@ body::before {
   -webkit-text-stroke: 2px black;
   text-stroke: 2px white;
   font-size: 40px; */
-}
-
-.top-nav-bar a {
-  align-self: flex-end;
-  margin-right: 15px;
-  text-align: right;
-  align-items: flex-start;
-  text-decoration: none;
-  color: white;
-  font-size: 20px;
-}
-.top-nav-bar a:active {
 }
 
 @media (max-width: 800px) {
@@ -123,7 +171,7 @@ body::before {
   justify-content: center;
   text-align: center;
   height: 175px;
-  margin-top: 100px;
+  margin-top: 65px;
   width: 100%;
   font-weight: bolder;
   font-size: 35px;
@@ -205,7 +253,7 @@ p.center-section {
   bottom: 0;
   left: 0;
   right: 0;
-
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
   margin: auto;
 
   border-left-width: 1px;
@@ -304,6 +352,8 @@ p.center-section {
 .title-active-projects {
   font-size: 30px;
   font-weight: bold;
+  margin-top: 15px;
+
   /* color: white; 
   -webkit-text-stroke: 2px black;
   text-stroke: 2px white; */
@@ -346,13 +396,13 @@ p.center-section {
   border-right-width: 1px;
   background-color: white;
   border-radius: 35px;
-
+  padding-bottom: 30px;
   margin-bottom: 20px;
   font-size: 20px;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 }
 .project_box_desc {
-  font-size: 18px;
+  font-size: 20px;
 }
 .active-projects {
   width: 60%;
@@ -421,13 +471,15 @@ p.center-section {
   border: none;
   color: white;
   border-radius: 35px;
-
+  cursor: pointer;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  height: 48px;
+  font-size: 20px;
+  font-weight: bold;
+  height: 54px;
   padding: 5px 20px;
+  width: 132px;
 }
 .button {
   background-color: #046daa;
@@ -437,7 +489,7 @@ p.center-section {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 18px;
+  font-size: 20px;
   height: 54px;
   padding: 5px 20px;
   font-weight: bold;
@@ -527,15 +579,19 @@ p.center-section {
   height: 45px;
   justify-content: center;
   font-weight: bold;
+  background-color: white;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  border-radius: 20px;
 }
-.projects-fundings a {
+/* .projects-fundings a {
   padding-right: 20px;
   cursor: pointer;
-  font-size: 25px;
+  font-size: 30px;
   color: #035788;
-}
+} */
 .fundings {
-  width: 46%;
   margin: auto;
 
   min-height: 100vh;
@@ -544,6 +600,23 @@ p.center-section {
 .fundings p {
   font-weight: bold;
   font-size: large;
+}
+.dash-link-active {
+  color: black;
+  padding-right: 20px;
+  cursor: pointer;
+  font-size: 25px;
+}
+.dash-link-inactive {
+  padding-right: 20px;
+  cursor: pointer;
+  font-size: 25px;
+  color: #035788;
+}
+.dash-heading {
+  font-size: 30px;
+  font-weight: 650;
+  padding: 10px;
 }
 .funding {
   margin: auto;
@@ -568,20 +641,7 @@ p.center-section {
 }
 .userproject p {
   font-weight: bold;
-  font-size: large;
-}
-
-.checkout {
-  display: flex;
-  justify-content: space-between;
-}
-.checkout-form {
-  width: 443px;
-  top: 0;
-  bottom: 0;
-  height: 550px;
-  padding-bottom: 10px;
-  font-size: 25px;
+  font-size: 30px;
 }
 
 .inputcheck {
