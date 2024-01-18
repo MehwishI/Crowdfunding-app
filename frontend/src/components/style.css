@@ -1,6 +1,7 @@
 body {
   background-image: url("../images/pilecoin.png");
   background-size: cover;
+  background-attachment: fixed;
   opacity: 1;
   margin: 0;
   padding: 0;
@@ -18,7 +19,7 @@ body {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  position: relative;
+
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 20px;
@@ -29,9 +30,37 @@ body {
   font-size: large;
   margin-right: 10px;
   color: white;
+  top: 0;
+  position: sticky;
 }
+.top-nav-bar a:active {
+  background-color: white;
+  color: #046daa;
+  border-radius: 30px;
+}
+.top-nav-bar a:hover {
+  background-color: white;
+  color: #046daa;
+  border-radius: 30px;
+}
+
 .nav-bar-links {
   display: flex;
+}
+.proj_dropdown_label {
+  background-color: #046daa;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  text-decoration: none;
+}
+.proj_dropdown_items {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: #046daa;
+  font-size: 18px;
 }
 .top-nav-bar > div {
   flex-shrink: 0;
@@ -70,6 +99,7 @@ body {
   text-decoration: none;
   color: white;
   font-size: 20px;
+  padding: 10px;
 }
 
 @media (max-width: 800px) {
@@ -303,6 +333,7 @@ p.center-section {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
+  max-width: 100%;
 }
 .box_buttons {
   display: flex;
@@ -317,7 +348,7 @@ p.center-section {
 
 .project_box_donate_button {
   border: none;
-
+  border-radius: 35px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -325,7 +356,7 @@ p.center-section {
   color: white;
   font-weight: bolder;
 
-  height: 54px;
+  height: 55px;
   padding: 5px 15px;
   margin-left: 10px;
   font-size: 18px;
@@ -337,7 +368,7 @@ p.center-section {
   background-color: #046daa;
   border: none;
   color: white;
-
+  border-radius: 35px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -350,6 +381,7 @@ p.center-section {
 .project_box_pic {
   width: 400px;
   height: 300px;
+  max-width: 100%;
 }
 .btn_create {
   background-color: #046daa;
@@ -491,7 +523,7 @@ p.center-section {
   right: 0;
 }
 .userproject {
-  width: 55%;
+  width: 65%;
   margin-bottom: 0px;
   margin-top: 0px;
   min-height: 100vh;
@@ -539,7 +571,7 @@ p.center-section {
   padding-right: 15px;
   margin-left: 10px;
   display: flex;
-  width: 300px;
+  width: 450px;
 }
 .editForm {
   font-weight: bold;

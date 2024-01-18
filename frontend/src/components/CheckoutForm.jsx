@@ -199,7 +199,7 @@ const CheckoutForm = ({ selectedProject }) => {
         <h3>Make a donation</h3>
         {formErrors && (
           <label id="card-errors" className="card-errors">
-            Error(s): {formErrors}
+            Error: {formErrors}
           </label>
         )}
         <form id="checkoutForm" onSubmit={handleSubmit}>
@@ -237,11 +237,11 @@ const CheckoutForm = ({ selectedProject }) => {
             >
               Cancel
             </button>
-            <button type="submit" className="button">
+            <button type="submit" className="button" disabled={errorExist}>
               Pay
             </button>
           </div>
-          <label id="card-errors" className="card-errors"></label>
+          {/* <label id="card-errors" className="card-errors"></label> */}
         </form>
       </div>
     </div>

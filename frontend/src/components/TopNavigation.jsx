@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ProjectDropdown from "./ProjectDropdown";
 import "./style.css";
 
 //import { useCookies } from "react-cookie";
@@ -20,8 +21,11 @@ const TopNavigation = () => {
         <img src={Img} style={{ width: "20%", height: "auto" }} alt="logo" />
         &nbsp; CROWDFUNDING PLATFORM
       </div>
+
       <div className="nav-bar-links">
         <Link to={"/"}>HOME</Link>&nbsp;&nbsp;&nbsp;
+        <ProjectDropdown />
+        &nbsp;&nbsp;&nbsp;
         {!currentUserId ? (
           <div className="nav-bar-links">
             <Link to={"/register"}> REGISTER</Link>
