@@ -193,8 +193,9 @@ const CheckoutForm = ({ selectedProject }) => {
   return (
     <div>
       <TopNavigation />
-      You are donating for :
-      <div className="project-name">{selectedProject.name}</div>
+      <br />
+      <div className="checkout-form-project-name">You are donating for :</div>
+      <div className="checkout-project-name">{selectedProject.name}</div>
       <div className="checkout-form">
         <h3>Make a donation</h3>
         {formErrors && (
@@ -206,6 +207,7 @@ const CheckoutForm = ({ selectedProject }) => {
           <label>
             Enter Amount ($):
             <input
+              className="donation_amount"
               name="donationAmount"
               value={donationAmount}
               onChange={(e) => {

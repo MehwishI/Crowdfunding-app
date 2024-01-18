@@ -24,7 +24,7 @@ const TopNavigation = () => {
 
       <div className="nav-bar-links">
         <Link to={"/"}>HOME</Link>&nbsp;&nbsp;&nbsp;
-        <ProjectDropdown />
+        {/* <ProjectDropdown /> */}
         &nbsp;&nbsp;&nbsp;
         {!currentUserId ? (
           <div className="nav-bar-links">

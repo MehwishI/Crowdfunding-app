@@ -54,11 +54,12 @@ const RegisterForm = () => {
       <TopNavigation />
       <div className="register-container">
         <h2>User Registration </h2>
-        <br />
+
         <form className="register-form">
           <div className="form-group">
             <label className="form-label">User Name</label>
             <input
+              className="form-input"
               type="text"
               value={username}
               onChange={(e) => setUserName(e.target.value)}
@@ -67,6 +68,7 @@ const RegisterForm = () => {
           <div className="form-group">
             <label className="form-label">Email</label>
             <input
+              className="form-input"
               type="text"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -75,6 +77,7 @@ const RegisterForm = () => {
           <div className="form-group">
             <label className="form-label">Password:</label>
             <input
+              className="form-input"
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}

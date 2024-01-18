@@ -29,7 +29,6 @@ body::before {
   z-index: -1; /* Send the pseudo-element to the back */
 }
 
-
 .main-page {
   display: flex;
   flex-direction: column;
@@ -42,7 +41,8 @@ body::before {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  position: relative;
+  position: sticky;
+  top: 0;
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 20px;
@@ -70,6 +70,7 @@ body::before {
   display: flex;
   font-size: 23px;
   width: 500px;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 }
 .nav_buttons {
   background-color: white;
@@ -98,6 +99,8 @@ body::before {
   text-decoration: none;
   color: white;
   font-size: 20px;
+}
+.top-nav-bar a:active {
 }
 
 @media (max-width: 800px) {
@@ -192,7 +195,10 @@ p.center-section {
   justify-content: center;
   align-items: center;
 
-  height: 40vh;
+  height: 50vh;
+  width: 604px;
+  padding-bottom: 20px;
+
   position: absolute;
   top: 0;
   bottom: 0;
@@ -200,6 +206,13 @@ p.center-section {
   right: 0;
 
   margin: auto;
+
+  border-left-width: 1px;
+  border-right-width: 1px;
+  background-color: white;
+  border-radius: 35px;
+
+  font-size: 20px;
 }
 
 .login-form {
@@ -212,7 +225,26 @@ p.center-section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 65vh;
+
+  height: 50vh;
+  width: 604px;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto;
+  padding-bottom: 20px;
+
+  border-left-width: 1px;
+  border-right-width: 1px;
+  background-color: white;
+  border-radius: 35px;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
+
+  font-size: 20px;
 }
 
 .register-form {
@@ -316,6 +348,7 @@ p.center-section {
 
   margin-bottom: 20px;
   font-size: 20px;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 }
 .project_box_desc {
   font-size: 18px;
@@ -408,7 +441,6 @@ p.center-section {
   padding: 5px 20px;
   font-weight: bold;
   border-radius: 35px;
-
 }
 
 .edit_project_container {
@@ -447,7 +479,6 @@ p.center-section {
   align-items: flex-end;
   justify-content: space-between;
   border-radius: 35px;
-
 }
 .donation_project_name {
   font-size: 1.3em;
@@ -466,6 +497,7 @@ p.center-section {
   border-radius: 40px;
   width: 100%;
   font-size: 20px;
+  box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
 }
 
 .create-project-reward {
@@ -499,7 +531,7 @@ p.center-section {
   padding-right: 20px;
   cursor: pointer;
   font-size: 25px;
-  color: #046daa;
+  color: #035788;
 }
 .fundings {
   width: 46%;
@@ -544,9 +576,11 @@ p.center-section {
 }
 .checkout-form {
   width: 443px;
-
+  top: 0;
+  bottom: 0;
   height: 550px;
   padding-bottom: 10px;
+  font-size: 25px;
 }
 
 .inputcheck {
@@ -566,10 +600,7 @@ p.center-section {
 
 #funded {
 }
-.project-name {
-  font-size: 30px;
-  font-weight: bold;
-}
+
 .box_buttons_dash {
   padding-left: 15px;
   padding-right: 15px;
@@ -583,4 +614,7 @@ p.center-section {
 }
 .project_box_pic {
   max-width: 100%;
+}
+.donation_amount {
+  width: 372px;
 }

@@ -11,19 +11,23 @@
 }
 
 .checkout-form {
-  width: 400px;
   padding: 2em;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: #fff;
   box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.15);
   position: absolute;
 
-  bottom: 100px;
   left: 0;
   right: 0;
   margin: auto;
-  top: 150px;
+
   height: fit-content;
+  width: 443px;
+  top: 0;
+  bottom: 0;
+  height: 550px;
+  padding-bottom: 10px;
+  font-size: 25px;
 
   p {
     text-align: center;
@@ -104,4 +108,15 @@
     color: red;
     align-items: left;
   }
+}
+
+.checkout-project-name {
+  padding: 10px;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.checkout-form-project-name {
+  font-size: 30px;
+  font-weight: 500;
 }
