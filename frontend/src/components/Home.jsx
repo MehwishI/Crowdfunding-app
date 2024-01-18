@@ -6,7 +6,7 @@ import TopNavigation from "./TopNavigation";
 import { getAllProjects } from "../helpers/getusersdata";
 import "./style.css";
 import UserProject from "./UserProject";
-import Img from "../images/fmg-small.png";
+import Img from "../images/fm-w-stroke.png";
 
 //list of all available projects
 const Home = () => {
@@ -34,7 +34,7 @@ const Home = () => {
         <div className="image-placeholder">
           <br />
 
-          <img src={Img} style={{ width: "35%", height: "auto" }} alt="logo" />
+          <img src={Img} style={{ width: "45%", height: "auto" }} alt="logo" />
         </div>
         <p className="welcome_name">Welcome to FundMe!</p>
         <br />

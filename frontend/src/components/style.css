@@ -1,4 +1,4 @@
-body {
+/* body {
   background-image: url("../images/moneytree.jpeg");
   background-size: cover;
   background-attachment: fixed;
@@ -6,7 +6,30 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+} */
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("../images/moneytree.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  opacity: 0.5; /* Set the opacity for the background image */
+  z-index: -1; /* Send the pseudo-element to the back */
+}
+
+
 .main-page {
   display: flex;
   flex-direction: column;
@@ -19,7 +42,7 @@ body {
   justify-content: space-between;
   align-items: center;
   display: flex;
-
+  position: relative;
   padding-bottom: 20px;
   padding-left: 10px;
   padding-right: 20px;
@@ -30,37 +53,9 @@ body {
   font-size: large;
   margin-right: 10px;
   color: white;
-  top: 0;
-  position: sticky;
 }
-.top-nav-bar a:active {
-  background-color: white;
-  color: #046daa;
-  border-radius: 30px;
-}
-.top-nav-bar a:hover {
-  background-color: white;
-  color: #046daa;
-  border-radius: 30px;
-}
-
 .nav-bar-links {
   display: flex;
-}
-.proj_dropdown_label {
-  background-color: #046daa;
-  color: white;
-  font-weight: bold;
-  font-size: 20px;
-  border: none;
-  text-decoration: none;
-}
-.proj_dropdown_items {
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  color: #046daa;
-  font-size: 18px;
 }
 .top-nav-bar > div {
   flex-shrink: 0;
@@ -87,8 +82,12 @@ body {
 }
 .welcome_name {
   font-size: 30px;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  /* color: white; 
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px white;
+  font-size: 40px; */
 }
 
 .top-nav-bar a {
@@ -99,7 +98,6 @@ body {
   text-decoration: none;
   color: white;
   font-size: 20px;
-  padding: 10px;
 }
 
 @media (max-width: 800px) {
@@ -121,7 +119,7 @@ body {
   justify-content: center;
   text-align: center;
   height: 175px;
-
+  margin-top: 100px;
   width: 100%;
   font-weight: bolder;
   font-size: 35px;
@@ -130,7 +128,7 @@ p.center-section {
   font-size: 30px;
 }
 .image-placeholder {
-  height: 120px;
+  height: 200px;
 }
 .project_created_by {
   font-weight: bold;
@@ -273,6 +271,9 @@ p.center-section {
 .title-active-projects {
   font-size: 30px;
   font-weight: bold;
+  /* color: white; 
+  -webkit-text-stroke: 2px black;
+  text-stroke: 2px white; */
 }
 .success {
   color: "Green";
@@ -333,7 +334,6 @@ p.center-section {
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
-  max-width: 100%;
 }
 .box_buttons {
   display: flex;
@@ -343,20 +343,19 @@ p.center-section {
 
   width: 250px;
 }
-.project_box_div {
-}
 
 .project_box_donate_button {
   border: none;
-  border-radius: 35px;
+
   text-align: center;
   text-decoration: none;
   display: inline-block;
   background-color: #046daa;
   color: white;
   font-weight: bolder;
+  border-radius: 35px;
 
-  height: 55px;
+  height: 54px;
   padding: 5px 15px;
   margin-left: 10px;
   font-size: 18px;
@@ -369,6 +368,7 @@ p.center-section {
   border: none;
   color: white;
   border-radius: 35px;
+
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -381,12 +381,12 @@ p.center-section {
 .project_box_pic {
   width: 400px;
   height: 300px;
-  max-width: 100%;
 }
 .btn_create {
   background-color: #046daa;
   border: none;
   color: white;
+  border-radius: 35px;
 
   text-align: center;
   text-decoration: none;
@@ -407,6 +407,8 @@ p.center-section {
   height: 54px;
   padding: 5px 20px;
   font-weight: bold;
+  border-radius: 35px;
+
 }
 
 .edit_project_container {
@@ -444,6 +446,8 @@ p.center-section {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
+  border-radius: 35px;
+
 }
 .donation_project_name {
   font-size: 1.3em;
@@ -523,7 +527,7 @@ p.center-section {
   right: 0;
 }
 .userproject {
-  width: 65%;
+  width: 55%;
   margin-bottom: 0px;
   margin-top: 0px;
   min-height: 100vh;
@@ -571,9 +575,12 @@ p.center-section {
   padding-right: 15px;
   margin-left: 10px;
   display: flex;
-  width: 450px;
+  width: 300px;
 }
 .editForm {
   font-weight: bold;
   font-size: 20px;
+}
+.project_box_pic {
+  max-width: 100%;
 }
