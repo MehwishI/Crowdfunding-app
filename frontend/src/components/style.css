@@ -53,6 +53,7 @@ body::before {
   font-size: large;
   margin-right: 10px;
   color: white;
+  position: sticky ; top :0;
 }
 .nav-bar-links {
   display: flex;
