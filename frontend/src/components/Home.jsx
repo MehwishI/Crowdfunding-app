@@ -6,7 +6,7 @@ import TopNavigation from "./TopNavigation";
 import { getAllProjects } from "../helpers/getusersdata";
 import "./style.css";
 import UserProject from "./UserProject";
-import Img from "../images/moneytree.jpg";
+import Img from "../images/moneytree.jpeg";
 
 //list of all available projects
 const Home = () => {
