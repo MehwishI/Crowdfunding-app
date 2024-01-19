@@ -1,8 +1,8 @@
 # Fund Me! - A Crowdfunding App
 
-[The front page](firstShot.png)
+![The front page](firstShot.png)
 
-[A sample project](secondShot.png)
+![A sample project](secondShot.png)
 
 A simple crowdfunding site clone similar to the likes of GoFundMe and Kickstarter made using NodeJS, Express, React, and PostgreSQL.
 
