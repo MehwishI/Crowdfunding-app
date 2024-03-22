@@ -1,7 +1,7 @@
 # Fund Me! - A Crowdfunding App
 
-A simple crowdfunding site clone similar to the likes of GoFundMe and Kickstarter made using NodeJS, Express, React, and PostgreSQL.  It utilized RESTFul APIs for communication
-between Express.js backend and React.js frontend. Stripe API integration is used as payment system to capture donations. 
+A simple crowdfunding Full stack web application similar to the likes of GoFundMe and Kickstarter made using NodeJS, Express, React, and PostgreSQL.  
+It utilized RESTFul APIs for communication between Express.js backend and React.js frontend. Stripe API integration is used as payment system to capture donations. 
 
 Users can register, login, donate to any project with a credit card, create their own funding projects, edit their projects, view their projects donation's status and  and donation reciepts on their dashboard.
 It also provides opportunity to earn rewards/incentives if a user donates for a project. 
